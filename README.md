@@ -4,4 +4,4 @@ Das Script beinhaltet die Notizen aus der Linearen Algebra Vorlesung WiSe 23 bei
 
  
 ## Korrekturen und Fehler
-Falls jemand einen Fehler findet, meldet euch bei mir oder öffnet ein Issue.
+Falls jemand einen Fehler findet, öffnet ein Issue, pull request oder meldet euch bei mir.
