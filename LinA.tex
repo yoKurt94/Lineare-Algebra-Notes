@@ -11,7 +11,7 @@
 
 \maketitle
 
-\date{Mittwoch, 18.10.23}
+\date{Mittwoch, 18.10.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite 1 bis 3 aus Baer.}
 
 \section{Aussagenlogik}
 \subsubsection*{Definition 1.1} Eine Aussage ist ein Satz, der entweder wahr oder falsch ist.\\
@@ -77,7 +77,7 @@ Hinweis: Ein Beweis per Wahrheitstafel ist eine valide Beweismethode. \\
 Hinweis: Eine Tautologie ist eine Aussage, die immer wahr ist. \\
 
 \subsubsection*{Bemerkung}
-Das $\neg$ Zeichen bindet stärker als die anderen Verknüpngen. Beispiel: \\
+Das $\neg$ (\textit{Negation}) Zeichen bindet stärker als die anderen Verknüpngen. Beispiel: \\
 $\neg A \vee B$ ist äquivalent zu $(\neg A) \vee B$ \\
 Außerdem gibt es die Konvention, dass das 'und' und das 'oder' stärker bindet als die Implikation. \\
 Die Reihenfolge der Stärke der Bindung ist also: $\neg, \wedge, \vee, \rightarrow$ \\
@@ -92,8 +92,8 @@ Es seien $A$, $B$ und $C$ Aussagen. Dann sind die fogenden Aussagen jeweils äqu
     \item $A$ und $\neg \neg A$
     \item $A$ und $\neg A \rightarrow $ falsch
     \item $A \rightarrow B$ und $\neg B \rightarrow \neg A$
-    \item $A \wedge B$ und $B \wedge A$
-    \item $A \vee B$ und $B \vee A$
+    \item $A \wedge B$ (\textit{Konjunktion}) und $B \wedge A$
+    \item $A \vee B$ (\textit{Disjunktion}) und $B \vee A$
     \item $(A \wedge B) \vee C$ und $A \wedge (B \vee C)$
     \item $(A \vee B) \vee C$ und $A \vee (B \vee C)$
     \item $A \wedge (B \vee C)$ und $(A \wedge B) \vee (A \wedge C)$
@@ -130,12 +130,12 @@ Beweis per Wahrheitstafel. \\
 Wenn wir die letzten beiden Spalten vergleichen, sehen wir, dass die Aussagen äquivalent sind. \\
 Damit ist die Aussage bewiesen. $\square$\\
 
-% \begin{thebibliography}{9}
-%     \bibitem{book:howToProveIt}
-%     Velleman, Daniel J.,
-%     \emph{How To Prove It: A Structured Approach},
-%     Camebridge University Press, 2006.
-%     \end{thebibliography}
+\begin{thebibliography}{9}
+    \bibitem{book:baer}
+    Baer, Christian,
+    \emph{Lineare Algebra und analytische Geometrie},
+    Springer, 2018.
+    \end{thebibliography}
 
 
 \end{document}
