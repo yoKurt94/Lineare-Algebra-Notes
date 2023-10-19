@@ -7,4 +7,4 @@ Klickt auf 'Code' oder 'View Code'. Neben der originalen Latex Datei LinA.tex be
 
  
 ## Mitarbeit & Fehler
-Mitarbeit ist ausdrücklich erwünscht. Falls jemand einen Fehler findet, öffnet ein 'Issues' oben in der Leiste, klickt 'New' und schreibt in den Betreff wo der Fehler ist und in die Beschreibung was falsch ist oder wo ihr einen Fehler vermutet. 
+Mitarbeit ist ausdrücklich erwünscht. Falls jemand einen Fehler findet, öffnet 'Issues' oben in der Leiste, klickt 'New' und schreibt in den Betreff wo der Fehler ist und in die Beschreibung was falsch ist oder wo ihr einen Fehler vermutet. 
