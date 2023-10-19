@@ -6,5 +6,5 @@ Das Script beinhaltet die Notizen aus der Linearen Algebra Vorlesung WiSe 23 bei
 Klickt auf Code. Neben der originalen Latex Datei LinA.tex befindet sich die PDF.
 
  
-## Mitarbeit Fehler
+## Mitarbeit & Fehler
 Mitarbeit ist ausdrücklich erwünscht. Falls jemand einen Fehler findet, öffnet ein Issue oben in der Leiste, Pull Request oder meldet euch bei mir.
