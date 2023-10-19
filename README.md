@@ -7,4 +7,4 @@ Klickt auf Code. Neben der originalen Latex Datei LinA.tex befindet sich die PDF
 
  
 ## Mitarbeit & Fehler
-Mitarbeit ist ausdrücklich erwünscht. Falls jemand einen Fehler findet, öffnet ein Issue oben in der Leiste, Pull Request oder meldet euch bei mir.
+Mitarbeit ist ausdrücklich erwünscht. Falls jemand einen Fehler findet, öffnet ein Issue oben in der Leiste oder meldet euch bei mir.
