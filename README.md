@@ -1,6 +1,6 @@
 # Lineare-Algebra-Notes
 
-Das Script beinhaltet die Notizen aus der Linearen Algebra Vorlesung WiSe 23 bei Prof. Dr. Alexander Engel. Das Script wird immer wieder ergänzt und ändert sich deshalb wöchentlich. Das heißt das Dokument wird mit der Zeit länger.
+Das Script beinhaltet die Notizen aus der Linearen Algebra Vorlesung WiSe 23 bei Prof. Dr. Alexander Engel. Das Script wird immer wieder ergänzt und ändert sich deshalb wöchentlich. Das heißt das Dokument wird mit der Zeit länger. Wenn ihr die Notizen hilfreich findet, dann klickt bitte 'Star' oben in der Leiste. 
 
 ## Herunterladen der PDF
 Klickt auf Code. Neben der originalen Latex Datei LinA.tex befindet sich die PDF.
