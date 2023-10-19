@@ -13,13 +13,14 @@
 
 \date{Mittwoch, 18.10.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite 1 bis 3 aus Baer.}
 
-\section{Aussagenlogik}
+\section{Grundlagen}
+\subsection{Aussagenlogik}
 \subsubsection*{Definition 1.1} Eine Aussage ist ein Satz, der entweder wahr oder falsch ist.\\
 Beispiele:
 \begin{itemize}
-    \item "8 ist eine gerae Zahl." (wahre Aussage)
+    \item "8 ist eine gerade Zahl." (wahre Aussage)
     \item "4 ist eine Primzahl." (falsche Aussage)
-    \item "Es gibt unendlich viele Primzahlzwillinge." (bei dieser Aussge ist der Wahrheitsgehalt unbekannt. Nur weil wir den Wahrheitsgehalt noch nicht kennen heißt das nicht, dass es keine Aussge ist.)
+    \item "Es gibt unendlich viele Primzahlzwillinge." (bei dieser Aussage ist der Wahrheitsgehalt unbekannt. Nur weil wir den Wahrheitsgehalt noch nicht kennen heißt das nicht, dass es keine Aussge ist.)
     \item "Heute ist ein schöner Tag." (keine Aussage, da der Wahrheitsgehalt von der Person abhängt, die die Aussage macht.)
 \end{itemize}
 
@@ -51,7 +52,7 @@ Es seien A und B Aussagen.
 \end{enumerate} 
     
 \subsubsection*{Bemerkung}
-Warum folgt aus einer falschen Aussage etwas Wahres? \\
+Warum folgt aus einer falschen Aussage etwas Wahres? \footnote{Wikipedia} \\
 In Beweisen müssen wir zeigen, dass etwas immer wahr ist. Wenn zum Beispiel $n$ gerade ist, dann $n^2$ gerade. Wenn $n$ ungerade, dann müssten wir diesen Fall im Beweis auch abdecken. Durch die Definition der Implikation können wir diesen Fall aber ignorieren, da die Aussage dann automatisch wahr ist. \\
 
 \subsubsection*{Lemma 1.3}
@@ -94,7 +95,7 @@ Es seien $A$, $B$ und $C$ Aussagen. Dann sind die fogenden Aussagen jeweils äqu
     \item $A \rightarrow B$ und $\neg B \rightarrow \neg A$
     \item $A \wedge B$ (\textit{Konjunktion}) und $B \wedge A$
     \item $A \vee B$ (\textit{Disjunktion}) und $B \vee A$
-    \item $(A \wedge B) \vee C$ und $A \wedge (B \vee C)$
+    \item $(A \wedge B) \wedge C$ und $A \wedge (B \wedge C)$
     \item $(A \vee B) \vee C$ und $A \vee (B \vee C)$
     \item $A \wedge (B \vee C)$ und $(A \wedge B) \vee (A \wedge C)$
     \item $A \vee (B \wedge C)$ und $(A \vee B) \wedge (A \vee C)$
@@ -103,7 +104,7 @@ Es seien $A$, $B$ und $C$ Aussagen. Dann sind die fogenden Aussagen jeweils äqu
 \end{enumerate}
 
 \subsubsection*{Bemerkungen}
-Wenn die Aussagen äquivalent sind? Die linke Aussage ist äquivalent $\leftrightarrow$ zur rechten Aussage und damit immer wahr. \\
+Die linke Aussage ist äquivalent $\leftrightarrow$ zur rechten Aussage und damit immer wahr. \\
 zu 1: Man kann in a und b auch statt $\rightarrow$ und $\leftrightarrow$ auch $\vee$ und $\wedge$ nutzen. \\
 zu 4: Aufbau eines textit{Widerspruchsbeweis}. d rechtfertigt also den Widerspruchsbwesei. \\
 zu 5: \textit{Kontraposition} von a. \\
@@ -129,12 +130,139 @@ Beweis per Wahrheitstafel. \\
 \end{center}
 Wenn wir die letzten beiden Spalten vergleichen, sehen wir, dass die Aussagen äquivalent sind. \\
 Damit ist die Aussage bewiesen. $\square$\\
+\\
+\\
+
+\date{Mittwoch, 18.10.23} \footnote{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite 1 bis 3 aus Baer.}
+
+\subsection{Mengenlehre}
+
+\subsubsection*{Definition 1.5}
+
+Nach Cantor 1895: "Unter einer Menge versteht man jede Zusammenfassung von bestimmten wohlunterschiedenen Objekten unserer Anschauung oder unseres Denkens (welche die \textit{Elemente} der Menge genannt werden) zu einem Ganzen." \footnote{Cantor} \\
+Hinweis: diese Definition wäre heute nicht mehr zulässig, da sie zu ungenau ist. \\
+\\
+Intuitiv: Eeine Menge ist ein Sack, in dem Dinge sind. \\
+Notation: $a \in M$ bedeutet, dass $a$ ein Element von $M$ ist. Andernfalls schreiben wir $a \notin M$ = $\neg (a \in M)$. \\
+
+\subsubsection*{Beispiele}
+% Eersetze N und Z durch die korrekten Zeichen
+\begin{enumerate}
+    \item $\mathbb{N} = \{1, 2, 3, 4, 5, ...\}$ (\textit{Menge der natürlichen Zahlen})
+    \item $\mathbb{Z} = \{..., -3, -2, -1, 0, 1, 2, 3, ...\}$ (\textit{Menge der ganzen Zahlen})
+    \item $\emptyset = \{\}$ (\textit{leere Menge})
+    \item $A = \{N, 1, \emptyset\}$
+\end{enumerate} 
+
+Hinweis: die letzte Menge hat 3 Elemente. Außerdem: nutzt man die 'Sack Analogie' wird auch klar, wieso die leere Mnege ein Element einer Menge sein kann. Man stellt sich einen Sack vor, der in einem anderen Sack liegt. \\
+Wichtig: In Beispiel A gilt: $1 \in A$ und $N \in A$. aber $2 \notin A$. Man muss klar zwischen Elementen einer Menge und Mengen unterscheiden. \\
+Man beachte außerdem: 
+\begin{enumerate}
+    \item Für $M := \{1, 2, 3\}$ und $N := \{1, 2, 3\}$ gilt $M = N$. Die Reihenfolge der Elemente ist egal.
+    \item Für $M := \{1, 1\}$ und $N := \{1\}$ gilt $M = N$. 
+\end{enumerate} 
+
+Aussagen über Mengen werden oft über Quantoren ausgeführt.
+\subsubsection*{Definition 1.7}
+Der Allqantor: \\
+$\forall m \in M: A(m)$ bedeutet: Für alle $m$ in $M$ gilt $A(m)$. \\
+\\
+Der Existenzquantor: \\
+$\exists m \in M: A(m)$ bedeutet: Es gibt \textit{mindestens} ein $m$ in $M$ mit $A(m)$. \\
+\\
+% Es gibt genau ein m
+$\exists! m \in M: A(m)$ bedeutet: Es gibt \textit{genau ein} $m$ in $M$ mit $A(m)$. \\
+Hinweis: $\exists!$ hat keine eigene Bezeichnung. \\
+
+\subsubsection*{Beispiel 1.8}
+\begin{enumerate}
+    \item $\exists_n \in \mathbb{Z}: n^2 = 25$ (wahr)
+    \item $\exists_n! \in \mathbb{Z}: n^2 = 25$ (falsch)
+    \item $\forall_q \in \mathbb{Q} \exists_n \in \mathbb{N}: q \leq n$ (wahr)
+    \item $\exists_n \in \mathbb{N} \forall_q \in \mathbb{Q}: q \leq n$ (falsch)
+\end{enumerate}
+
+In 3 und 4 sieht man: die Reihenfolge der Quantoren ist wichtig. Beim Vertauschen können komplett andere Aussagen entstehen.\\
+
+\subsubsection*{Regel 1.9}
+\begin{enumerate}
+    \item $\neg (\forall m \in M: A(m))$ ist äquivalent zu $\exists m \in M: \neg A(m)$
+    \item $\neg (\exists m \in M: A(m))$ ist äquivalent zu $\forall m \in M: \neg A(m)$
+\end{enumerate}
+
+Das heißt um eine Aussage zu negieren, muss man den Quantor wechseln und die Aussage negieren! \\
+
+\subsubsection*{Definition 1.10}
+Es seien $M$ und $N$ Mengen. Dann ist $M \subset N$ (\textit{M ist Teilmenge von N}) wenn folgendes gilt: \\
+
+% center alignen
+\begin{center}
+    $m \in M \Rightarrow m \in N$ \\
+    $\forall m \in M: m \in N$
+\end{center}
+
+\subsubsection*{Beispiel 1.11}
+Es gilt $\mathbb{N} \subset \mathbb{Z}$. \\
+
+\subsubsection*{Lemma 1.12}
+Für jede Menge $M$ gilt $\emptyset \subset M$. \\
+
+\subsubsection*{Beweis}
+Wir müssen dei Aussage $x \in \emptyset \Rightarrow x \in M$ als immer wahr einsehen (Tautologie). 
+Da $x \in \emptyset$ immer falsch ist, ist die Implikation $x \in \emptyset \Rightarrow x \in M$ immer wahr. $\square$ \\
+
+\subsubsection*{Anmerkung}
+$\emptyset \in M$ gilt nicht unbedingt. Das hängt von der Menge M ab, aber die leere Menge ist immer Teilmenge von M. Hier sieht man erneut die Wichtigkeit der Unterscheidung von Mengen und Elementen. \\
+
+\subsubsection*{Bemerkung 1.13}
+Zwei Mengen $M$ und $N$ sind gleich, wenn folgendes gilt: \\
+\begin{center}
+    $(M \subset N) \wedge (N \subset M)$
+\end{center}
+Das wird sehr häufig in Beweisen benutzt um die Gleichheit von Mengen zu zeigen. \\
+
+\subsubsection*{Beispiel}
+Die Gleichungen $x^2 = 4$ und $|x| = 2$ haben die gleiche Lösungsmenge. \\
+Schritt 1: Sei $x$ eine Lösung von $x^2 = 4$. Dann ist $|x| = 2$. \\
+Schritt 2: Sei $x$ eine Lösung von $|x| = 2$. Dann ist $x^2 = 4$. \\
+
+\subsubsection*{Definition 1.14}
+Es seien $M$ und $N$ Mengen. Wir definieren die folgenden Mengen: \\
+\begin{center}
+    $M \cup N \leftrightarrow x \in M \vee x \in N$ (\textit{Vereinigung}) \\
+    $M \cap N :\leftrightarrow x \in M \wedge x \in N$ (\textit{Durchschnitt}) \\
+    $M \setminus N :\leftrightarrow x \in M \wedge x \notin N$ (\textit{Differenz}) \\
+\end{center}
+Konvention: bei Aussagen sagt man eher, dass sie äquivalent sind. $\leftrightarrow$ kann aber durch $:=$ ersetzt werden ohne falsch zu sein. \\
+
+\subsubsection*{Lemma 1.15}
+Es seien $M$ und $N$ Mengen. Dann gilt: \\
+\begin{center}
+    $M \cap (N_1 \cup N_2) = (M \cap N_1) \cup (M \cap N_2)$ \\
+    $M \cup (N_1 \cap N_2) = (M \cup N_1) \cap (M \cup N_2)$ \\
+    $M \setminus (N_1 \cup N_2) = (M \setminus N_1) \cap (M \setminus N_2)$ \\
+    $M \setminus (N_1 \cap N_2) = (M \setminus N_1) \cup (M \setminus N_2)$ \\
+\end{center}
+Es sind also eine Art Distributivgesetze. \\
+
+%Füge über den Äquivalenzpfeilen die Definitionen ein
+\subsubsection*{Beweis}
+Wir beweisen nur die erste Aussage. Der Rest wird in der Übung gemacht. \\
+Es gilt folgende Kette von Äquivalenzen: \\
+\begin{center}
+    $x \in M \cap (N_1 \cup N_2) \stackrel{1.14b}{\Leftrightarrow} x \in M \wedge x \in (N_1 \vee N_2)$ \\
+    $\stackrel{1.14a}{\Leftrightarrow} x \in M \vee (x \in N_1 \wedge x \in N_2)$ \\ 
+    $\stackrel{1.4j}{\Leftrightarrow} (x \in M \wedge x \in N_1) \vee (x \in M \wedge x \in N_2)$ \\
+    $\stackrel{1.14b}{\Leftrightarrow} (x \in M \cap N_1) \vee (x \in M \cap N_2)$ \\
+    $\stackrel{1.14a}{\Leftrightarrow} x \in (M \cap N_1) \cup x \in (M \cap N_2)$ \\
+\end{center}
+
 
 \begin{thebibliography}{9}
     \bibitem{book:baer}
     Baer, Christian,
     \emph{Lineare Algebra und analytische Geometrie},
-    Springer, 2018.
+    Springer 2018.
     \end{thebibliography}
 
 
