@@ -2,7 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tabularx}
-
+\setlength{\parindent}{0pt}
 
 \title{Lineare Algebra}
 \author{Vorlesung WiSe 23 \\ Prof. Dr. Alexander Engel}
@@ -24,7 +24,7 @@ Beispiele:
     \item "Heute ist ein schöner Tag." (keine Aussage, da der Wahrheitsgehalt von der Person abhängt, die die Aussage macht.)
 \end{itemize}
 
-Aus schon gegebenen Aussagen können wir neue Aussagen bilden.\\
+Aus schon gegebenen Aussagen können wir neue Aussagen bilden.
 \subsubsection*{Definition 1.2}
 Es seien A und B Aussagen. 
 
@@ -53,14 +53,14 @@ Es seien A und B Aussagen.
     
 \subsubsection*{Bemerkung}
 Warum folgt aus einer falschen Aussage etwas Wahres? \footnote{Wikipedia} \\
-In Beweisen müssen wir zeigen, dass etwas immer wahr ist. Wenn zum Beispiel $n$ gerade ist, dann $n^2$ gerade. Wenn $n$ ungerade, dann müssten wir diesen Fall im Beweis auch abdecken. Durch die Definition der Implikation können wir diesen Fall aber ignorieren, da die Aussage dann automatisch wahr ist. \\
+In Beweisen müssen wir zeigen, dass etwas immer wahr ist. Wenn zum Beispiel $n$ gerade ist, dann $n^2$ gerade. Wenn $n$ ungerade, dann müssten wir diesen Fall im Beweis auch abdecken. Durch die Definition der Implikation können wir diesen Fall aber ignorieren, da die Aussage dann automatisch wahr ist. 
 
 \subsubsection*{Lemma 1.3}
-Sei A eine Aussage. Dann ist $A \vee \neg A$ wahr.\\
+Sei A eine Aussage. Dann ist $A \vee \neg A$ wahr.
 
 \subsubsection*{Beweis}
 Wir untersuchen die zwei Fälle für A: A ist wahr oder A ist falsch. \\
-Wir betrachten die Wahrheitstabelle von $A \vee \neg A$ \\
+Wir betrachten die Wahrheitstabelle von $A \vee \neg A$ 
 \begin{center}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -71,22 +71,22 @@ Wir betrachten die Wahrheitstabelle von $A \vee \neg A$ \\
         f & w & w \\
         \hline
     \end{tabular}
-\end{center} $\square$ \\
+\end{center} $\square$ 
 
 
 Hinweis: Ein Beweis per Wahrheitstafel ist eine valide Beweismethode. \\
-Hinweis: Eine Tautologie ist eine Aussage, die immer wahr ist. \\
+Hinweis: Eine Tautologie ist eine Aussage, die immer wahr ist. 
 
 \subsubsection*{Bemerkung}
-Das $\neg$ (\textit{Negation}) Zeichen bindet stärker als die anderen Verknüpngen. Beispiel: \\
-$\neg A \vee B$ ist äquivalent zu $(\neg A) \vee B$ \\
+Das $\neg$ (\textit{Negation}) Zeichen bindet stärker als die anderen Verknüpfungen. Beispiel: \\
+$\neg A \vee B$ ist äquivalent zu $(\neg A) \vee B$ \\x
 Außerdem gibt es die Konvention, dass das 'und' und das 'oder' stärker bindet als die Implikation. \\
-Die Reihenfolge der Stärke der Bindung ist also: $\neg, \wedge, \vee, \rightarrow$ \\
+Die Reihenfolge der Stärke der Bindung ist also: $\neg, \wedge, \vee, \rightarrow$ 
 
 %folgede Tabelle kontrollieren
 
 \subsubsection*{Lemma 1.4}
-Es seien $A$, $B$ und $C$ Aussagen. Dann sind die fogenden Aussagen jeweils äquivalent: \\
+Es seien $A$, $B$ und $C$ Aussagen. Dann sind die folgenden Aussagen jeweils äquivalent: 
 \begin{enumerate}
     \item $A \rightarrow B$ und $\neg A \vee B$
     \item $A \leftrightarrow B$ und $(A \rightarrow B) \wedge (B \rightarrow A)$
@@ -106,12 +106,12 @@ Es seien $A$, $B$ und $C$ Aussagen. Dann sind die fogenden Aussagen jeweils äqu
 \subsubsection*{Bemerkungen}
 Die linke Aussage ist äquivalent $\leftrightarrow$ zur rechten Aussage und damit immer wahr. \\
 zu 1: Man kann in a und b auch statt $\rightarrow$ und $\leftrightarrow$ auch $\vee$ und $\wedge$ nutzen. \\
-zu 4: Aufbau eines textit{Widerspruchsbeweis}. d rechtfertigt also den Widerspruchsbwesei. \\
+zu 4: Aufbau eines $\textit{Widerspruchsbeweises}$. d rechtfertigt also den Widerspruchsbeweis. \\
 zu 5: \textit{Kontraposition} von a. \\
 zu 6 und 7: \textit{Kommutativität} von $\wedge$. \\
 zu 8 und 9: \textit{Assoziativität} von $\wedge$ und $\vee$. Wenn ich mehrere Aussagen mit $\wedge$ oder $\vee$ verknüpfe, dann ist es egal in welcher Reihenfolge man die Klammern setzt (und ob man sie setzt). \\
 zu 10 und 11: \textit{Distributivität} von $\wedge$ und $\vee$. \\
-zu 12 und 13: \textit{De Morgan'sche Regel} (oder 'Gesetze'). \\
+zu 12 und 13: \textit{De Morgan'sche Regel} (oder 'Gesetze'). 
 
 \subsubsection*{Beweis (Aussage 1)}
 Beweis per Wahrheitstafel. \\
@@ -128,22 +128,22 @@ Beweis per Wahrheitstafel. \\
         \hline
     \end{tabular}
 \end{center}
-Wenn wir die letzten beiden Spalten vergleichen, sehen wir, dass die Aussagen äquivalent sind. \\
-Damit ist die Aussage bewiesen. $\square$\\
-\\
-\\
 
-\date{Mittwoch, 18.10.23} \footnote{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite 1 bis 3 aus Baer.}
+Wenn wir die letzten beiden Spalten vergleichen, sehen wir, dass die Aussagen äquivalent sind. \\
+Damit ist die Aussage bewiesen. $\square$ 
+
+
+\date{Donnerstag, 19.10.23} \footnote{vgl. S. 11 - 18 aus Baer.}
 
 \subsection{Mengenlehre}
 
 \subsubsection*{Definition 1.5}
 
-Nach Cantor 1895: "Unter einer Menge versteht man jede Zusammenfassung von bestimmten wohlunterschiedenen Objekten unserer Anschauung oder unseres Denkens (welche die \textit{Elemente} der Menge genannt werden) zu einem Ganzen." \footnote{Cantor} \\
+Nach Cantor 1895: "Unter einer Menge versteht man jede Zusammenfassung von bestimmten 
+wohlunterschiedenen Objekten unserer Anschauung oder unseres Denkens (welche die \textit{Elemente} der Menge genannt werden) zu einem Ganzen." \footnote{Cantor} \\
 Hinweis: diese Definition wäre heute nicht mehr zulässig, da sie zu ungenau ist. \\
-\\
-Intuitiv: Eeine Menge ist ein Sack, in dem Dinge sind. \\
-Notation: $a \in M$ bedeutet, dass $a$ ein Element von $M$ ist. Andernfalls schreiben wir $a \notin M$ = $\neg (a \in M)$. \\
+Intuitiv: Eine Menge ist ein Sack, in dem Dinge sind. 
+Notation: $a \in M$ bedeutet, dass $a$ ein Element von $M$ ist. Andernfalls schreiben wir $a \notin M$ = $\neg (a \in M)$. 
 
 \subsubsection*{Beispiele}
 % Eersetze N und Z durch die korrekten Zeichen
@@ -154,7 +154,7 @@ Notation: $a \in M$ bedeutet, dass $a$ ein Element von $M$ ist. Andernfalls schr
     \item $A = \{N, 1, \emptyset\}$
 \end{enumerate} 
 
-Hinweis: die letzte Menge hat 3 Elemente. Außerdem: nutzt man die 'Sack Analogie' wird auch klar, wieso die leere Mnege ein Element einer Menge sein kann. Man stellt sich einen Sack vor, der in einem anderen Sack liegt. \\
+Hinweis: die letzte Menge hat 3 Elemente. Außerdem: nutzt man die 'Sack Analogie' wird auch klar, wieso die leere Menge ein Element einer Menge sein kann. Man stellt sich einen Sack vor, der in einem anderen Sack liegt. \\
 Wichtig: In Beispiel A gilt: $1 \in A$ und $N \in A$. aber $2 \notin A$. Man muss klar zwischen Elementen einer Menge und Mengen unterscheiden. \\
 Man beachte außerdem: 
 \begin{enumerate}
@@ -164,7 +164,7 @@ Man beachte außerdem:
 
 Aussagen über Mengen werden oft über Quantoren ausgeführt.
 \subsubsection*{Definition 1.7}
-Der Allqantor: \\
+Der Allquantor: \\
 $\forall m \in M: A(m)$ bedeutet: Für alle $m$ in $M$ gilt $A(m)$. \\
 \\
 Der Existenzquantor: \\
@@ -182,7 +182,7 @@ Hinweis: $\exists!$ hat keine eigene Bezeichnung. \\
     \item $\exists_n \in \mathbb{N} \forall_q \in \mathbb{Q}: q \leq n$ (falsch)
 \end{enumerate}
 
-In 3 und 4 sieht man: die Reihenfolge der Quantoren ist wichtig. Beim Vertauschen können komplett andere Aussagen entstehen.\\
+In 3 und 4 sieht man: die Reihenfolge der Quantoren ist wichtig. Beim Vertauschen können komplett andere Aussagen entstehen.
 
 \subsubsection*{Regel 1.9}
 \begin{enumerate}
@@ -190,10 +190,10 @@ In 3 und 4 sieht man: die Reihenfolge der Quantoren ist wichtig. Beim Vertausche
     \item $\neg (\exists m \in M: A(m))$ ist äquivalent zu $\forall m \in M: \neg A(m)$
 \end{enumerate}
 
-Das heißt um eine Aussage zu negieren, muss man den Quantor wechseln und die Aussage negieren! \\
+Das heißt um eine Aussage zu negieren, muss man den Quantor wechseln und die Aussage negieren! 
 
 \subsubsection*{Definition 1.10}
-Es seien $M$ und $N$ Mengen. Dann ist $M \subset N$ (\textit{M ist Teilmenge von N}) wenn folgendes gilt: \\
+Es seien $M$ und $N$ Mengen. Dann ist $M \subset N$ (\textit{M ist Teilmenge von N}) wenn folgendes gilt: 
 
 % center alignen
 \begin{center}
@@ -202,53 +202,54 @@ Es seien $M$ und $N$ Mengen. Dann ist $M \subset N$ (\textit{M ist Teilmenge von
 \end{center}
 
 \subsubsection*{Beispiel 1.11}
-Es gilt $\mathbb{N} \subset \mathbb{Z}$. \\
+Es gilt $\mathbb{N} \subset \mathbb{Z}$. 
 
 \subsubsection*{Lemma 1.12}
-Für jede Menge $M$ gilt $\emptyset \subset M$. \\
+Für jede Menge $M$ gilt $\emptyset \subset M$. 
 
 \subsubsection*{Beweis}
 Wir müssen dei Aussage $x \in \emptyset \Rightarrow x \in M$ als immer wahr einsehen (Tautologie). 
-Da $x \in \emptyset$ immer falsch ist, ist die Implikation $x \in \emptyset \Rightarrow x \in M$ immer wahr. $\square$ \\
+Da $x \in \emptyset$ immer falsch ist, ist die Implikation $x \in \emptyset \Rightarrow x \in M$ immer wahr. $\square$ 
 
 \subsubsection*{Anmerkung}
-$\emptyset \in M$ gilt nicht unbedingt. Das hängt von der Menge M ab, aber die leere Menge ist immer Teilmenge von M. Hier sieht man erneut die Wichtigkeit der Unterscheidung von Mengen und Elementen. \\
+$\emptyset \in M$ gilt nicht unbedingt. Das hängt von der Menge M ab, aber die leere Menge ist immer Teilmenge von M. Hier sieht man erneut die Wichtigkeit der Unterscheidung von Mengen und Elementen. 
 
 \subsubsection*{Bemerkung 1.13}
-Zwei Mengen $M$ und $N$ sind gleich, wenn folgendes gilt: \\
+Zwei Mengen $M$ und $N$ sind gleich, wenn folgendes gilt: 
 \begin{center}
     $(M \subset N) \wedge (N \subset M)$
 \end{center}
-Das wird sehr häufig in Beweisen benutzt um die Gleichheit von Mengen zu zeigen. \\
+Das wird sehr häufig in Beweisen benutzt um die Gleichheit von Mengen zu zeigen. 
 
 \subsubsection*{Beispiel}
 Die Gleichungen $x^2 = 4$ und $|x| = 2$ haben die gleiche Lösungsmenge. \\
 Schritt 1: Sei $x$ eine Lösung von $x^2 = 4$. Dann ist $|x| = 2$. \\
-Schritt 2: Sei $x$ eine Lösung von $|x| = 2$. Dann ist $x^2 = 4$. \\
+Schritt 2: Sei $x$ eine Lösung von $|x| = 2$. Dann ist $x^2 = 4$. 
 
 \subsubsection*{Definition 1.14}
-Es seien $M$ und $N$ Mengen. Wir definieren die folgenden Mengen: \\
+Es seien $M$ und $N$ Mengen. Wir definieren die folgenden Mengen: 
 \begin{center}
     $M \cup N \leftrightarrow x \in M \vee x \in N$ (\textit{Vereinigung}) \\
     $M \cap N :\leftrightarrow x \in M \wedge x \in N$ (\textit{Durchschnitt}) \\
     $M \setminus N :\leftrightarrow x \in M \wedge x \notin N$ (\textit{Differenz}) \\
 \end{center}
-Konvention: bei Aussagen sagt man eher, dass sie äquivalent sind. $\leftrightarrow$ kann aber durch $:=$ ersetzt werden ohne falsch zu sein. \\
+Konvention: bei Aussagen sagt man eher, dass sie äquivalent sind. $\leftrightarrow$ kann aber durch $:=$ ersetzt werden ohne falsch zu sein. 
 
 \subsubsection*{Lemma 1.15}
-Es seien $M$ und $N$ Mengen. Dann gilt: \\
+Es seien $M$ und $N$ Mengen. Dann gilt: 
+
 \begin{center}
     $M \cap (N_1 \cup N_2) = (M \cap N_1) \cup (M \cap N_2)$ \\
     $M \cup (N_1 \cap N_2) = (M \cup N_1) \cap (M \cup N_2)$ \\
     $M \setminus (N_1 \cup N_2) = (M \setminus N_1) \cap (M \setminus N_2)$ \\
     $M \setminus (N_1 \cap N_2) = (M \setminus N_1) \cup (M \setminus N_2)$ \\
 \end{center}
-Es sind also eine Art Distributivgesetze. \\
+Es sind also eine Art Distributivgesetze. 
 
 %Füge über den Äquivalenzpfeilen die Definitionen ein
 \subsubsection*{Beweis}
 Wir beweisen nur die erste Aussage. Der Rest wird in der Übung gemacht. \\
-Es gilt folgende Kette von Äquivalenzen: \\
+Es gilt folgende Kette von Äquivalenzen: 
 \begin{center}
     $x \in M \cap (N_1 \cup N_2) \stackrel{1.14b}{\Leftrightarrow} x \in M \wedge x \in (N_1 \vee N_2)$ \\
     $\stackrel{1.14a}{\Leftrightarrow} x \in M \vee (x \in N_1 \wedge x \in N_2)$ \\ 
@@ -257,6 +258,115 @@ Es gilt folgende Kette von Äquivalenzen: \\
     $\stackrel{1.14a}{\Leftrightarrow} x \in (M \cap N_1) \cup x \in (M \cap N_2)$ \\
 \end{center}
 
+\date{Mittwoch, 25.10.23} \footnote{vgl. S. 11 - 18 aus Baer.}
+
+\subsubsection*{Definition 1.16}
+Sei M eine beliebige Menge. Die Potenzmenge $\mathcal{P}(M)$ ist die Menge aller Teilmengen von M, d.h.
+\begin{center}
+    $\mathcal{P}(M) := \{U: U \subset M\}$
+\end{center}
+Hinweis: die Formel ist nicht notwendiger Teil der Definition. Der Satz davor würde als Definition ausreichen.
+
+\subsubsection*{Bemerkung und Beispiele 1.17}
+a) in Lemma 1.12 haben wir gezeigt, dass $\emptyset \subset M$ für jede Menge M gilt. Es ist also immer $\emptyset \in \mathcal{P}(M)$. \\
+Hinweis: man beachte den Unterschied zwischen dem Symbol $\subset$ und $\in$. Im ersten Fall ist es eine Teilmenge, im zweiten Fall ist es ein Element aber auch eine Teilmenge. \\
+\\
+b) Für $M = \{1, 2\}$ gilt $\mathcal{P}(M) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$ \\
+Hinweis: anstatt von $\{1, 2\}$ kann man auch $M$ schreiben. \\
+\\
+Frage: Wie lautet die Potenzmenge von $\emptyset$? \\
+\begin{center}
+    $\mathcal{P}(\emptyset) = \{\emptyset\}$
+\end{center}
+Erklärung: die Frage ist, für welche $U$ gilt $U \subset \emptyset$. Die Antwort ist: nur für $\emptyset$, denn für $U \subset \emptyset$ gilt: \\
+\begin{center}
+    $x \in U \Rightarrow x \in \emptyset$ 
+\end{center}
+Da $U$ aber die Leere Menge ist, ist die Implikation nur wahr, wenn $x \in U$ falsch ist ('aus Falschem folgt Wahres'). Das ist aber nur für $x \in \emptyset$ der Fall. Also ist die Aussage nur für $U = \emptyset$ wahr. Damit ist die einzige Teilmenge von $\emptyset$ die leere Menge. \\
+
+\subsubsection*{Definition 1.18}
+Es seien $M$ und $N$ Mengen. Dann ist das \textit{Kartesische Produkt} $M \times N$ die Menge aller geordneten Paare $(a, b)$ mit $a \in M$ und $b \in N$:
+\begin{center}
+    $M \times N := \{(a, b): a \in M \wedge b \in N\}$
+\end{center}
+
+\subsubsection*{Bemerkung und Beispiele 1.19}
+a) in der Regel gilt $(a, b)$ $\neq$ $(b, a)$ es sei denn $a = b$. \\
+Hinweis: $(a, b)$ ist keine Menge, sondern ein geordnetes Paar. Diese Notation bezeichnet ein eigenständiges Objekt. \\
+\\
+b) Sei $M = \{1, 2, 3\}$ und $N = \{a, b\}$. Dann ist $M \times N = \{(1, a), (1, b), (2, a), (2, b), (3, a), (3, b)\}$ \\
+\\
+c) Sei $M = \{1\}$ und $N = \{1, 2\}$. Dann ist $M \times N = \{(1, 1), (1, 2)\}$ \\
+Man beachte: in der Regel gilt $M \times N \neq N \times M$. In Beispiel c) gilt: 
+\begin{center}
+    $N \times M = \{(1, 1), (2, 1)\}$
+\end{center}
+Gilt $M = N$, dann ist natürlich $M \times N = N \times M$. \\
+\\
+Aufgabe: Es sei $M$ eine Menge. Was ist das Kartesische Produkt $M \times \emptyset$? \\
+\\
+Lösung: $M \times \emptyset = \emptyset$ \\
+Begründung: $M \times \emptyset = \{(a, b): a \in M \wedge b \in \emptyset\}$. Da $b \in \emptyset$ immer falsch ist, ist die gesamte Aussage immer falsch. Damit ist die Menge leer. 
+Der Teil hinter dem : wird als \textit{membership test} bezeichnet. Wenn dieser falsch ist, ist ein Element kein Element der Menge. In unserem Beispiel ist dieser Test immer falsch. Also ist das Kartesische Produkt leer. \\
+Hinweis: Wenn das karthesische Produkt in dem Beispiel undefiniert wäre, dann wäre die Definition nicht korrekt und müsste die leere Menge als Ausnahme beinhalten. \\
+\\
+d) Es gilt immer $M \times \emptyset = \emptyset$ und $\emptyset \times M = \emptyset$. \\
+
+%füge n-mal Klammer unter RxR... ein 
+\subsubsection*{Anmerkung 1.20}
+Man kann auch ebenso $M \times N \times Q$ definieren als die Menge aller Tripel $(a, b, c)$ mit $a \in M$, $b \in N$ und $c \in Q$. 
+Ebenso natürlich auch $M_1 \times M_2 \times ... \times M_n$ für n-viele Mengen $M_1, M_2, ..., M_n$.
+In der linearen Algebra begegnet uns oft $\mathbb{R}^n$ was eine Notationsabkürzung für $\mathbb{R} \times \mathbb{R} \times ... \times \mathbb{R}$ (n-mal) ist.
+Aus der Schule kennen wir bereits das kartesische Koordinatensystem. Dieses ist nichts anderes als $\mathbb{R}^2$.
+
+\subsubsection*{Definition 1.21}
+Unter der $\textit{Mächtigkeit}$ bzw. der $\textit{Kardinalität}$ einer Menge $M$ verstehen wir die Anzahl der Elemente von $M$. \\
+Notation: $|M|$ 
+
+\subsubsection*{Beispiele 1.22}
+a) Für $M := \{a, b, $Blauer Elefant$\}$ gilt $|M| = 3$. \\
+b) Für $M = \emptyset$ gilt $|M| = 0$. \\
+c) $|\mathbb{N}| = \infty$ und ebenso $|\mathbb{R}| = \infty$. \\
+Hinweis: eigentlich sind es 2 unterschiedliche Unendlichkeiten. 
+
+\subsubsection*{Lemma 1.23}
+a) Für jede Menge $M$ gilt $|\mathcal{P}(M)| = 2^{|M|}$. \\
+Das ist auch der Grund, warum Potenzmenge heißt, weil die Anzahl der Elemente der Potenzmenge die Potenz von 2 ist. \\
+b) Für Mengen $M$ und $N$ gilt $|M \times N| = |M| \cdot |N|$. 
+
+\subsubsection*{Beweis}
+Salopp: wir müssen für alle Teilmengen zeigen, dass sie entweder in der Potenzmenge sind oder nicht, d.h. wir haben für jede denkbare Kombination der Elemete der einzelnen Teilmengen zwei Möglichkeiten: entweder ist das Element in der Menge oder nicht. \\
+Das heißt wir haben $2 \times 2 \times ... \times 2$ viele Möglichkeiten. Also $2^{|M|}$ viele. Der komplette korrekte Beweis ist wesentlich länger.
+
+\subsection{Abbildungen}
+\subsubsection*{Definition 1.24}
+Es seien $M$ und $N$ Mengen. Eine Abbildung (oder auch \textit{Funktion}) $f: M \rightarrow N$ ist eine Vorschrift, die jedem Element $x \in M$ genau ein Element $f(x) \in N$ zuordnet. \\
+$M$ heißt \textit{Definitionsbereich} und $N$ heißt \textit{Zielbereich} oder auch \textit{Wertebereich}. \\
+Hinweis: diese Definition ist nicht ganz korrekt, da wir noch nicht wissen, was eine Vorschrift ist.
+
+\subsubsection*{Bemerkungen}
+Zu dem Datum einer Funktion $f$ gehört nciht nur die Vorschrift, sondern auch ihr Definitionsbereich und ihr Zielbereich. \\
+Die Funktionen $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto n^2$ und $g: \mathbb{N} \rightarrow \mathbb{R}, n \mapsto n^2$ sind nicht gleich, da sie unterschiedliche Zielbereiche haben. \\
+Eine Vorschrift kann alles mögliche sein.
+
+%Fallunterscheidung einfügen
+\subsubsection*{Beispiele 1.25}
+a) $f: \mathbb{R} \rightarrow \mathbb{R}, (x, y) \mapsto x + y$ \\
+b) $f: \mathbb{R} \rightarrow \mathbb{N}, x \mapsto $1 falls x in Q, O sonst \\
+c) $f: M \rightarrow M, x \mapsto x$ \\
+Diese Abbildung heißt \textit{Identität} von M oder auch \textit{identische Abbildung}. 
+
+\subsubsection*{Beispiel und Nicht-Beispiel 1.26}
+%Hier einfügen: 2 Mengen M und N mit 1 Abbildung, ok gar nciht zu treffen und ok mehrfach zu treffem
+% Nicht Beispiel: 1 Element auf M bildet auf 2 Werte in N ab 
+% Verboten ist außerdem: wenn 1 Element aus dem Definitionsbereich nirgenwo hin abbildet.
+
+\subsubsection*{Bemerkung 1.27}
+Eine Abbildung $F: M \Rightarrow N$ ist eine Teilmenge des kartesischen Produktes $M \times N$ mit 
+\begin{center}
+    $\forall_x \in M \exists_y \in N: (x, y) \in f$
+\end{center}
+Hinweis: Wenn ich ein geordnetes Paar habe wird der erste Eintrag $x$ auf den zweiten Eintrag $y$ abgebildet. 
 
 \begin{thebibliography}{9}
     \bibitem{book:baer}
@@ -264,6 +374,4 @@ Es gilt folgende Kette von Äquivalenzen: \\
     \emph{Lineare Algebra und analytische Geometrie},
     Springer 2018.
     \end{thebibliography}
-
-
 \end{document}
