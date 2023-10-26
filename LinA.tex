@@ -367,6 +367,150 @@ Eine Abbildung $F: M \Rightarrow N$ ist eine Teilmenge des kartesischen Produkte
     $\forall_x \in M \exists_y \in N: (x, y) \in f$
 \end{center}
 Hinweis: Wenn ich ein geordnetes Paar habe wird der erste Eintrag $x$ auf den zweiten Eintrag $y$ abgebildet. 
+\\
+\\
+
+\date{Donnerstag, 26.10.23} \footnote{vgl. S. 19 - 23 aus Baer.}
+
+%Füge Bild hinzu
+\subsubsection*{Definition 1.28}
+Es sei $f: M \rightarrow N$ eine Abbildung und $M' \subset M$ eine Teilmenge von $M$. Dann ist das \textit{Bild} von $M'$ unter $f$ definiert als
+\begin{center}
+    $f(M') := \{f(x'): x' \in M'\} \subset N$
+\end{center}
+
+\subsubsection*{Bemerkung 1.29}
+im Falle $M' = M$ heißt $f(M')$ auch \textit{Bild von f}. 
+
+%Füge Bild hinzu
+\subsubsection*{Definition 1.30}
+Es sei $f: M \rightarrow N$ eine Abbildung und $N' \subset N$ eine Teilmenge von $N$. Dann ist das \textit{Urbild} von $N'$ unter $f$ definiert als
+\begin{center}
+    $f^{-1}(N') := \{x \in M: f(x) \in N'\} \subset M$
+\end{center}
+Hinweis: $f^{-1}(N)$ hat 3 Bedeutungen: das Urbild, die Umkehrfunktion (falls $f$ umkehrbar) und manchmal wird es benutzt um das Reziproke zu bezeichnen.
+
+\subsubsection*{Beispiele 1.31}
+a) Für $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto n^2$ ist das Bild von f ist die Menge aller Quadratzahlen. \\
+Hinweis: das Bild kann man sich vorstellen als all das, was $f$ produziert, also den Output von $f$.\\
+\\
+b) Für $f: \mathbb{R} \rightarrow \mathbb{R}, (x, y) \mapsto x + y$ ist beispielsweise $f^{-1}(\{0\})= \{(x, -x): x \in \mathbb{R}\}$ \\
+Hinweis: dies ist die Addition in $\mathbb{R}$. Außerdem muss die $0$ in $\{0\}$ stehen, da wir in das Urbild eine Menge geben müssen und nicht ein einzelnes Element. \\
+\\
+c) Für $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto 2n$ ist $f^{-1}(\{3 ,5 ,7 \}) = \emptyset$ 
+
+%Fix indentation
+\subsubsection*{Lemma 1.32}
+Es sei $f: A \rightarrow B$ eine Abbildung. \\
+a) Es seien ferner $A_1, A_2 \subset A$ Teilmengen von $A$. Dann gilt: \\
+\hspace{1cm} i) $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$ \\
+\hspace{1cm} ii) $f(A_1 \cap A_2) \subset f(A_1) \cap f(A_2)$ \\
+b) Es seien ferner $B_1, B_2 \subset B$ Teilmengen von $B$. Dann gilt: \\
+\hspace{1cm}i) $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$ \\
+\hspace{1cm}ii) $f^{-1}(B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$ \\
+
+\subsubsection*{Beweis}
+Wir beweisen exemplarisch nur i) von a).\\ 
+\underline{Schritt 1:} Wir zeigen 
+\begin{center}
+    $f(A_1 \cup A_2) \subset f(A_1) \cup f(A_2)$ 
+\end{center}
+Sei also $x \in f(A_1 \cup A_2)$. Wir müssen zeigen, dass $x \in f(A_1) \cup f(A_2)$ gilt. 
+Es ist 
+\begin{center}
+    $f(A_1 \cup A_2) = \{f(x'): x' \in A_1 \cup A_2\}$
+\end{center}
+(Definition 1.28). Für unser $x$ heißt das
+\begin{center}
+    $\exists x' \in A_1 \cup A_2: x = f(x')$
+\end{center}
+Für dieses $x'$ gilt $x' \in A_1$ oder $x' \in A_2$. \\
+\underline{Fall 1: $x' \in A_1$.} \\
+Wegen $x=f(x')$ gilt $x \in f(A_1)$. Dann gilt ebenso 
+\begin{center}
+    $x \in f(A_1) \vee x \in f(A_2)$, d.h. $x \in f(A_1) \cup f(A_2)$
+\end{center}
+\underline{Fall 2: $x' \in A_2$.} \\
+Wegen $x=f(x')$ gilt $x \in f(A_2)$. Dann gilt ebenso 
+\begin{center}
+    $x \in f(A_1) \vee x \in f(A_2)$, d.h. $x \in f(A_1) \cup f(A_2)$
+\end{center}
+\underline{Schritt 2:} Wir führen diesen Schritt weniger ausführlich durch. Zu zeigen ist also 
+\begin{center}
+    $f(A_1) \cup f(A_2) \subset f(A_1 \cup A_2)$
+\end{center}
+Sei $x \in f(A_1) \cup f(A_2)$. Dann gibt es ein $x' \in A_1$ mit $x=f(x')$ oder ein $x' \in A_2$ mit $x=f(x')$. 
+In beiden Fällen gilt dann $x \in f(A_1 \cup A_2)$. $\square$
+
+\subsection{Surjektiv und Injektiv}
+
+%Füge Bild hinzu
+\subsubsection*{Definition 1.33}
+Eine Abbildung $f: M \rightarrow N$ heißt \textit{surjektiv}, wenn gilt:
+\begin{center}
+    $\forall y \in N \exists x \in M: f(x) = y$
+\end{center}
+Anders ausgedrückt: $f(M) = N$. Das Bild der Funktion ist also die gesamte Zielmenge. Nochmal anders ausgedrückt: 
+\begin{center}
+    $\forall y \in N: | f^{-1}(\{y\}) | \geq 1$
+\end{center}
+
+\subsubsection*{Beispiele 1.34}
+a) Die Abbildung $f: \mathbb{Z} \rightarrow \mathbb{N}, m \mapsto |m|$ ist surjektiv. \\
+b) Die Abbildung $f: \mathbb{Z} \rightarrow \mathbb{Z}, m \mapsto |m|$ ist nicht surjektiv. \\
+Hier sieht man wie wichtig der Zielbereich für die Surjektivität ist. 
+
+%Füge Bild hinzu
+\subsubsection*{Definition 1.35}
+Eine Abbildung $f: M \rightarrow N$ heißt \textit{injektiv}, wenn gilt:
+\begin{center}
+    $\forall x_1, x_2 \in M:( f(x_1) = f(x_2) \Rightarrow x_1 = x_2)$
+\end{center}
+Die Kontraposition der Definition macht die Aussage etwas anschaulicher:
+\begin{center}
+    $\forall x_1, x_2 \in M:( x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2))$
+\end{center}
+Anders ausgedrückt: 
+\begin{center}
+    $\forall y \in N: | f^{-1}(\{y\}) | \leq 1$
+\end{center}
+Hinweis zu den Klammern: alles was nach einem Doppelpunkt kommt kann man sich als geklammert vorstellen. Vor dem Doppelpunkt stehen Quantoren für die die Aussage, die hinter dem Doppelpunkt kommt, gilt.
+
+%ersetze N durch N_0
+\subsubsection*{Beispiele 1.36}
+a) Die Abbildung $f: \mathbb{N} \rightarrow \mathbb{N}, m \mapsto m^2$ ist injektiv. \\
+b) Die Abbildung $f: \mathbb{Z} \rightarrow \mathbb{N}, m \mapsto m^2$ ist nicht injektiv. \\
+
+\subsubsection*{Definition 1.37}
+Eine Abbildung heißt \textit{bijektiv}, wenn sie injektiv und surjektiv ist.
+
+\subsubsection*{Beispiele 1.38}
+a) Für eine Menge $M$ ist die Identität $id_M: M \rightarrow M$ bijektiv (siehe Beispiel 1.25c (a?)) \\
+\\
+b) Die Abbildung $f: \mathbb{Z} \rightarrow \mathbb{Z}, m \mapsto m^3$ ist injektiv aber nicht surjektiv und somit nicht bijektiv. Auch hier haben wir wieder ein Beispiel dafür, dass bei gleicher Vorschrift sowohl Definitions- als auch Zielbereich wichtig sind. \
+
+Das Arbeiten mit Injektivität und Surjektivität ist zu Beginn schwierig. Die Begriffe sind aber sehr wichtig.
+
+\subsubsection*{Lemma 1.39}
+Sei $f: X \rightarrow Y$ eine Abbildung und $A \subset X, B \subset Y$ Teilmengen. \\
+a) Es gilt stets $f^{-1}(f(A)) \supset A$. \\
+\\
+b) Es ist $f$ injektiv genau dann, wenn:
+\begin{center}
+    $\forall_A \subset X: f^{-1}(f(A)) = A$
+\end{center}
+
+c) Es gilt stets $f(f^{-1}(B)) \subset B$. \\
+\\
+d) Es ist $f$ surjektiv genau dann, wenn:
+\begin{center}
+    $\forall_B \subset Y: f(f^{-1}(B)) = B$
+\end{center}
+
+\subsubsection*{Beweis}
+Hier nur a). Sei also $x \in A$. Es ist $f^{-1}(f(A)) = \{x \in X: f(x) \in f(A)\}$ laut Definition des Urbilds 1.38. 
+Wegen $x \in A$ gilt $f(x) \in f(A)$, d.h. $x \in f^{-1}(f(A))$. $\square$
+
 
 \begin{thebibliography}{9}
     \bibitem{book:baer}
