@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tabularx}
+
 \setlength{\parindent}{0pt}
 
 \title{Lineare Algebra}
@@ -79,7 +80,7 @@ Hinweis: Eine Tautologie ist eine Aussage, die immer wahr ist.
 
 \subsubsection*{Bemerkung}
 Das $\neg$ (\textit{Negation}) Zeichen bindet stärker als die anderen Verknüpfungen. Beispiel: \\
-$\neg A \vee B$ ist äquivalent zu $(\neg A) \vee B$ \\x
+$\neg A \vee B$ ist äquivalent zu $(\neg A) \vee B$ \\
 Außerdem gibt es die Konvention, dass das 'und' und das 'oder' stärker bindet als die Implikation. \\
 Die Reihenfolge der Stärke der Bindung ist also: $\neg, \wedge, \vee, \rightarrow$ 
 
@@ -155,7 +156,7 @@ Notation: $a \in M$ bedeutet, dass $a$ ein Element von $M$ ist. Andernfalls schr
 \end{enumerate} 
 
 Hinweis: die letzte Menge hat 3 Elemente. Außerdem: nutzt man die 'Sack Analogie' wird auch klar, wieso die leere Menge ein Element einer Menge sein kann. Man stellt sich einen Sack vor, der in einem anderen Sack liegt. \\
-Wichtig: In Beispiel A gilt: $1 \in A$ und $N \in A$. aber $2 \notin A$. Man muss klar zwischen Elementen einer Menge und Mengen unterscheiden. \\
+Wichtig: In Beispiel A gilt: $1 \in A$ und $N \in A$ aber $2 \notin A$. Man muss klar zwischen Elementen einer Menge und Mengen unterscheiden. \\
 Man beachte außerdem: 
 \begin{enumerate}
     \item Für $M := \{1, 2, 3\}$ und $N := \{1, 2, 3\}$ gilt $M = N$. Die Reihenfolge der Elemente ist egal.
@@ -208,7 +209,7 @@ Es gilt $\mathbb{N} \subset \mathbb{Z}$.
 Für jede Menge $M$ gilt $\emptyset \subset M$. 
 
 \subsubsection*{Beweis}
-Wir müssen dei Aussage $x \in \emptyset \Rightarrow x \in M$ als immer wahr einsehen (Tautologie). 
+Wir müssen die Aussage $x \in \emptyset \Rightarrow x \in M$ als immer wahr einsehen (Tautologie). 
 Da $x \in \emptyset$ immer falsch ist, ist die Implikation $x \in \emptyset \Rightarrow x \in M$ immer wahr. $\square$ 
 
 \subsubsection*{Anmerkung}
@@ -331,7 +332,7 @@ Hinweis: eigentlich sind es 2 unterschiedliche Unendlichkeiten.
 
 \subsubsection*{Lemma 1.23}
 a) Für jede Menge $M$ gilt $|\mathcal{P}(M)| = 2^{|M|}$. \\
-Das ist auch der Grund, warum Potenzmenge heißt, weil die Anzahl der Elemente der Potenzmenge die Potenz von 2 ist. \\
+Das ist auch der Grund, warum Potenzmenge Potenzmenge heißt. Die Anzahl der Elemente der Potenzmenge ist die Potenz von 2. \\
 b) Für Mengen $M$ und $N$ gilt $|M \times N| = |M| \cdot |N|$. 
 
 \subsubsection*{Beweis}
@@ -345,14 +346,19 @@ $M$ heißt \textit{Definitionsbereich} und $N$ heißt \textit{Zielbereich} oder 
 Hinweis: diese Definition ist nicht ganz korrekt, da wir noch nicht wissen, was eine Vorschrift ist.
 
 \subsubsection*{Bemerkungen}
-Zu dem Datum einer Funktion $f$ gehört nciht nur die Vorschrift, sondern auch ihr Definitionsbereich und ihr Zielbereich. \\
+Zu dem Datum (?) einer Funktion $f$ gehört nicht nur die Vorschrift, sondern auch ihr Definitionsbereich und ihr Zielbereich. \\
 Die Funktionen $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto n^2$ und $g: \mathbb{N} \rightarrow \mathbb{R}, n \mapsto n^2$ sind nicht gleich, da sie unterschiedliche Zielbereiche haben. \\
 Eine Vorschrift kann alles mögliche sein.
 
-%Fallunterscheidung einfügen
+
 \subsubsection*{Beispiele 1.25}
 a) $f: \mathbb{R} \rightarrow \mathbb{R}, (x, y) \mapsto x + y$ \\
-b) $f: \mathbb{R} \rightarrow \mathbb{N}, x \mapsto $1 falls x in Q, O sonst \\
+b) $f: \mathbb{R} \rightarrow \mathbb{N}, x \mapsto 
+\begin{cases}
+    1 & \text{falls } x \in Q \\
+    0 & \text{sonst}
+\end{cases}
+$ \\
 c) $f: M \rightarrow M, x \mapsto x$ \\
 Diese Abbildung heißt \textit{Identität} von M oder auch \textit{identische Abbildung}. 
 
@@ -362,7 +368,7 @@ Diese Abbildung heißt \textit{Identität} von M oder auch \textit{identische Ab
 % Verboten ist außerdem: wenn 1 Element aus dem Definitionsbereich nirgenwo hin abbildet.
 
 \subsubsection*{Bemerkung 1.27}
-Eine Abbildung $F: M \Rightarrow N$ ist eine Teilmenge des kartesischen Produktes $M \times N$ mit 
+Eine Abbildung $f: M \rightarrow N$ ist eine Teilmenge des kartesischen Produktes $M \times N$ mit 
 \begin{center}
     $\forall_x \in M \exists_y \in N: (x, y) \in f$
 \end{center}
@@ -391,7 +397,7 @@ Es sei $f: M \rightarrow N$ eine Abbildung und $N' \subset N$ eine Teilmenge von
 Hinweis: $f^{-1}(N)$ hat 3 Bedeutungen: das Urbild, die Umkehrfunktion (falls $f$ umkehrbar) und manchmal wird es benutzt um das Reziproke zu bezeichnen.
 
 \subsubsection*{Beispiele 1.31}
-a) Für $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto n^2$ ist das Bild von f ist die Menge aller Quadratzahlen. \\
+a) Für $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto n^2$ ist das Bild von f die Menge aller Quadratzahlen. \\
 Hinweis: das Bild kann man sich vorstellen als all das, was $f$ produziert, also den Output von $f$.\\
 \\
 b) Für $f: \mathbb{R} \rightarrow \mathbb{R}, (x, y) \mapsto x + y$ ist beispielsweise $f^{-1}(\{0\})= \{(x, -x): x \in \mathbb{R}\}$ \\
@@ -399,15 +405,15 @@ Hinweis: dies ist die Addition in $\mathbb{R}$. Außerdem muss die $0$ in $\{0\}
 \\
 c) Für $f: \mathbb{N} \rightarrow \mathbb{N}, n \mapsto 2n$ ist $f^{-1}(\{3 ,5 ,7 \}) = \emptyset$ 
 
-%Fix indentation
+%Fix indentation Fr. Gerhold fragen
 \subsubsection*{Lemma 1.32}
 Es sei $f: A \rightarrow B$ eine Abbildung. \\
 a) Es seien ferner $A_1, A_2 \subset A$ Teilmengen von $A$. Dann gilt: \\
 \hspace{1cm} i) $f(A_1 \cup A_2) = f(A_1) \cup f(A_2)$ \\
 \hspace{1cm} ii) $f(A_1 \cap A_2) \subset f(A_1) \cap f(A_2)$ \\
 b) Es seien ferner $B_1, B_2 \subset B$ Teilmengen von $B$. Dann gilt: \\
-\hspace{1cm}i) $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$ \\
-\hspace{1cm}ii) $f^{-1}(B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$ \\
+\hspace{1cm} i) $f^{-1}(B_1 \cup B_2) = f^{-1}(B_1) \cup f^{-1}(B_2)$ \\
+\hspace{1cm} ii) $f^{-1}(B_1 \cap B_2) = f^{-1}(B_1) \cap f^{-1}(B_2)$
 
 \subsubsection*{Beweis}
 Wir beweisen exemplarisch nur i) von a).\\ 
@@ -474,7 +480,7 @@ Anders ausgedrückt:
 \begin{center}
     $\forall y \in N: | f^{-1}(\{y\}) | \leq 1$
 \end{center}
-Hinweis zu den Klammern: alles was nach einem Doppelpunkt kommt kann man sich als geklammert vorstellen. Vor dem Doppelpunkt stehen Quantoren für die die Aussage, die hinter dem Doppelpunkt kommt, gilt.
+Hinweis zu den Klammern: alles was nach einem Doppelpunkt kommt kann man sich als geklammert vorstellen. Vor dem Doppelpunkt stehen Quantoren, welche für die Aussagen hinter dem Doppelpunkt gelten.
 
 %ersetze N durch N_0
 \subsubsection*{Beispiele 1.36}
@@ -485,7 +491,7 @@ b) Die Abbildung $f: \mathbb{Z} \rightarrow \mathbb{N}, m \mapsto m^2$ ist nicht
 Eine Abbildung heißt \textit{bijektiv}, wenn sie injektiv und surjektiv ist.
 
 \subsubsection*{Beispiele 1.38}
-a) Für eine Menge $M$ ist die Identität $id_M: M \rightarrow M$ bijektiv (siehe Beispiel 1.25c (a?)) \\
+a) Für eine Menge $M$ ist die Identität $id_M: M \rightarrow M$ bijektiv (siehe Beispiel 1.25c) \\
 \\
 b) Die Abbildung $f: \mathbb{Z} \rightarrow \mathbb{Z}, m \mapsto m^3$ ist injektiv aber nicht surjektiv und somit nicht bijektiv. Auch hier haben wir wieder ein Beispiel dafür, dass bei gleicher Vorschrift sowohl Definitions- als auch Zielbereich wichtig sind. \
 
@@ -510,6 +516,116 @@ d) Es ist $f$ surjektiv genau dann, wenn:
 \subsubsection*{Beweis}
 Hier nur a). Sei also $x \in A$. Es ist $f^{-1}(f(A)) = \{x \in X: f(x) \in f(A)\}$ laut Definition des Urbilds 1.38. 
 Wegen $x \in A$ gilt $f(x) \in f(A)$, d.h. $x \in f^{-1}(f(A))$. $\square$
+\\
+\\
+\\
+\date{Mittwoch, 01.11.23} \footnote{vgl. S. ? aus Baer.}
+
+\subsubsection*{Definition 1.40}
+Es seien $g: X \rightarrow Y$ und $f: Y \rightarrow Z$ Abbildungen. Dann heißt:
+\begin{center}
+    $f \circ g: X \rightarrow Z, x \mapsto f(g(x))$
+\end{center}
+die \textit{Komposition oder Verkettung} von $f$ mit $g$. \\
+Hinweis: wenn "f nach g" gesagt wird, ist $f \circ g$ gemeint, nicht $g \circ f$.
+
+\subsubsection*{Beispiele 1.41}
+a) Sei $g: \mathbb{R} \rightarrow \mathbb{R}, x \mapsto x+2$ und $f: \mathbb{R} \rightarrow \mathbb{R}, x \mapsto x^2$. Dann ist 
+\begin{center}
+    $(f \circ g)(x) = f(g(x)) = f(x+2) = (x+2)^2$
+\end{center}
+andererseits: $(g \circ f)(x) = g(f(x)) = g(x^2) = x^2 + 2$ \\
+Hinweis: wir könnten auch $f: \mathbb{R} \rightarrow \mathbb{R}, f(a) = a^2$ definieren. Trotz verändertem Variablen Namen handelt es sich nach wie vor um die gleiche Funktion. Durch das Ändern des Variablen Namens wird alles etwas übersichtlicher. \\
+\\
+b) Sei $g: \mathbb{R_\infty} \rightarrow \mathbb{R}, g(x) = \frac{x}{x+1}$ und $f: \mathbb{R} \rightarrow \mathbb{R}, f(x) = x - 1$. Dann ist
+\begin{center}
+    $f \circ g: \mathbb{R_\infty} \rightarrow \mathbb{R}, x \mapsto \frac{x}{x+1} - 1$
+\end{center}
+
+\subsubsection*{Bemerkung 1.42}
+Es ist $f \circ g$ nur dann definiert, wenn der Zielbereich von $g$ \underline{exakt} mit dem Definitionsbereich von $f$ übereinstimmt (Beispiel 1.41b). \\
+Sind sowohl $f \circ g$ als auch $g \circ f$ definiert, brauchen sie in der Regel nicht übereinstimmen. (Beispiel 1.41a)\\
+
+\subsubsection*{Bemerkung 1.43}
+(Hinweis: Die Klammern bei den folgenden Dreier-Kompositionen fehlen, weil wir die Komposition von 2 Abbildungen definiert haben, nicht aber von 3.) Seien $h: A \rightarrow B, g: B \rightarrow C$ und $f: C \rightarrow D$ Abbildungen. Es kann dann $f \circ (g \circ h)$ interpretiert werden als $(f \circ g) \circ h$ oder $f \circ g \circ h$. Das ist aber dasselbe: \\
+Für $a \in A$ gilt: 
+\begin{center}
+    $((f \circ g) \circ h)(a) = (f \circ g)(h(a)) = f(g(h(a)))$
+\end{center}
+und auch 
+\begin{center}
+    $(f \circ (g \circ h))(a) = f((g \circ h)(a)) = f(g(h(a)))$
+\end{center}
+Die beiden Klammerungen produzieren dasselbe, ähnlich wie beim Asoziaitivgesetz. \\
+Hinweis: Wenn wir 2 Abbildungen klammern, erhalten wir eine neue Abbildung.
+
+
+\subsubsection*{Lemma 1.44}
+Es seien $g: X \rightarrow Y$ und $f: Y \rightarrow Z$ Abbildungen.\\
+a) Ist $f \circ g$ surjektiv, so ist $f$ surjektiv. \\
+b) Ist $f \circ g$ injektiv, so ist $g$ injektiv. \\
+
+%Hier Bild einfügen
+\subsubsection*{Beweis}
+a) Sei $z \in Z$. Da $f \circ g$ surjektiv ist, gibt es ein $x \in X$ mit $(f \circ g)(x) = z$. Das heißt aber $f(g(x)) = z$, d.h. $z$ ist im Bild von $f$. $\square$ \\
+%Hier Bild einfügen
+\\
+b) Seien $x_1, x_2 \in X$ mit $g(x_1) = g(x_2)$. Dann ist auch $f(g(x_1)) = f(g(x_2))$, d.h. $(f \circ g)(x_1) = (f \circ g)(x_2)$. Da $f \circ g$ injektiv ist, folgt $x_1 = x_2$. Das bedeutet, dass $g$ injektiv ist. Hinweis: 
+Auf Grund der Definition von Injektiv sieht man sofort, dass aus $(f \circ g)(x_1) = (f \circ g)(x_2)$ folgt, dass $x_1 = x_2$ gilt. $\square$ \\
+
+\subsubsection*{Lemma 1.45}
+Es sei $f: M \rightarrow N$ eine Abbildung. \\
+a) $f$ ist surjektiv genau dann, wenn es eine Abbildung $g: N \rightarrow M$ gibt (man beachte, dass sich Ziel- und Definitionsbereich gedreht haben), mit $f \circ g = id_N$. Hier sagt man $g$ ist die \textit{Rechtsinverse} von $f$. \\
+\\
+b) $f$ ist injektiv genau dann, wenn es eine Abbildung $g: N \rightarrow M$ gibt, mit $g \circ f = id_M$. Hier sagt man $g$ ist die \textit{Linksinverse} von $f$. \\
+\\
+c) $f$ ist bijektiv genau dann, wenn es eine Abbildung $g: N \rightarrow M$ gibt, mit $f \circ g = id_N$ und $g \circ f = id_M$. Man sagt hier auch $g$ ist die \textit{Umkehrabbildung} oder \textit{Inverse} von $f$. Vor allem dieses c) wird häufig benutzt.\\
+
+\subsubsection*{Beweis}
+a) \\
+Hinweis: wir starten mit der "schnellen" Richtung. \\
+\textit{Beweisschritt 1:} \\
+Es existiere ein $g: N \rightarrow N$ mit $f \circ g = id_N$ (da $id_N$ bijektiv ist, ist $f$ nach 1.44b surjektiv ist und $f$ injektiv ist, was aber irrelevant ist). Da $id_N$ surjektiv ist, ist $f$ nach 1.44a surjektiv. \\
+\textit{Beweisschritt 2:} \\
+Sei $f$ surjektiv. Wir konstruieren $g$ wie folgt (Hinweis: das Problem ist, dass einige Elemente in $N$ von mehreren Elementen aus $M$ getroffen werden können. Da wir in einer "Rückwärts" Abbildung $g$, die etwas mit $f$ zu tun haben muss, nicht ein Element aus $N$ auf mehrere Elemente aus $M$ abbilden können, müssen wir uns für eines entscheiden. Das machen wir mit der Auswahl von $g$): \\
+Für $y \in N$ existiert ein (von $y$ abhängiges) Element $x_y \in M$ mit $f(x_y) = y$ da $f$ surjektiv ist. Wir definieren dann $g(y) := x_y$ für jedes $y \in N$. Damit ist dei Abbildung $g$ definiert. (Hinweis: wir wissen eigentlich nicht was $g$ macht, aber wir wissen, dass $g$ existiert. Das ist ein wichtiger Unterschied.) \\
+Dann gilt:  
+\begin{center}
+    $(f \circ g)(y) = f(g(y)) = f(x_y) = y = id_N (y)$
+\end{center}
+b) \\
+% kann man die letzte Zeile hier so stehen lassen, also idMx = x?
+\textit{Beweisschritt 1:} \\
+Es existiere ein $g: N \rightarrow N$ mit $g \circ f = id_M$. Da $id_M$ injektiv ist, ist $f$ nach 1.44b injektiv. \\
+\textit{Beweisschritt 2:} \\
+(Hinweis: auch hier ist wieder die Idee, dass wir die Pfeile, die von $M$ nach $N$ gehen, umdrehen. Das Problem ist hier, dass wir alle Elemente aus $N$ abbilden müssen. Bisher werden durch $f$ nicht alle Elemente in $N$ getroffen. Unsere Lösung ist, dass wir die bisher von $f$ nicht getroffenen Elemente auf Elemente in $M$ abbilden, die bereits durch $f$ nach $N$ abbilden. Wir treffen diese Elemente also mehrmals.) \\
+Sei $f$ injektiv. Wir wählen ein $x_0 \in M$. Dieser Schritt funktioniert nur, wenn $M \neq \emptyset$. Die Abbildung $g: N \rightarrow M$ definieren wir als: \\
+\begin{center}
+    $g(y) := 
+    \begin{cases}
+        $(eindeutiges) $ x \in M $ mit $ f(x)=y & \text{falls } y \in f(M) \\
+        x_0 & \text{sonst }
+    \end{cases}$
+\end{center}
+Dann gilt für $x \in M$:
+\begin{center}
+    $(g \circ f)(x) = g(f(x)) = g(y) = x$ (der 1. Fall in der Definition von g) \\
+    ($id_M(x) = x$)?
+\end{center} 
+c) \\
+\textit{Beweisschritt 1:} \\
+Es existiere ein $g: N \rightarrow M$ mit $f \circ g = id_N$ und $g \circ f = id_M$. Dann ist $f$ nach a) und b) surjektiv und injektiv, also bijektiv. \\
+\textit{Beweisschritt 2:} \\
+Hinweis: hier könnte man auch auf die Idee kommen a) und b) zu benutzen. Das Problem ist jedoch, dass wir verschiedene $g$ erhalten könnten. Wir wissen nicht, ob die $g$ aus a) und b) gleich sind. \\
+Sei $f$ bijektiv. Aus a) folgt die Existenz eines $g_1: N \rightarrow M$ mit $f \circ g_1 = id_N$. Aus b) folgt die Existenz eines $g_2: N \rightarrow M$ mit $g_2 \circ f = id_M$. Wir zeigen, dass $g_1 = g_2$ gilt: \\
+\begin{center}
+    $g_1 = id_M \circ g_1 = (g_2 \circ f) \circ g_1 = g_2 \circ (f \circ g_1) = g_2 \circ id_N = g_2$
+\end{center}
+$\square$ \\
+
+\subsubsection*{Bemerkung 1.46}
+Aus dem Beweis von Lemma 1.45c) folgt, dass die Umkehrabbildung $f^{-1}$ einer bijektiven Abbildung eindeutig ist. \\
+Die Rechts- bzw. Linksinverse einer Abbildung ist im Allgemeinen nicht eindeutig. Das sieht man auch in den Beweisen. In a) sieht man Beispielsweise, dass die Eindeutigkeit schief geht, da wir uns für ein Element entscheiden mussten. \\
 
 
 \begin{thebibliography}{9}
