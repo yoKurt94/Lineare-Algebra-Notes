@@ -626,6 +626,130 @@ $\square$ \\
 \subsubsection*{Bemerkung 1.46}
 Aus dem Beweis von Lemma 1.45c) folgt, dass die Umkehrabbildung $f^{-1}$ einer bijektiven Abbildung eindeutig ist. \\
 Die Rechts- bzw. Linksinverse einer Abbildung ist im Allgemeinen nicht eindeutig. Das sieht man auch in den Beweisen. In a) sieht man Beispielsweise, dass die Eindeutigkeit schief geht, da wir uns für ein Element entscheiden mussten. \\
+\newpage
+
+
+\date{Donnerstag, 02.11.23} \footnote{vgl. S. ? aus Baer.}
+\section{Lineare Gleichungssysteme und Matrizen}
+\subsection{Lineare Gleichungssysteme}
+\subsubsection*{Beispiele 2.1}
+a) Wir führen Bezeichnungen ein: \\
+\begin{center}
+    $A$: Gewicht der Apfelsinen (in kg) \\
+    $B$: Gewicht der Bananen (in kg)
+\end{center}
+Wir erhalten folgende Gleichungen: 
+\begin{center}
+    $A \cdot 15 + B \cdot 40 = 2 \cdot 50$ \\
+    $A \cdot 25 = 2 \cdot 25 + B \cdot 50$ \\
+\end{center}
+Umsortieren und Kürzen ergibt:
+\begin{center}
+    $A \cdot 3 + B \cdot 8 = 20$ \\
+    $A - B \cdot 2 = 2$ \\
+\end{center}
+Jetzt ziehen wir von der ersten Zeile das 3-fache der zweiten Zeile ab und erhalten:
+\begin{center}
+    $B \cdot 14 = 14$, d.h. $B = 1$ \\
+\end{center}
+Einsetzen von $B = 1$ in eine der obigen Gleichungen ergibt dann $A = 4$. \\
+Es gibt also eine eindeutige Lösung. \\ 
+\\
+b) Wir betrachten folgende Reaktionsgleichung aus der Chemie zur Hersetllung von Trinitrotoluol (TNT): \\
+\begin{center}
+    $x \cdot C_7H_8 + y \cdot HNO_3 \rightarrow z \cdot C_7H_5O_6N_3 + W \cdot H_2O$ \\   
+\end{center}
+Wir stellen Gleichungen für die einzelnen Elemente auf: \\
+\begin{center}
+    Kohlenstoff $C$: $7x + 0y = 7z + 0w$ \\
+    Wasserstoff $H$: $8x + 1y = 5z + 2w$ \\
+    Stickstoff $N$: $0x + 1y = 3z + 0w$ \\
+    Sauerstoff $O$: $0x + 3y = 6z + 1w$ \\
+\end{center}
+Wir wollen x,y und w abhängig von z wissen. Wir sehen sofort $x=z$ und $y=3z$. Setzen wir das noch in die Formel für den Sauerstoff ein, folgt als letztes $w=3z$. \\
+Wir haben also unendlich viele Lösungen, nämlich für jedes $z \in \mathbb{R}$ Eine. \\
+\\
+c) Es gibt auch lineare Gleichungssysteme ohne Lösung. \\
+\begin{center}
+    $3x + 3y + z = 1$ \\
+    $x + 2y + 3z = 4$ \\
+    $-2x -4y -6z = 6$ \\
+\end{center}
+Addieren wir das Doppelte der zweiten Zeile zur dritten Zeile, erhalten wir:
+\begin{center}
+    $0 = 14$
+\end{center}
+Es gibt also keine $x,y \in \mathbb{R}$, welche dieses Gleichungssystem lösen. \\
+Hinweis: wir arbeiten dieses Semester mit den reellen Zahlen. Es gibt aber auch andere Zahlenmengen, z.B. die komplexen Zahlen, mit denen wir lineare Gleichungssysteme aufstellen können. \\
+\\
+\subsubsection*{Definition 2.2}
+Ein lineares Gleichungssystem \textit{LGS} ist eine Kollektion von Gleichungen der folgenden Form: \\
+\begin{center}
+    $A_{11}x_1 + A_{12}x_2 + ... + A_{1n}x_n = b_1$ \\
+    $A_{21}x_1 + A_{22}x_2 + ... + A_{2n}x_n = b_2$ \\
+    ... \\
+    $A_{m1}x_1 + A_{m2}x_2 + ... + A_{mn}x_n = b_m$ \\
+\end{center}
+Hierbei sind die Koeffizienten $A_{ij} \in \mathbb{R}$ für $1 \leq i \leq m$ und $1 \leq j \leq n$ und die rechten Seiten $b_i \in \mathbb{R}$ für $1 \leq i \leq m$ vorgegeben und die Unbekannten $x_1, ..., x_n \in \mathbb{R}$ sind gesucht. \\
+Eine Lösung vom obigen LGS ist ein $n$-Tupel $x = (x_1, ..., x_n) \in \mathbb{R}^n$, welche alle Gleichungen erfüllt. \\
+Die Lösungsmenge des LGS ist die Menge aller Lösungen des LGS. Sie ist also Teilmenge des $\mathbb{R}^n$. \\
+
+Hinweise: \\
+1. Anstatt von Kollektion kann man auch Ansammlung, Liste etc. verwenden. \\
+2. Wir haben $m \cdot n$ verschiedene Koeffizienten. \\
+3. Das $n$-Tupel $x = (x_1, ..., x_n) \in \mathbb{R}^n$ ist ein Element des n-fachen Produktes von $\mathbb{R}$. \\
+4. Wenn die Lösungsmenge nicht als Teilmenge des $\mathbb{R}^n$ interpretiert werden kann, ist die Lösung vermutlich falsch. \\
+
+\subsubsection*{Erklärung 2.3}
+Wir betrachten Beispiel 2.1a) nochmal. Zunächst benennen wir die Variablen um, damit sie in unsere Definition passen. \\
+\begin{center}
+    $x_1 := A$ \\
+    $x_2 := B$ \\
+\end{center}
+und stellen dann das LGS auf: 
+\begin{center}
+    $15x_1 + 40x_2 = 100$ \\
+    $25x_1 - 50x_2 = 50$ \\
+\end{center}
+In der Notation von Definition 2.2 ist also $n = 2$ (Anzahl der Unbekannten), $m = 2$ (Anzahl der Gleichungen/Zeilen), $A_{11} = 15, A_{12} = 40, A_{21} = 25, A_{22} = -50, b_1 = 100, b_2 = 50$. \\
+Die Lösungsmenge ist in diesem Fall $\{(4, 1)\} \subset \mathbb{R}^2$. \\
+
+\subsubsection*{Definition 2.4}
+Es sei ein LGS gegeben. Folgende Veränderungen davon bezeichnet man als elementare Zeilenumformungen: \\
+\\
+1. Vertauschen zweier Zeilen \\
+2. Multiplikation einer Zeile mit einer Konstanten $\lambda \in \mathbb{R} \setminus \{0\}$ \\
+3. Addition des Vielfachen einer Zeile zu einer Anderen. \\
+\\
+Hinweis zu 3: Das Vielfache darf auch 0 sein. \\
+
+\subsubsection*{Satz 2.5}
+Elementare Zeilenumformungen ändern die Lösungsmenge eines LGS \underline{nicht}. \\
+
+\subsubsection*{Beweis}
+Hinweis: wir nehmen ein gegebenes LGS und führen eine der 3 elementaren Zeilenumformungen durch. Wir zeigen, dass die Lösungsmenge gleich bleibt. Wir müssen also die wie üblich zeigen, dass beide Lösungsmengen ineinander enthalten sind. \\
+\\
+1. Vertauschen zweier Zeilen \\
+Es ist klar, dass sich beim Vertauschen von Zeilen die Lösungsmenge nicht ändert, da sich die Gleichungen nicht ändern. Die Definition der Lösungsmenge gibt nur an, welche Lösungsmenge alle Gleichungen löst. Die Reihenfolge der Gleichungen ist also irrelevant. \\
+\\
+2. Multiplikation einer Zeile mit einer Konstanten $\lambda \in \mathbb{R} \setminus \{0\}$ \\
+\textit{Beweisschritt 1:} \\
+Es erfülle $x = (x_1, ..., x_n)$ eine Gleichung der Form 
+\begin{center}
+    $A_{i1}x_1 + ... + A_{in}x_n = b_i$
+\end{center}
+für ein $i \in \{1, ..., m\}$. (Hinweis: Wir haben also m Gleichungen und multiplizieren eine davon mit $\lambda \in \mathbb{R} \setminus \{0\}$. Wir ändern also nur die i-te Zeile und ändern an den anderen Gleichungen nichts.) \\
+Dann erfüllt es auch die Gleichung
+\begin{center}
+    $\lambda A_{i1}x_1 + ... + \lambda A_{in}x_n = \lambda b_i$
+\end{center}
+für ein $\lambda \in \mathbb{R}$.
+(Hinweis: das bisher hingeschriebene ist ein Beispiel für einen schlecht aufgeschrieben Beweis. Wir haben einfach nur aufgeschrieben, was wir zeigen wollen. Wir haben also die Behauptung, die wir zeigen wollen einfach nur aufgeschrieben und nicht begründet. Das müssen wir noch begründen, damit der Beweis vollständig wird.
+Außerdem: Warum dürfen wir beide Seiten mit $\lambda$ multiplizieren und es ändert die LM nicht? Wir betrachten die Funktion $f: \mathbb{R} \rightarrow \mathbb{R}, f(x)=\lambda x$. Per Definition was eine Funktion ist gilt $a=b \rightarrow f(a)=f(b)$.) \\
+Ist $\lambda \neq 0$, so gilt die Argumentation auch rückwärts, da wir mit $\frac{1}{\lambda}$ multiplizieren können. \\
+\textit{Beweisschritt 2:} \\
+Analog zum vorherigen Beweisschritt, da $(x,y) \mapsto \lambda x + y$ eine wohldefinierte Funktion ist. $\square$ \\
+
 
 
 \begin{thebibliography}{9}
