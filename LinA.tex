@@ -588,10 +588,10 @@ c) $f$ ist bijektiv genau dann, wenn es eine Abbildung $g: N \rightarrow M$ gibt
 a) \\
 Hinweis: wir starten mit der "schnellen" Richtung. \\
 \textit{Beweisschritt 1:} \\
-Es existiere ein $g: N \rightarrow N$ mit $f \circ g = id_N$ (da $id_N$ bijektiv ist, ist $f$ nach 1.44b surjektiv ist und $f$ injektiv ist, was aber irrelevant ist). Da $id_N$ surjektiv ist, ist $f$ nach 1.44a surjektiv. \\
+Es existiere ein $g: N \rightarrow M$ mit $f \circ g = id_N$ (da $id_N$ bijektiv ist, ist $f$ nach 1.44b surjektiv und $g$ ist injektiv, was aber irrelevant ist). Da $id_N$ surjektiv ist, ist $f$ nach 1.44a surjektiv. \\
 \textit{Beweisschritt 2:} \\
 Sei $f$ surjektiv. Wir konstruieren $g$ wie folgt (Hinweis: das Problem ist, dass einige Elemente in $N$ von mehreren Elementen aus $M$ getroffen werden können. Da wir in einer "Rückwärts" Abbildung $g$, die etwas mit $f$ zu tun haben muss, nicht ein Element aus $N$ auf mehrere Elemente aus $M$ abbilden können, müssen wir uns für eines entscheiden. Das machen wir mit der Auswahl von $g$): \\
-Für $y \in N$ existiert ein (von $y$ abhängiges) Element $x_y \in M$ mit $f(x_y) = y$ da $f$ surjektiv ist. Wir definieren dann $g(y) := x_y$ für jedes $y \in N$. Damit ist dei Abbildung $g$ definiert. (Hinweis: wir wissen eigentlich nicht was $g$ macht, aber wir wissen, dass $g$ existiert. Das ist ein wichtiger Unterschied.) \\
+Für $y \in N$ existiert ein (von $y$ abhängiges) Element $x_y \in M$ mit $f(x_y) = y$ da $f$ surjektiv ist. Wir definieren dann $g(y) := x_y$ für jedes $y \in N$. Damit ist die Abbildung $g$ definiert. (Hinweis: wir wissen eigentlich nicht was $g$ macht, aber wir wissen, dass $g$ existiert. Das ist ein wichtiger Unterschied.) \\
 Dann gilt:  
 \begin{center}
     $(f \circ g)(y) = f(g(y)) = f(x_y) = y = id_N (y)$
@@ -628,7 +628,7 @@ $\square$ \\
 
 \subsubsection*{Bemerkung 1.46}
 Aus dem Beweis von Lemma 1.45c) folgt, dass die Umkehrabbildung $f^{-1}$ einer bijektiven Abbildung eindeutig ist. \\
-Die Rechts- bzw. Linksinverse einer Abbildung ist im Allgemeinen nicht eindeutig. Das sieht man auch in den Beweisen. In a) sieht man Beispielsweise, dass die Eindeutigkeit schief geht, da wir uns für ein Element entscheiden mussten. \\
+Die Rechts- bzw. Linksinverse einer Abbildung ist im Allgemeinen nicht eindeutig. Das sieht man auch in den Beweisen. In a) sieht man beispielsweise, dass die Eindeutigkeit schief geht, da wir uns für ein Element entscheiden mussten. \\
 \newpage
 
 
