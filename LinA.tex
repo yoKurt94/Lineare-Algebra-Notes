@@ -752,8 +752,145 @@ Außerdem: Warum dürfen wir beide Seiten mit $\lambda$ multiplizieren und es ä
 Ist $\lambda \neq 0$, so gilt die Argumentation auch rückwärts, da wir mit $\frac{1}{\lambda}$ multiplizieren können. \\
 \textit{Beweisschritt 2:} \\
 Analog zum vorherigen Beweisschritt, da $(x,y) \mapsto \lambda x + y$ eine wohldefinierte Funktion ist. $\square$ \\
+\\
+\\
+\\
+\date{Mittwoch, 08.11.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite ? aus Baer.} \\
+Zur platzsparenden Notation beim Lesen von LGS führen wir die Matrixnotation ein: \\
 
+\subsubsection*{Definition 2.6}
+Eine $m \times n$-Matrix reeller Zahlen ist ein rechteckiges Schema der Form: \\
+\begin{center}
+    $\begin{pmatrix}
+        A_{11} & A_{12} & ... & A_{1n} \\
+        A_{21} & A_{22} & ... & A_{2n} \\
+        ... & ... & ... & ... \\
+        A_{m1} & A_{m2} & ... & A_{mn} \\
+    \end{pmatrix}$
+\end{center}
+wobei $A_{ij} \in \mathbb{R}$ für $i \in \{1, ..., m\}$ und $j \in \{1, ..., n\}$ die Einträge der Matrix sind. \\
+Hinweise: 1. In einer Matrix können auch andere Zahlen stehen, z.B. komplexe Zahlen aber auch Polynome usw. 2. Diese Definition ist mathematisch formal nicht ganz korrekt, da wir nicht definiert haben, was ein rechteckiges Schema ist. \\
+\\
+Haben wie ein LGS der Form \\
+\begin{center}
+    $A_{11}x_1 + A_{12}x_2 + ... + A_{1n}x_n = b_1$ \\
+    $A_{21}x_1 + A_{22}x_2 + ... + A_{2n}x_n = b_2$ \\
+    ... \\
+    $A_{m1}x_1 + A_{m2}x_2 + ... + A_{mn}x_n = b_m$ \\
+\end{center}
+gegeben, so heißt die Matrix \\
+\begin{center}
+    $A = \begin{pmatrix}
+        A_{11} & A_{12} & ... & A_{1n} \\
+        A_{21} & A_{22} & ... & A_{2n} \\
+        ... & ... & ... & ... \\
+        A_{m1} & A_{m2} & ... & A_{mn} \\
+    \end{pmatrix}$
+\end{center}
+die \textit{Koeffizientenmatrix} des LGS und die Matrix \\
+\begin{center}
+    $(A,b) = \begin{pmatrix}
+        A_{11} & A_{12} & ... & A_{1n} & b_1 \\
+        A_{21} & A_{22} & ... & A_{2n} & b_2 \\
+        ... & ... & ... & ... & ... \\
+        A_{m1} & A_{m2} & ... & A_{mn} & b_m \\
+    \end{pmatrix}$
+\end{center}
+die \textit{erweiterte Koeffizientenmatrix} des LGS. \\
+Hinweis: Matrizen werden meist mit Großbuchstaben bezeichnet. Wenn eine zusätzliche Spalte hinzu kommen soll, schreiben wir die Matrix mit runden Klammern. \\
+Eine 2x3 Matrix wäre beispielsweise: 
+\begin{center}
+    $A = \begin{pmatrix}
+        1 & 0 & \pi \\
+        e^2 & \sqrt{2} & -5 \\
+    \end{pmatrix}$
+\end{center}
 
+\subsubsection*{Definition 2.7}
+Eine Matrix ist in \textit{Zeilenstufenform}, wenn jede Zeile mindestens eine führende Null mehr hat als die vorherige Zeile, 
+es sei denn die darüberliegende Zeile hat nur Nullen. Dann hat auch die nächste Zeile nur Nullen.
+
+\subsubsection*{Beispiele 2.8}
+Die Matrizen 
+\begin{center}
+    $A = \begin{pmatrix}
+        1 & 3 & -7 & 5 \\
+        0 & 0 & 0 & 4 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}$ und
+    $B = \begin{pmatrix}
+        1 & 3 & -7 & 5 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}$
+\end{center}
+sind in Zeilenstufenform, aber \underline{nicht} die Folgenden: \\
+\begin{center}
+    $C = \begin{pmatrix}
+        1 & 3 & -7 & 5 \\
+        0 & 0 & 0 & 4 \\
+        0 & 2 & 0 & 0 \\
+    \end{pmatrix}$ und
+    $D = \begin{pmatrix}
+        1 & 3 & -7 & 5 \\
+        0 & 0 & 0 & 4 \\
+        0 & 0 & 0 & 2 \\
+    \end{pmatrix}$
+\end{center}
+
+\subsubsection*{Fakt 2.9}
+Hinweis: wir nennen es Fakt, da es nicht bewiesen wird, da der Beweis sehr lang ist. \\
+Jede Matrix lässt sich durch elementare Zeilenumformungen in Zeilenstufenform bringen. \\
+
+\subsubsection*{Gauß-Algorithmus 2.10}
+Es sei ein LGS mit erweiterter Koeffizientenmatrix $(A,b)$ gegeben. \\
+1. Überführe $(A,b)$ durch elementare Zeilenumformungen in $(A',b')$ in Zeilenstufenform. \\
+2. Prüfe ob die Lösungsmenge leer ist. \\
+3. Wenn die Lösungsmenge nicht leer ist, ermittle die Lösungsmenge durch sukzessives Einsetzen von unten nach oben. \\
+\\
+\subsubsection*{Bemerkung 2.11}
+Sei $(A',b')$ in Zeilenstufenform. Wenn es eine Zeile gibt, in der alle Einträge von $A'$ nur aus Nullen bestehen, aber $b' \neq 0$ ist, so ist die Lösungsmenge leer. \\
+Das ist die einzige Möglichkeit, in der die Lösungsmenge leer ist. Dies ist auch durch Schritt 3 aus 2.10 nachprüfbar. \\
+\\
+\subsubsection*{Beispiel 2.12}
+Was heißt im Gauß-Algorithmus "sukzessives Einsetzen von unten nach oben"? \\
+Wir betrachten die Matrix \\
+\begin{center}
+    $(A',b') = \begin{pmatrix}
+        1 & 2 & 4 & 4 \\
+        0 & 0 & 1 & 5 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}$
+\end{center}
+wobei die ersten 3 Spalten die Koeffizientenmatrix $A'$ und die letzte Spalte die rechte Seite $b'$ ist. \\
+Die Lösungsmenge ist: \\
+\begin{center}
+    $\{x=(x_1, x_2, x_3) \in \mathbb{R}^3: 1x_1 + 2x_2 + 4x_3 = 4 $ und $ 1x_3 = 5\}$
+    $= \{x=(x_1, x_2, x_3) \in \mathbb{R}^3: x_3=5 $ und $ x_1 + 2x_2 + 4 \cdot 5 = 4\}$
+    $= \{x=(x_1, x_2, x_3) \in \mathbb{R}^3: x_3=5 $ und $ x_1 - 2x_2 - 16 $ und $ x_2 \in \mathbb{R} $ beliebig $\}$
+    $=\{\begin{pmatrix}
+        -2x_2 - 16 \\
+        x_2 \\
+        5 \\
+    \end{pmatrix} \in \mathbb{R}^3: x_2 \in \mathbb{R} $ beliebig $\}$
+\end{center}
+Hinweise: 1. Wir haben die Lösungsmenge hier zur besseren Übersicht untereinander geschrieben. \\
+2. "Woher weiß ich, wann ich fertig bin mit dem Aufschreiben meiner Lösung? Im oberen Beispiel haben wir die Lösungsmenge mit 3 Zeilen angegeben." \\
+Antwort: man hätte theoretisch auch schon nach der 2. Zeile aufhören können. Wir haben weiter umgeformt, um die Lösungsmenge übersichtlicher zu gestalten. \\
+\\
+Ist $(A',b')$ in Zeilenstufenform, so kann man genau ablesen, welche Variable man frei wählen kann und welche durch die Formeln von den frei wählbaren abhängen (Vorsicht: das ist nicht eindeutig.) \\
+Die frei wählbaren Variablen sind jene, die \underline{nicht} die führenden nicht-Null Einträge von Zeilen sind. \\
+Die führenden nicht-Null Einträge sind also fest. Im Beispiel 2.12 sind die führenden nicht-Null Einträge in der 1. Zeile 1 und in der 2. Zeile 1. Das heißt, dass $x_1$ und $x_3$ nicht frei wählbar sind aber $x_2$ schon. \\
+Ein weiteres Beispiel: \\
+\begin{center}
+    $(A',b') = \begin{pmatrix}
+        * & * & * & * & * \\
+        0 & * & 0 & 0 & * \\
+        0 & 0 & 0 & * & * \\
+        0 & 0 & 0 & 0 & 0 \\
+    \end{pmatrix}$
+\end{center}
+Hier sind $x_1, x_2, x_4$ abhängig und $x_3$ frei wählbar. \\
 
 \begin{thebibliography}{9}
     \bibitem{book:baer}
