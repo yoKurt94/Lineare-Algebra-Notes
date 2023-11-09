@@ -891,6 +891,207 @@ Ein weiteres Beispiel: \\
     \end{pmatrix}$
 \end{center}
 Hier sind $x_1, x_2, x_4$ abhängig und $x_3$ frei wählbar. \\
+\\
+\\
+\\
+\date{Donnerstag, 09.11.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite ? aus Baer.} \\
+% 1. Test Rechnen, beweisen, 1 oder 2 Definitionen, Kapitel 2 
+
+\subsection{Struktur und Lösungsmenge eines LGS}
+\subsubsection*{Definition 2.13}
+Sei $n \in N$. Auf dem $\mathbb{R}^n$ definieren wir die Addition:\\
+\begin{center}
+    $+: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}^n, (x,y) \mapsto x+y$ \\
+    $x+y:= (x_1+y_1, ..., x_n+y_n)$ für $ x=(x_1, ..., x_n), y=(y_1, ..., y_n).$ \\
+\end{center}
+und Multiplikation mit Skalaren wie folgt: \\
+\begin{center}
+    $\cdot: \mathbb{R} \times \mathbb{R}^n \rightarrow \mathbb{R}^n, (\lambda, x) \mapsto \lambda \cdot x$ \\
+    $\lambda \cdot x := (\lambda \cdot x_1, ..., \lambda \cdot x_n)$ für $ x=(x_1, ..., x_n) \in \mathbb{R}^n.$ \\
+\end{center}
+
+\subsubsection*{Bemerkung 2.14}
+Ist $x \in \mathbb{R}^n$ und $y \in \mathbb{R}^m$ mit $n \neq m$, so ist $x+y$ \underline{nicht} definiert. \\
+Ebenso ist für $x \in \mathbb{R}^n$ und $y \in \mathbb{R}^n$ (bisher) noch keine Multiplikation $x \cdot y$ definiert. \\
+\\
+\subsubsection*{Beispiel 2.15}
+Es sei $x=(1,2,-5) \in \mathbb{R}^3$ und $y=(0.5, 0, 4) \in \mathbb{R}^3$ und $\lambda = 2 \in \mathbb{R}$. \\
+Dann ist $x+\lambda y = \begin{pmatrix}
+    1 \\
+    2 \\
+    -5 \\
+\end{pmatrix}$ + $2 \cdot \begin{pmatrix}
+    0.5 \\
+    0 \\
+    4 \\
+\end{pmatrix}$ = $\begin{pmatrix}
+    1 \\
+    2 \\
+    -5 \\
+\end{pmatrix}$ + $\begin{pmatrix}
+    1 \\
+    0 \\
+    8 \\
+\end{pmatrix}$ = $\begin{pmatrix}
+    2 \\
+    2 \\
+    3 \\
+\end{pmatrix}$ \\
+\\
+Hinweis: wir schreiben das $\lambda$ direkt vor $y$ da die Konvention "Punkt vor Strich" gilt. \\
+\\
+\subsubsection*{Lemma 2.16}
+Es gelten folgende Rechenregeln für $x,y,z \in \mathbb{R}^n$ und $\lambda, \mu \in \mathbb{R}$: \\
+a.1) $x+(y+z) = (x+y)+z$ \textit{(Assoziativität)}\\ 
+a.2) $x+y = y+x$ \textit{(Kommutativität)}\\
+a.3) $x+0 = x$ wobei $0=(0, ..., 0) \in \mathbb{R}^n$ \textit{(Existenz eines neutralen Elements)}\\
+a.4) $x+(-x) = 0$ wobei $-x=(-x_1, ..., -x_n)$ wenn $x=(x_1, ..., x_n)$ \textit{(Existenz eines inversen Elements)}\\
+b.1) $(\lambda + \mu) \cdot x = \lambda x + \mu x$ \textit{(Distributivität)}\\
+b.2) $\lambda \cdot (x+y) = \lambda x + \lambda y$ \textit{(Distributivität)}\\
+b.3) $(\lambda \cdot \mu) \cdot x = \lambda \cdot (\mu \cdot x)$ \textit{(Assoziativität)}\\
+b.4) $1 \cdot x = x$, wobei $1 \in R$ \textit{(Existenz eines neutralen Elements)}\\
+\\
+Hinweis: das hier ist die Definition des Vektorraums $\mathbb{R}^n$. Die Definition für einen Vektorraum ist noch allgemeiner. \\
+\\
+\subsubsection*{Beweis}
+Hier nur a.1): \\
+Per Definition ist \\
+\begin{center}
+$x + (y + z) = \begin{pmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+\end{pmatrix} + \left( \begin{pmatrix}
+    y_1 \\
+    \vdots \\
+    y_n
+\end{pmatrix} + \begin{pmatrix}
+    z_1 \\
+    \vdots \\
+    z_n
+\end{pmatrix} \right) = \begin{pmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+\end{pmatrix} + \begin{pmatrix}
+    y_1 + z_1 \\
+    \vdots \\
+    y_n + z_n
+\end{pmatrix} = \begin{pmatrix}
+    x_1 + (y_1 + z_1) \\
+    \vdots \\
+    x_n + (y_n + z_n)
+\end{pmatrix} = \begin{pmatrix}
+    (x_1 + y_1) + z_1 \\
+    \vdots \\
+    (x_n + y_n) + z_n
+\end{pmatrix} = \left( \begin{pmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+\end{pmatrix} + \begin{pmatrix}
+    y_1 \\
+    \vdots \\
+    y_n
+\end{pmatrix} \right) + \begin{pmatrix}
+    z_1 \\
+    \vdots \\
+    z_n
+\end{pmatrix} = (x + y) + z$
+\end{center}
+
+$\square$ \\
+\\
+\subsubsection*{Definition 2.17}
+Ein LGS heißt \textit{homogen}, wenn die rechte Seite davon jeweils 0 ist, d.h. $b_1=...=b_m=0$ in der Notation von Definition 2.2. 
+Ansonsten heißt es \textit{inhomogen}. \\
+\\
+\subsubsection*{Definition 2.18}
+Für ein LGS mit erweiterter Koeffizientenmatrix $(A,b)$ schreiben wir Lös$(A,b) \subset \mathbb{R}^n$ für die Lösungsmenge des LGS. \\
+\\
+\subsubsection*{Satz 2.19}
+Es sei ein homogenes LGS mit Koeffizientenmatrix $A$ gegeben. Dann gilt: \\
+%Füge eine Klammer unter die Nullen ein mit \in R^n und auch unter die 0 in der Zweiten Klammer
+a) Es ist $(0,0,...,0) \in$ Lös$(A,0)$. Insbesondere also ist Lös$(A,b) \neq \emptyset$. \\
+b) Für $x,y \in$ Lös$(A,0)$ gilt $x+y \in$ Lös/$(A,0)$. \\
+c) Ist $x \in$ Lös$(A,0)$ und $\lambda \in \mathbb{R}$, so ist $\lambda x \in$ Lös$(A,0)$. \\
+\\
+\subsubsection*{Beweis}
+Es sei $i \in \{1, ..., m\}$ und $A_{i1}\cdot x_1 + ... + A_{in} \cdot x_n = 0$ die i-te Gleichung des LGS (es reicht aus den Beweis separat für alle i zu führen). \\
+a) Es gilt offensichtlich $A_{i1} \cdot 0 + ... + A_{in} \cdot 0 = 0$. \\
+Hinweis: hier sieht man schon, dass wir ein homogenes Gleichungssystem brauchen, denn mit einem inhomogenen wäre das nicht möglich. \\
+b) Wegen $x,y \in$ Lös$(A,0)$ gilt 
+\begin{center}
+    $A_{i1} \cdot x_1 + ... + A_{in} \cdot x_n = 0$ \\
+    und \\
+    $A_{i1} \cdot y_1 + ... + A_{in} \cdot y_n = 0$
+\end{center}
+Dann gilt auch
+\begin{center}
+    $A_{i1} \cdot (x_1 + y_1) + ... + A_{in} \cdot (x_n + y_n)$ \\
+    $= \underbrace{A_{i1} \cdot x_1 + ... + A_{in} \cdot x_n}_{\text{=0}} + \underbrace{A_{i1} \cdot y_1 + ... + A_{in} \cdot y_n}_{\text{=0}}$ \\   
+    $= 0 + 0 = 0$
+\end{center}
+c) Wegen $x \in$ Lös$(A,0)$ gilt
+\begin{center}
+    $A_{i1} \cdot x_1 + ... + A_{in} \cdot x_n = 0$
+\end{center}
+Für $\lambda \in \mathbb{R}$ gilt dann
+\begin{center}
+    $A_{i1} \cdot (\lambda x_1) + ... + A_{in} \cdot (\lambda x_n)$ \\
+    $= \lambda \cdot (A_{i1} \cdot x_1 + ... + A_{in} \cdot x_n)$ \\
+    $= \lambda \cdot 0 = 0$
+\end{center}
+
+\subsubsection*{Satz 2.20}
+a) Hat ein homogenes LGS eine Lösung $x \neq 0 \in \mathbb{R}^n$, so hat es unendlich viele verschiedene Lösungen. \\
+b) Hat ein inhomogenes LGS zwei verschiedene Lösungen, so hat es unendlich viele verschiedene Lösungen. \\
+\\
+\subsubsection*{Satz 2.21}
+Hat ein homogenes LGS mehr Unbekannte als Gleichungen, so besitzt es eine Lösung $\neq 0$. \\
+Hinweis: "Warum ist dieser Satz interessant?" Er bringt 2 unterschiedliche Dinge zusammen. Die Anzahle der Unbekannten und Gleichungen und die Lösungsmenge 0. Hier werden also 2 unterschiedliche Dinge zusammengebracht. \\
+\\
+\subsubsection*{Beweis}
+Wir bringen die Koeffizientenmatrix $A$ des LGS in Zeilenstufenform $A'$. \\
+Wir wissen von letzter Vorlesung (siehe die Bemerkung ganz am Ende davon): Freie Variablen in der Lösungsmenge sind jene, die nicht die führenden nicht-Null Einträge von Zeilen von $A'$ sind. \\
+Haben wir mehr Unbekannte als Gleichungen, haben wir immer mindestens eine freie Variable. \\
+% Copilot Erklärung: 
+% Da $A'$ weniger Zeilen als Spalten hat, gibt es eine Spalte $j$ mit $1 \leq j \leq n$, die nur aus Nullen besteht. \\
+% Wir wählen $x_j = 1$ und $x_i = 0$ für $i \neq j$. \\
+% Dann gilt $A' \cdot x = 0$ und $x \neq 0$. \\
+$\square$ \\
+\\
+\subsubsection*{Satz 2.22}
+Wir betrachten ein LGS mit erweiterter Koeffizientenmatrix $(A,b)$. Es sei Lös$(A,b) \neq \emptyset$ und $y \in $ Lös$(A,b)$. \\
+Dann gilt: \\
+\begin{center}
+    Lös$(A,b) = \{x+y | x \in$ Lös$(A,0)\}$
+\end{center}
+
+\subsubsection*{Beweis}
+\textit{Beweisschritt $\supset$}: \\
+Sei $x \in$ Lös$(A,0)$ und $y \in$ Lös$(A,b)$.
+Wir müssen zeigen, dass $x+y \in$ Lös$(A,b)$ gilt. \\
+Wir betrachten die i-te Gleichung des LGS. Es gilt: \\
+\begin{center}
+    $A_{i1} \cdot x_1 + ... + A_{in} \cdot x_n = 0$ \\
+    und \\
+    $A_{i1} \cdot y_1 + ... + A_{in} \cdot y_n = b_i$
+\end{center}
+wobei $x=(x_1, ..., x_n)$ und $y=(y_1, ..., y_n)$ sowie $b=(b_1, ..., b_m)$ ist. \\
+Dann gilt auch: \\
+\begin{center}
+    $A_{i1} \cdot (x_1 + y_1) + ... + A_{in} \cdot (x_n + y_n)$ \\
+    $= \underbrace{A_{i1} \cdot x_1 + ... + A_{in} \cdot x_n}_{\text{=0}} + \underbrace{A_{i1} \cdot y_1 + ... + A_{in} \cdot y_n}_{\text{$=b_i$}}$ \\   
+    $= 0 + b_i = b_i$
+\end{center}
+\textit{Beweisschritt $\subset$}: \\
+Wir setzen $x:=z-y$, sodass $z=x+y$ mit $y \in $ Lös$(A,b)$ gilt. \\
+Wir müssen $x \in$ Lös$(A,0)$ zeigen. \\
+Das ist eine analoge Rechnung wie im vorherigen Beweisschritt. \\
+Hinweis: das Minuszeichen ist bisher eigentlich undefiniert. \\
+$\square$ \\
+
 
 \begin{thebibliography}{9}
     \bibitem{book:baer}
