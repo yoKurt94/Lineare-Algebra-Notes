@@ -768,7 +768,7 @@ Eine $m \times n$-Matrix reeller Zahlen ist ein rechteckiges Schema der Form: \\
         A_{m1} & A_{m2} & ... & A_{mn} \\
     \end{pmatrix}$
 \end{center}
-wobei $A_{ij} \in \mathbb{R}$ für $i \in \{1, ..., m\}$ und $j \in \{1, ..., n\}$ die Einträge der Matrix sind. \\
+wobei $A_{ij} \in \mathbb{R}$ für $i \in \{1, ..., m\}$ und $j \in \{1, ..., n\}$ die \textit{Einträge} der Matrix sind. \\
 Hinweise: 1. In einer Matrix können auch andere Zahlen stehen, z.B. komplexe Zahlen aber auch Polynome usw. 2. Diese Definition ist mathematisch formal nicht ganz korrekt, da wir nicht definiert haben, was ein rechteckiges Schema ist. \\
 \\
 Haben wie ein LGS der Form \\
@@ -867,7 +867,7 @@ Die Lösungsmenge ist: \\
 \begin{center}
     $\{x=(x_1, x_2, x_3) \in \mathbb{R}^3: 1x_1 + 2x_2 + 4x_3 = 4 $ und $ 1x_3 = 5\}$
     $= \{x=(x_1, x_2, x_3) \in \mathbb{R}^3: x_3=5 $ und $ x_1 + 2x_2 + 4 \cdot 5 = 4\}$
-    $= \{x=(x_1, x_2, x_3) \in \mathbb{R}^3: x_3=5 $ und $ x_1 - 2x_2 - 16 $ und $ x_2 \in \mathbb{R} $ beliebig $\}$
+    $= \{x=(x_1, x_2, x_3) \in \mathbb{R}^3: x_3=5 $ und $ x_1 = 2x_2 - 16 $ und $ x_2 \in \mathbb{R} $ beliebig $\}$
     $=\{\begin{pmatrix}
         -2x_2 - 16 \\
         x_2 \\
@@ -878,7 +878,7 @@ Hinweise: 1. Wir haben die Lösungsmenge hier zur besseren Übersicht untereinan
 2. "Woher weiß ich, wann ich fertig bin mit dem Aufschreiben meiner Lösung? Im oberen Beispiel haben wir die Lösungsmenge mit 3 Zeilen angegeben." \\
 Antwort: man hätte theoretisch auch schon nach der 2. Zeile aufhören können. Wir haben weiter umgeformt, um die Lösungsmenge übersichtlicher zu gestalten. \\
 \\
-Ist $(A',b')$ in Zeilenstufenform, so kann man genau ablesen, welche Variable man frei wählen kann und welche durch die Formeln von den frei wählbaren abhängen (Vorsicht: das ist nicht eindeutig.) \\
+Ist $(A',b')$ in Zeilenstufenform, so kann man genau ablesen, welche Variablen frei wählbar sind und welche durch die Formeln von den frei wählbaren abhängen (Vorsicht: das ist nicht eindeutig.) \\
 Die frei wählbaren Variablen sind jene, die \underline{nicht} die führenden nicht-Null Einträge von Zeilen sind. \\
 Die führenden nicht-Null Einträge sind also fest. Im Beispiel 2.12 sind die führenden nicht-Null Einträge in der 1. Zeile 1 und in der 2. Zeile 1. Das heißt, dass $x_1$ und $x_3$ nicht frei wählbar sind aber $x_2$ schon. \\
 Ein weiteres Beispiel: \\
@@ -946,8 +946,8 @@ a.1) $x+(y+z) = (x+y)+z$ \textit{(Assoziativität)}\\
 a.2) $x+y = y+x$ \textit{(Kommutativität)}\\
 a.3) $x+0 = x$ wobei $0=(0, ..., 0) \in \mathbb{R}^n$ \textit{(Existenz eines neutralen Elements)}\\
 a.4) $x+(-x) = 0$ wobei $-x=(-x_1, ..., -x_n)$ wenn $x=(x_1, ..., x_n)$ \textit{(Existenz eines inversen Elements)}\\
-b.1) $(\lambda + \mu) \cdot x = \lambda x + \mu x$ \textit{(Distributivität)}\\
-b.2) $\lambda \cdot (x+y) = \lambda x + \lambda y$ \textit{(Distributivität)}\\
+b.1) $(\lambda + \mu) \cdot x = \lambda x + \mu x$ \textit{(Distributivität von Skalaren)}\\
+b.2) $\lambda \cdot (x+y) = \lambda x + \lambda y$ \textit{(Distributivität von Vektoren)}\\
 b.3) $(\lambda \cdot \mu) \cdot x = \lambda \cdot (\mu \cdot x)$ \textit{(Assoziativität)}\\
 b.4) $1 \cdot x = x$, wobei $1 \in R$ \textit{(Existenz eines neutralen Elements)}\\
 \\
@@ -1003,7 +1003,7 @@ $x + (y + z) = \begin{pmatrix}
 $\square$ \\
 \\
 \subsubsection*{Definition 2.17}
-Ein LGS heißt \textit{homogen}, wenn die rechte Seite davon jeweils 0 ist, d.h. $b_1=...=b_m=0$ in der Notation von Definition 2.2. 
+Ein LGS heißt \textit{homogen}, wenn die rechte Seite davon jeweils 0 ist, d.h. $b_1=...=b_n=0$ in der Notation von Definition 2.2. 
 Ansonsten heißt es \textit{inhomogen}. \\
 \\
 \subsubsection*{Definition 2.18}
@@ -1012,8 +1012,8 @@ Für ein LGS mit erweiterter Koeffizientenmatrix $(A,b)$ schreiben wir Lös$(A,b
 \subsubsection*{Satz 2.19}
 Es sei ein homogenes LGS mit Koeffizientenmatrix $A$ gegeben. Dann gilt: \\
 %Füge eine Klammer unter die Nullen ein mit \in R^n und auch unter die 0 in der Zweiten Klammer
-a) Es ist $(0,0,...,0) \in$ Lös$(A,0)$. Insbesondere also ist Lös$(A,b) \neq \emptyset$. \\
-b) Für $x,y \in$ Lös$(A,0)$ gilt $x+y \in$ Lös/$(A,0)$. \\
+a) Es ist $(0,0,...,0) \in$ Lös$(A,0)$. Insbesondere also ist Lös$(A,0) \neq \emptyset$. \\
+b) Für $x,y \in$ Lös$(A,0)$ gilt $x+y \in$ Lös$(A,0)$. \\
 c) Ist $x \in$ Lös$(A,0)$ und $\lambda \in \mathbb{R}$, so ist $\lambda x \in$ Lös$(A,0)$. \\
 \\
 \subsubsection*{Beweis}
@@ -1049,7 +1049,7 @@ b) Hat ein inhomogenes LGS zwei verschiedene Lösungen, so hat es unendlich viel
 \\
 \subsubsection*{Satz 2.21}
 Hat ein homogenes LGS mehr Unbekannte als Gleichungen, so besitzt es eine Lösung $\neq 0$. \\
-Hinweis: "Warum ist dieser Satz interessant?" Er bringt 2 unterschiedliche Dinge zusammen. Die Anzahle der Unbekannten und Gleichungen und die Lösungsmenge 0. Hier werden also 2 unterschiedliche Dinge zusammengebracht. \\
+Hinweis: "Warum ist dieser Satz interessant?" Er bringt 2 unterschiedliche Dinge zusammen. Die Anzahl der Unbekannten von Gleichungen und die Lösungsmenge 0. \\
 \\
 \subsubsection*{Beweis}
 Wir bringen die Koeffizientenmatrix $A$ des LGS in Zeilenstufenform $A'$. \\
