@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tabularx}
+\usepackage{mathtools}
 
 \setlength{\parindent}{0pt}
 
@@ -1091,8 +1092,230 @@ Wir müssen $x \in$ Lös$(A,0)$ zeigen. \\
 Das ist eine analoge Rechnung wie im vorherigen Beweisschritt. \\
 Hinweis: das Minuszeichen ist bisher eigentlich undefiniert. \\
 $\square$ \\
+\\
+\\
+\date{Donnerstag, 19.10.23} \footnote{vgl. S. 11 - 18 aus Baer.}
+\\
+\subsection{Matrixabbildungen}
+\subsubsection*{Definition 2.23}
+
+Es sei $A$ eine $m \times n$-Matrix. Wir definieren eine Abbildung $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ durch
+\begin{center}
+    $\varphi_A(x):=\begin{pmatrix}
+        A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n \\
+        \vdots \\
+        A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n \\
+    \end{pmatrix}$ \\
+\end{center}
+wobei $x=(x_1, ..., x_n) \in \mathbb{R}^n$ ist.
+\\
+\subsubsection*{Bemerkung 2.24}
+Aus der Definition von $\varphi_A$ sehen wir sofort: \\
+Für jedes $b \in \mathbb{R}^m$ gilt Lös$(A,b) = \varphi_A^{-1}(b)$. \\
+\\
+\subsubsection*{Beispiel 2.25}
+Für $A = \begin{pmatrix}
+    1 & 0 \\
+    0 & 0 \\
+    0 & 2 \\
+\end{pmatrix}$ ist die Abbildung $\varphi_A: \mathbb{R}^2 \rightarrow \mathbb{R}^3$ gegeben durch \\
+\begin{center}
+    $\varphi_A(x) = \begin{pmatrix}
+        x_1 \\
+        0 \\
+        2x_2 \\
+    \end{pmatrix}$
+\end{center}
+für $x=(x_1, x_2) \in \mathbb{R}^2$. \\
+\\
+\subsubsection*{Lemma 2.26}
+Es sei eine $m \times n$-Matrix $A$ gegeben und $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ die zugehörige Matrixabbildung. Dann gilt: \\
+a) $\varphi_A(x+y) = \varphi_A(x) + \varphi_A(y)$ für alle $x,y \in \mathbb{R}^n$. \\
+b) $\varphi_A(\lambda x) = \lambda \cdot \varphi_A(x)$ für alle $x \in \mathbb{R}^n$ und $\lambda \in \mathbb{R}$. \\
+c) $\varphi_A(0) = 0$. \\
+Hinweise: 1. Das ähnelt dem, was wir über die Lösungsmenge von homogenen LGS wissen. \\
+2. Das erste Plus in a) von $\varphi_A(x+y)$ ist das Plus im $\mathbb{R}^n$ und das zweite Plus in $\varphi_A(x) + \varphi_A(y)$ ist das im $\mathbb{R}^m$. \\
+\\
+\subsubsection*{Beweis}
+a) Schreibe $x=(x_1, ..., x_n)$, $y=(y_1, ..., y_n)$ und $A=\begin{pmatrix}
+    A_{11} & ... & A_{1n} \\
+    \vdots & \ddots & \vdots \\
+    A_{m1} & ... & A_{mn} \\
+\end{pmatrix}$. \\
+Dann ist: \\
+\begin{center}
+    $\varphi_A(x+y) = \begin{pmatrix}
+        A_{11} \cdot (x_1 + y_1) + ... + A_{1n} \cdot (x_n + y_n) \\
+        \vdots \\
+        A_{m1} \cdot (x_1 + y_1) + ... + A_{mn} \cdot (x_n + y_n) \\
+    \end{pmatrix}$ \\
+    $= \begin{pmatrix}
+        A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n + A_{11} \cdot y_1 + ... + A_{1n} \cdot y_n \\
+        \vdots \\
+        A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n + A_{m1} \cdot y_1 + ... + A_{mn} \cdot y_n \\
+    \end{pmatrix}$ \\
+    $= \begin{pmatrix}
+        A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n \\
+        \vdots \\
+        A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n \\
+    \end{pmatrix} + \begin{pmatrix}
+        A_{11} \cdot y_1 + ... + A_{1n} \cdot y_n \\
+        \vdots \\
+        A_{m1} \cdot y_1 + ... + A_{mn} \cdot y_n \\
+    \end{pmatrix}$ \\
+    $= \varphi_A(x) + \varphi_A(y)$
+\end{center}
+b) Analog zu a). \\
+c) 
+\begin{center}
+$\varphi_A(0) = \begin{pmatrix}
+    A_{11} \cdot 0 + ... + A_{1n} \cdot 0 \\
+    \vdots \\
+    A_{m1} \cdot 0 + ... + A_{mn} \cdot 0 \\
+\end{pmatrix} = \begin{pmatrix}
+    0 \\
+    \vdots \\
+    0 \\
+\end{pmatrix} = 0$ \\
+\end{center}
+Hinweis: in der Vorlesung haben wir hier den Beweis nicht aufgeschrieben, da er trivial ist. \\
+$\square$ \\
+\\
+\subsubsection*{Bemerkung 2.27}
+a) Es gilt auch $\varphi_A(x-y) = \varphi_A(x) - \varphi_A(y)$ für alle $x,y \in \mathbb{R}^n$, denn 
+\begin{center}
+    $\varphi_A(x-y) = \varphi_A(x + (-1)\cdot y) = \varphi_A(x) + \varphi_A((-1)\cdot y) = \varphi_A(x) + (-1) \cdot \varphi_A(y) = \varphi_A(x) - \varphi_A(y)$
+\end{center}
+b) Es gilt weiterhin $\varphi_A(\lambda_1 v_1 + ... + \lambda_k v_k) = \lambda_1 \varphi_A(v_1) + ... + \lambda_k \varphi_A(v_k)$ für alle $v_1, ..., v_k \in \mathbb{R}^n$ und $\lambda_1, ..., \lambda_k \in \mathbb{R}$. \\
+Hinweis zu den Indices: wir haben k-viele Elemente aus dem $\mathbb{R}^n$.
+\\
+\subsubsection*{Definition 2.28}
+Sei $A$ eine $m \times n$-Matrix und $\varphi_A$ die zugehörige Matrixabbildung. Dann heißt \\
+\begin{center}
+    ker$(\varphi_A) := \varphi_A^{-1}(\{0\}) = \{x \in \mathbb{R}^n: \varphi_A(x) = 0\}$
+\end{center}
+der \textit{Kern} von $\varphi_A$. \\
+\\
+\subsubsection*{Lemma 2.29}
+Für $x,y \in \mathbb{R}^n$ gilt: \\
+Es ist $\varphi_A(x) = \varphi_A(y)$ genau dann, wenn $x-y \in$ ker$(\varphi_A)$. \\
+\\
+\subsubsection*{Beweis}
+Wir formen einfach um: \\
+%Über den 2. Pfeil gehört Bem. 2.27 a) und über den 3. Pfeil gehört Def 2.28
+\begin{center}
+    $\varphi_A(x) = \varphi_A(y) \Leftrightarrow \varphi_A(x) - \varphi_A(y) = 0$ \\
+    $\overset{\text{Bem. 2.27a}}{\Leftrightarrow} \varphi_A(x-y) = 0$ \\
+    $\overset{\text{Def. 2.28}}{\Leftrightarrow} x-y \in$ ker$(\varphi_A)$
+\end{center}
+
+\subsubsection*{Korollar 2.30}
+Die Abbildung $\varphi_A$ ist injektiv genau dann, wenn ker$(\varphi_A) = \{0\}$. \\
+\\
+\subsubsection*{Beweis}
+"$\Rightarrow$": \\
+Sei $\varphi_A$ injektiv. Sei $x \in$ ker$(\varphi_A)$. Dann gilt $\varphi_A(x) = 0$. \\
+Da $\varphi_A$ injektiv ist, folgt $x=0$. \\
+Also ist ker$(\varphi_A) = \{0\}$. \\
+\\
+"$\Leftarrow$": \\
+Sei ker$(\varphi_A) = \{0\}$. Es sei $\varphi_A(x) = \varphi_A(y)$. Dann gilt mit Lemma 2.29 $x-y \in$ ker$(\varphi_A)$. \\
+Es muss dann $x-y = 0$ gelten, also $x=y$. \\
+% \begin{center}
+%     $\varphi_A(x) = \varphi_A(y)$ \\
+%     $\Leftrightarrow \varphi_A(x) - \varphi_A(y) = 0$ \\
+%     $\overset{\text{Bem. 2.27a}}{\Leftrightarrow} \varphi_A(x-y) = 0$ \\
+%     $\overset{\text{Def. 2.28}}{\Leftrightarrow} x-y \in$ ker$(\varphi_A)$ \\
+%     $\overset{\text{Voraussetzung}}{\Rightarrow} x-y = 0$ \\
+%     $\Leftrightarrow x=y$
+% \end{center}
+$\square$ \\
+\\
+Sei $A$ eine $(m \times n)$-Matrix und $B$ eine $(k \times m)$-Matrix. Dann sind $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ und $\varphi_B: \mathbb{R}^m \rightarrow \mathbb{R}^k$ verknüpfbar. 
+Ist $\varphi_B \circ \varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^k$ wieder von einer Matrix induziert? Wir schreiben mal die Formel auf: \\
+\begin{align*}
+    (\varphi_B \circ \varphi_A)(x) &= \varphi_B\left(\begin{pmatrix}
+        A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n \\
+        \vdots \\
+        A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n \\
+    \end{pmatrix}\right) \\
+    &= \begin{pmatrix}
+        B_{11} \cdot (A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n) + ... + B_{1m} \cdot (A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n) \\
+        \vdots \\
+        B_{k1} \cdot (A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n) + ... + B_{km} \cdot (A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n) \\
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+        B_{11} \cdot A_{11} \cdot x_1 + ... + B_{1m} \cdot A_{m1} \cdot x_1 + ... + B_{11} \cdot A_{1n} \cdot x_n + ... + B_{1m} \cdot A_{mn} \cdot x_n \\
+        \vdots \\
+        B_{k1} \cdot A_{11} \cdot x_1 + ... + B_{km} \cdot A_{m1} \cdot x_1 + ... + B_{k1} \cdot A_{1n} \cdot x_n + ... + B_{km} \cdot A_{mn} \cdot x_n \\
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+        (B_{11} \cdot A_{11} + ... + B_{1m} \cdot A_{m1}) \cdot x_1 + ... + (B_{11} \cdot A_{1n} + ... + B_{1m} \cdot A_{mn}) \cdot x_n \\
+        \vdots \\
+        (B_{k1} \cdot A_{11} + ... + B_{km} \cdot A_{m1}) \cdot x_1 + ... + (B_{k1} \cdot A_{1n} + ... + B_{km} \cdot A_{mn}) \cdot x_n \\
+    \end{pmatrix}
+    \end{align*}
+
+\subsubsection*{Lemma 2.31}
+Es sei $A$ eine $(m \times n)$-Matrix und $B$ eine $(k \times m)$-Matrix. Dann ist die Verknüpfung $\varphi_B \circ \varphi_A$ durch die Matrix \\
+\begin{center}
+    $\begin{pmatrix}
+        B_{11} \cdot A_{11} + ... + B_{1m} \cdot A_{m1} & ... & B_{11} \cdot A_{1n} + ... + B_{1m} \cdot A_{mn} \\
+        \vdots & \ddots & \vdots \\
+        B_{k1} \cdot A_{11} + ... + B_{km} \cdot A_{m1} & ... & B_{k1} \cdot A_{1n} + ... + B_{km} \cdot A_{mn} \\
+    \end{pmatrix}$
+\end{center}
+gegeben. 
+\\
+\subsubsection*{Definition 2.32}
+Sei $A$ eine $(m \times n)$-Matrix und $B$ eine $(k \times m)$-Matrix. Wir definieren das Produkt $B \cdot A$ als die $(k \times n)$-Matrix, deren ij-ter Eintrag wie folgt ist: \\
+\begin{center}
+    $(B \cdot A)_{ij} := B_{i1} \cdot A_{1j} + ... + B_{im} \cdot A_{mj} = \displaystyle\sum_{r=1}^m B_{ir} \cdot A_{rj}$ \\
+\end{center}
+
+\subsubsection*{Bemerkung 2.33}
+Man kann Lemma 2.31 auch so formulieren: \\
+Es gilt $\varphi_B \circ \varphi_A = \varphi_{B \cdot A}$. \\
+Hinweis: 
+Um die Matrixmultiplikation zu definieren wäre der naive Ansatz ja: 
+\begin{center}
+    $\begin{pmatrix}
+        a & b \\
+        c & d \\
+    \end{pmatrix} \cdot \begin{pmatrix}
+        e & f \\
+        g & h \\
+    \end{pmatrix} = \begin{pmatrix}
+        ae & bf \\
+        cg & dh \\
+    \end{pmatrix}$
+\end{center}
+Diese Definition ist aber nutzlos. Die Formel aus Lemma 2.31 bringt einem aber was, nämlich die Bemerkung 2.33. 
+\\
+\subsubsection*{Bemerkung 2.34}
+Interpretieren wir ein $x \in \mathbb{R}^n$ entsprechend der Notation $x = \begin{pmatrix}
+    x_1 \\
+    \vdots \\
+    x_n \\
+\end{pmatrix}$ als eine $(n \times 1)$-Matrix, so ist $\varphi_A(x) $ dieselbe Formel wie das Matrixprodukt $A \cdot x$. \\
+\begin{center}
+    $A \cdot x = \begin{pmatrix}
+        A_{11} ... A_{1n} \\
+        \vdots \\
+        A_{m1} ... A_{mn} \\
+    \end{pmatrix} \cdot \begin{pmatrix}
+        x_1 \\
+        \vdots \\
+        x_n \\
+    \end{pmatrix} = \begin{pmatrix}
+        A_{11} \cdot x_1 + ... + A_{1n} \cdot x_n \\
+        \vdots \\
+        A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n \\
+    \end{pmatrix} = \varphi_A(x)$
+\end{center}
 
 
+\newpage
 \begin{thebibliography}{9}
     \bibitem{book:baer}
     Baer, Christian,
