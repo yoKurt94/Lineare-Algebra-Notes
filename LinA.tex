@@ -881,7 +881,16 @@ Antwort: man hätte theoretisch auch schon nach der 2. Zeile aufhören können. 
 \\
 Ist $(A',b')$ in Zeilenstufenform, so kann man genau ablesen, welche Variablen frei wählbar sind und welche durch die Formeln von den frei wählbaren abhängen (Vorsicht: das ist nicht eindeutig.) \\
 Die frei wählbaren Variablen sind jene, die \underline{nicht} die führenden nicht-Null Einträge von Zeilen sind. \\
-Die führenden nicht-Null Einträge sind also fest. Im Beispiel 2.12 sind die führenden nicht-Null Einträge in der 1. Zeile 1 und in der 2. Zeile 1. Das heißt, dass $x_1$ und $x_3$ nicht frei wählbar sind aber $x_2$ schon. \\
+Die führenden nicht-Null Einträge sind also fest. Im Beispiel 2.12 hatten wir die Matrix: \\
+\begin{center}
+    $(A',b') = \begin{pmatrix}
+        1 & 2 & 4 & 4 \\
+        0 & 0 & 1 & 5 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}$
+\end{center}
+
+Her sind die führenden nicht-Null Einträge in der 1. Zeile 1 und in der 2. Zeile 1. Das heißt, dass $x_1$ und $x_3$ nicht frei wählbar sind aber $x_2$ schon. \\
 Ein weiteres Beispiel: \\
 \begin{center}
     $(A',b') = \begin{pmatrix}
@@ -1094,7 +1103,7 @@ Hinweis: das Minuszeichen ist bisher eigentlich undefiniert. \\
 $\square$ \\
 \\
 \\
-\date{Donnerstag, 19.10.23} \footnote{vgl. S. 11 - 18 aus Baer.}
+\date{Mittwoch, 15.11.23} \footnote{vgl. S. 11 - 18 aus Baer.}
 \\
 \subsection{Matrixabbildungen}
 \subsubsection*{Definition 2.23}
@@ -1313,7 +1322,131 @@ Interpretieren wir ein $x \in \mathbb{R}^n$ entsprechend der Notation $x = \begi
         A_{m1} \cdot x_1 + ... + A_{mn} \cdot x_n \\
     \end{pmatrix} = \varphi_A(x)$
 \end{center}
+-
+\\
+\\
+\\
+\date{Donnerstag, 16.11.23} \footnote{vgl. S. ? aus Baer.} \\
 
+\subsubsection*{Das Falk Schema S.49 aus Baer}
+Um 2 Matrizen miteinander zu multiplizieren kann man das Falk Schema verwenden. \\
+
+\subsubsection*{Bemerkung 2.35}
+Ist $A$ eine $(m \times n)$-Matrix und $B$ eine $(k \times m)$-Matrix, so ist zwar $B \cdot A$ definiert, aber $A \cdot B$ nicht. 
+Dies ist nur definiert, wenn $k=m$ ist. Die Anzahl der Spalten muss gleich der Anzahl der Zeilen sein. \\
+Selbst wenn $A$ und $B$ quadratische Matrizen derselben Größe sind sodass $A \cdot B$ und $B \cdot A$ definiert sind, müssen sie nicht unbedingt übereinstimmen: \\
+\begin{center}
+Für $A = \begin{pmatrix}
+    1 & 0 \\
+    1 & 1 \\
+\end{pmatrix}$ und $B = \begin{pmatrix}
+    1 & 3 \\
+    2 & 4 \\
+\end{pmatrix}$ gilt $A \cdot B = \begin{pmatrix}
+    1 & 3 \\
+    3 & 7 \\
+\end{pmatrix}$ und $B \cdot A = \begin{pmatrix}
+    4 & 3 \\
+    6 & 4 \\
+\end{pmatrix}$. 
+\end{center}
+Das heißt die Kommutativität gilt für die Matrixmultiplikation nicht. \\
+Bei der Matrixmultiplikation kann auch folgendes passieren: \\
+\begin{center}
+    
+$\begin{pmatrix}
+    0 & 1 \\
+    0 & 0 \\
+\end{pmatrix} \cdot \begin{pmatrix}
+    0 & 1 \\
+    0 & 0 \\
+\end{pmatrix} = \begin{pmatrix}
+    0 & 0 \\
+    0 & 0 \\
+\end{pmatrix}$ 
+\end{center}
+Das Produkt von nicht-Null Matrizen kann also Null werden. \\
+\\
+\subsubsection*{Lemma 2.36}
+Es sei $A$ eine $(m \times n)$-Matrix, $B$ eine $(n \times k)$-Matrix und $C$ eine $(k \times l)$-Matrix. Dann gilt: \\
+\begin{center}
+    $(A \cdot B) \cdot C = A \cdot (B \cdot C)$
+\end{center}
+Das heißt, dass Assoziativität gilt. \\
+\\
+\subsubsection*{Beweis}
+Für $i \in \{1, ..., m\}$ und $j \in \{1, ..., l\}$ gilt: \\
+
+\begin{align*}
+    ((A \cdot B) \cdot C)_{ij} &= \displaystyle\sum_{s=1}^k (A \cdot B)_{is} \cdot C_{sj} \\
+    &= \displaystyle\sum_{s=1}^k \left( \displaystyle\sum_{r=1}^n A_{ir} \cdot B_{rs} \right) \cdot C_{sj} \\
+    &= \displaystyle\sum_{s=1}^k \displaystyle\sum_{r=1}^n \left(A_{ir} \cdot B_{rs} \cdot C_{sj}\right) \\
+    &= \displaystyle\sum_{r=1}^n \displaystyle\sum_{s=1}^k \left(A_{ir} \cdot B_{rs} \cdot C_{sj}\right) \\
+    &= \displaystyle\sum_{r=1}^n A_{ir} \cdot \left( \displaystyle\sum_{s=1}^k B_{rs} \cdot C_{sj} \right) \\
+    &= \displaystyle\sum_{r=1}^n A_{ir} \cdot (B \cdot C)_{rj} \\
+    &= (A \cdot (B \cdot C))_{ij}
+\end{align*}
+Das zeigt, dass die $ij$-ten Einträge von $(A \cdot B) \cdot C$ und $A \cdot (B \cdot C)$ übereinstimmen für alle $i,j$. $\square$ \\
+Hinweise: In Zeile 3 sehen wir das Distributivgesetz. In Zeile 4 das Kommutativgesetz. In Zeile 4 können wir das Distributivgesetz anwenden, da das $A_{ir}$ den Index $s$ nicht enthält. Das heißt $A_{ir}$ ändert sich in der inneren Summe nicht und deshalb können wir es ausklammern. Das Ergebnis ist in Zeile 5. \\
+\\
+\subsubsection*{Bemerkung 2.37}
+Es sei $E_k$ die $(k \times k)$-Matrix die wie folgt aussieht: \\
+\begin{center}
+    $E_k = \begin{pmatrix}
+        1 & 0 & ... & 0 \\
+        0 & 1 & ... & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & ... & 1 \\
+    \end{pmatrix}$
+\end{center}
+Diese Matrix hat in der Diagonalen Einsen und sonst Nullen. Dann gilt für jede $(m \times n)$-Matrix $A$: \\
+\begin{center}
+    $E_m \cdot A = A \cdot E_n = A$
+\end{center}
+%ist die Einheitsmatrix das gleiche wie das neutrale Element?
+$E_k$ nennen wir die \textit{Einheitsmatrix}. \\
+\\
+\subsection{Untervektorräume des $\mathbb{R}^n$}
+\subsubsection*{Definition 2.38}
+Eine Teilmenge $U \subset \mathbb{R}^n$ heißt \textit{Untervektorraum (UVR)}, wenn: \\
+a) $0 \in U$ wobei $0=(0, ..., 0) \in \mathbb{R^n}$ ist (Existenz eines neutralen Elements). \\
+b) Für alle $x,y \in U$ gilt $x+y \in U$ (Abgeschlossenheit unter Addition). \\
+c) Für alle $x \in U$ und $\lambda \in \mathbb{R}$ gilt $\lambda x \in U$ (Abgeschlossenheit unter Skalarmultiplikation). \\
+Hinweis: a) ist redundant, weil dies auch aus $\lambda = 0$ folgt.\\
+\\
+\subsubsection*{Beispiele 2.39}
+a) Satz 2.19 besagt, dass Lös$(A,0)$ ein UVR des $\mathbb{R}^n$ ist (Satz 2.19 hat exakt a, b und c aus obigem 2.38 als Aussagen). \\
+b) $U:=\{0\}$ und $U:=\mathbb{R}^n$ sind UVR des $\mathbb{R}^n$. \\
+c) Für $x \in \mathbb{R}^n$ ist $\{t\cdot x: t \in \mathbb{R}\}$ ein UVR des $\mathbb{R}^n$. \\
+d) Für $x \in \mathbb{R}^n$ mit $x \neq 0$ ist $U:=\{x\}$ kein UVR des $\mathbb{R}^n$. \\
+Hinweis: welche der 3 Eigenschaften aus 2.38 ist für d) nicht erfüllt? \\
+e) Lös($A,b$) mit $b \neq 0$ ist kein UVR. Dies folgt aus Aufgabe 3 der Übungen 04 (dort wurde $0\in $ Lös($A,b$)$\Rightarrow b=0$ gezeigt). \\
+\\
+\subsubsection*{Bemerkung 2.40}
+Für eine Abbildung $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ induziert durch eine $(m \times n)$-Matrix $A$ haben wir in Satz 2.19 gezeigt, dass ker$(\varphi_A)$ ein UVR des $\mathbb{R}^n$ ist. \\
+\\
+\subsubsection*{Lemma 2.41}
+Das Bild von $\varphi_A$, d.h. $\varphi_A(\mathbb{R}^n)$, ist ein UVR des $\mathbb{R}^m$. \\
+\\
+\subsubsection*{Beweis}
+Wir überprüfen Definition 2.38. \\
+a) Es gilt $\varphi_A(0) = 0$ (Bemerkung 2.27c), d.h. $0 \in \varphi_A(\mathbb{R}^n)$. \\
+b) Es seien $x,y \in \varphi_A(\mathbb{R}^n)$. Es gibt also $a,b \in \mathbb{R}^n$ mit $\varphi_A(a)=x$ und $\varphi_A(b)=y$ (dieser Rechenschritt stammt aus der gestrigen Vorlesung). Dann ist: \\
+\begin{center}
+    $\varphi_A(a+b) = \varphi_A(a) + \varphi_A(b) = x+y$ \\
+\end{center}
+d.h. $x+y \in \varphi_A(\mathbb{R}^n)$. \\
+c) Sei $x \in \varphi_A(\mathbb{R}^n)$ und $\lambda \in \mathbb{R}$. Dann gibt es $a \in \mathbb{R}^n$ mit $\varphi_A(a)=x$. Dann ist: \\
+\begin{center}
+    $\varphi_A(\lambda x) = \lambda \cdot \varphi_A(x) = \lambda \cdot x$ \\
+\end{center}
+d.h. $\lambda x \in \varphi_A(\mathbb{R}^n)$. \\
+$\square$ \\
+\\
+\subsubsection*{Bemerkung 2.42}
+Allgemeiner gilt: \\
+Ist U ein UVR des $\mathbb{R}^n$, so ist $\varphi_A(U)$ ein UVR des $\mathbb{R}^m$. \\
+Hinweis: der Beweis ist analog zum Oberen, nur dass wir statt $\mathbb{R}^n$ ein U nehmen. \\
 
 \newpage
 \begin{thebibliography}{9}
