@@ -1424,6 +1424,11 @@ e) Lös($A,b$) mit $b \neq 0$ ist kein UVR. Dies folgt aus Aufgabe 3 der Übunge
 \\
 \subsubsection*{Bemerkung 2.40}
 Für eine Abbildung $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ induziert durch eine $(m \times n)$-Matrix $A$ haben wir in Satz 2.19 gezeigt, dass ker$(\varphi_A)$ ein UVR des $\mathbb{R}^n$ ist. \\
+Hinweis: Warum ist das so? In Satz 2.19 haben wir gesehen, dass im Kern von $\varphi_A$ jene $x=(x_1, ... , x_n)$ liegen, die Lösungen des homogenen LGS $A \cdot x = 0$ sind. \\
+1. Natürlich ist $\varphi (0) = 0$. \\
+2. Wenn wir 2 Lösungen $x$ und $y$ haben, ist $\varphi_A(x+y) = \varphi_A(x) + \varphi_A(y) = 0 + 0 = 0$.\\
+3. Auch wenn wir $x$ mit einem Skalar $\lambda$ multiplizieren, ist $\varphi_A(\lambda x) = \lambda \cdot \varphi_A(x) = \lambda \cdot 0 = 0$. \\
+Deshalb ist ker$(\varphi_A)$ ein UVR des $\mathbb{R}^n$. \\
 \\
 \subsubsection*{Lemma 2.41}
 Das Bild von $\varphi_A$, d.h. $\varphi_A(\mathbb{R}^n)$, ist ein UVR des $\mathbb{R}^m$. \\
