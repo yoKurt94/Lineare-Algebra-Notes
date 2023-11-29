@@ -3,6 +3,8 @@
 \usepackage{amssymb}
 \usepackage{tabularx}
 \usepackage{mathtools}
+\usepackage{graphicx}
+
 
 \setlength{\parindent}{0pt}
 
@@ -1452,6 +1454,144 @@ $\square$ \\
 Allgemeiner gilt: \\
 Ist U ein UVR des $\mathbb{R}^n$, so ist $\varphi_A(U)$ ein UVR des $\mathbb{R}^m$. \\
 Hinweis: der Beweis ist analog zum Oberen, nur dass wir statt $\mathbb{R}^n$ ein U nehmen. \\
+
+\newpage
+\date{Mittwoch, 29.11.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite ? aus Baer.}
+
+\section{Geometrie in der Ebene}
+\subsection{Skalarprodukt, Norm und Abstand und Abstand}
+\subsubsection*{Definition 3.1}
+Für $x=(x_1, x_2)$, $y=(y_1, y_2) \in \mathbb{R}^2$ heißt \\
+\begin{center}
+    $\langle x,y \rangle := x_1 \cdot y_1 + x_2 \cdot y_2$
+\end{center}
+das \textit{Skalarprodukt} von $x$ und $y$. \\
+Eine andere übliche Notation ist $x \cdot y$. \\
+
+\subsubsection*{Anschauung 3.2}
+Anschaulich gilt $\langle x,y \rangle = $ Länge von $x \cdot \mu$ wobei die Länge der \textit{orthogonale Projektion} von $x$ auf $y$ ist (bis auf Vorzeichen). \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.2.jpeg}
+    \caption{}
+\end{figure}
+
+Das Skalarprodukt ist eine Abbildung $\mathbb{R^2} \times \mathbb{R^2} \rightarrow \mathbb{R}$ für welche folgende Rechenregeln gelten: \\
+\subsubsection*{Lemma 3.3}
+Für alle $x, x', y \in \mathbb{R}^2$ und $t \in \mathbb{R}$ gilt: \\
+a) $\langle x + x', y \rangle = \langle x,y \rangle + \langle x',y \rangle$ \\
+b) $\langle t \cdot x, y \rangle = t \cdot \langle x,y \rangle$ \\
+c) $\langle x,y \rangle = \langle y,x \rangle$ \\
+d) $\langle x,x \rangle > 0$ \\
+e) $\langle x,x \rangle = 0 \Leftrightarrow x = (0,0)$ \\
+Die Punkte a bis c ergeben zusammen Folgendes: \\
+a') $\langle x, y+y' \rangle = \langle x,y \rangle + \langle x,y' \rangle$ \\
+b') $\langle x, t \cdot y \rangle = t \cdot \langle x,y \rangle$ \\
+\\
+\subsubsection*{Definition 3.4}
+Für $x \in \mathbb{R}^2$ heißt $\|x\| := \sqrt{\langle x,x \rangle}$ die \textit{Norm} von $x$. \\
+Hinweis: Für Norm sagen wir auch Länge falls x durch einen Pfeil dargestellt wird. \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.4.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Bemerkung 3.5}
+Wegen Lemma 3.3d ist $\sqrt{\langle x,x \rangle}$ immer wohldefiniert. \\
+Für $x=(x_1, x_2)$ gilt $\|x\| = \sqrt{\langle x,x \rangle} = \sqrt{x_1 \cdot x_1 + x_2 \cdot x_2}$, was per Satz des Pythagoras wirklich die Länge von $x$ ist. \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.5.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Satz 3.6 (Cauchy-Schwarz-Ungleichung)}
+Für alle $x,y \in \mathbb{R}^2$ gilt: \\
+\begin{center}
+    $|\langle x,y \rangle| \leq \|x\| \cdot \|y\|$
+\end{center}
+
+\subsubsection*{Beweis}
+Wir schreiben $x=(x_1, x_2)$ und $y=(y_1, y_2)$ und berechnen: \\
+\begin{align*}
+    (\|x\| \cdot \|y\|)^2 - (\langle x,y \rangle)^2 &= \|x\|^2 \cdot \|y\|^2 - \langle x,y \rangle^2 \\
+    &= \langle x,x \rangle \cdot \langle y,y \rangle - \langle x,y \rangle^2 \\
+    &= (x_1^2 + x_2^2) \cdot (y_1^2 + y_2^2) - (x_1 \cdot y_1 + x_2 \cdot y_2)^2 \\
+    &= x_1^2 \cdot y_2^2 + x_2^2 \cdot y_1^2 + x_2^2 \cdot y_2^2 - (x_1^2 \cdot y_1^2 + 2 \cdot x_1 \cdot y_1 \cdot x_2 \cdot y_2 + x_2^2 \cdot y_2^2) \\
+    &= x_2^2 \cdot y_1^2 + x_1^2 \cdot y_2^2 - 2 \cdot x_1 \cdot y_1 \cdot x_2 \cdot y_2 \\
+    &= (x_2 \cdot y_1 - x_1 \cdot y_2)^2 \\
+\end{align*}
+d.h. $(\|x\| \cdot \|y\|)^2 \geq (\langle x,y \rangle)^2$. Da $\|x\| \geq 0$, $\|y\| \geq 0$ und $|\langle x,y \rangle| \geq 0$ ist, können wir die Wurzel ziehen und erhalten \\
+\begin{center}
+    $\|x\| \cdot \|y\| \geq |\langle x,y \rangle|$
+\end{center}
+$\square$ \\
+Hinweise: Zeile 3: Definition des Skalarproduktes und in Zeile 4 kürzen wir. Beim Wurzelziehen im letzten Satz benutzen wir, das die Wurzelfunktion monoton steigend ist.
+Was haben uns die ganzen Umformungen jetzt gebracht? Der letzte Ausdruck der Umformungen ist eine Quadratzahl und damit nicht negativ. \\
+
+\subsubsection*{Lemma 3.7}
+Für alle $x,y \in \mathbb{R}^2$ und $t \in \mathbb{R}$ gilt: \\
+a) $\|x\| \geq 0$ \\
+b) $\|x\| = 0 \Leftrightarrow x = (0,0)$ \\
+c) $\|t \cdot x\| = |t| \cdot \|x\|$ \\
+d) $\|x+y\| \leq \|x\| + \|y\|$ \\
+
+\subsubsection*{Beweis}
+a) ist klar aus der Definition $\|x\| = \sqrt{\langle x,x \rangle}$ da die Wurzelfunktion nie negative Werte produziert. \\
+b) Es gilt \\
+\begin{align*}
+    \|x\| = 0 &\Leftrightarrow \sqrt{\langle x,x \rangle} = 0 \\
+    &\Leftrightarrow \langle x,x \rangle = 0 \\
+    % &\Leftrightarrow x_1^2 + x_2^2 = 0 \\
+    % &\Leftrightarrow x_1 = 0 \text{ und } x_2 = 0 \\
+    &\Leftrightarrow x = (0,0)
+\end{align*}
+Hinweis: im letzten Schritt benutzen wir das Lemma 3.3e. \\
+c) Es gilt \\
+\begin{align*}
+    \|t \cdot x\| &= \sqrt{\langle t \cdot x, t \cdot x \rangle} \\
+    &= \sqrt{t^2 \cdot \langle x,x \rangle} \\
+    &= \sqrt{t^2} \cdot \sqrt{\langle x,x \rangle} \\
+    &= |t| \cdot \|x\|
+\end{align*}
+d) Es gilt \\
+\begin{align*}
+    \|x+y\|^2 &= \langle x+y, x+y \rangle \\
+    &= \langle x,x \rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle \\
+    &= \|x\|^2 + \overset{\text{$\leq 2 \|x\| \cdot \|y\|$ Cauchy-Schwarz}}{2 \cdot \langle x,y \rangle} + \|y\|^2 \\
+    &= (\|x\| + \|y\|)^2
+\end{align*}
+und jetzt auf beiden Seiten die Wurzel ziehen. $\square$ \\
+\\
+\subsubsection*{Bemerkung 3.8}
+Die Eigenschaft im Lemma 3.7d) heißt \textit{Dreiecksungleichung}: \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.8.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Definition 3.9}
+Zu $x,y \in \mathbb{R}^2$ heißt \\
+\begin{center}
+    $d(x,y) := \|x-y\|$
+\end{center}
+der \textit{Abstand} von $x$ und $y$. \\
+
+\subsubsection*{Lemma 3.10}
+Für alle $x,y \in \mathbb{R}^2$ gilt: \\
+a) $d(x,y) \geq 0$ \\
+b) $d(x,y) = 0 \Leftrightarrow x = y$ \\
+c) $d(x,y) = d(y,x)$ \\
+d) $d(x,y) \leq d(x,z) + d(z,y)$ \\
+Hinweis: Punkt d) ist die Dreiecksungleichung. \\
+Der Beweis erfolgt per Nachrechnen unter unter Ausnutzung von Lemma 3.7. \\
+
 
 \newpage
 \begin{thebibliography}{9}
