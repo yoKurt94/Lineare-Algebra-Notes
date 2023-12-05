@@ -1591,7 +1591,175 @@ c) $d(x,y) = d(y,x)$ \\
 d) $d(x,y) \leq d(x,z) + d(z,y)$ \\
 Hinweis: Punkt d) ist die Dreiecksungleichung. \\
 Der Beweis erfolgt per Nachrechnen unter unter Ausnutzung von Lemma 3.7. \\
+\newpage
+\date{Donnerstag, 30.11.23} \footnote{vgl. S. ? aus Baer.}
+\subsection{Geraden und Dreiecke}
+\subsubsection*{Definition 3.11}
+Eine Gerade in der Ebene ist eine Menge der Form \\
+\begin{center}
+    $G_{a,v} := \{a + t \cdot v: t \in \mathbb{R}\}$ \\
+\end{center}
+wobei $a \in \mathbb{R}^2$ \textit{Aufpunkt} und $v \in \mathbb{R}^2\backslash\{0\}$ \textit{Richtungsvektor} der Gerade heißt. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.11.jpeg}
+    \caption{}
+\end{figure}
 
+\subsubsection*{Anmerkung 3.12}
+Wäre $v=(0,0)$ zugelassen, so wäre in diesem Fall $G_{a,v} = \{a\}$. Das ist aber anschaulich keine Gerade. \\
+
+\subsubsection*{Lemma 3.13}
+Es sei $G_{a,v}$ eine Gerade und $p \in G_{a,v}$. Dann gilt $G_{a,v} = G_{p,v}$. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.13.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Beweis}
+Wegen $p \in G_{a,v}$ gibt es ein $t \in \mathbb{R}$ mit $p = a + t \cdot v.^{(*)}$
+\\
+\underline{\textit{$G_{a,v} \supset G_{p,v}$}}: \\
+Sei $q \in G_{p,v}$, d.h. es gibt ein $t_1 \in \mathbb{R}$ mit $q = p + t_1 \cdot v$. \\
+Wir setzen (*) ein und erhalten \\
+\begin{align*}
+    q &= a + t_1 \cdot v \\
+    &= a + t_0 \cdot v + t_1 \cdot v \\
+    &= a + (t_0 + t_1) \cdot v
+\end{align*}
+d.h. $q \in G_{a,v}$. \\
+\\
+\underline{\textit{$G_{a,v} \subset G_{p,v}$}}: \\
+Sei $x \in G_{a,v}$, d.h. es gibt ein $t_1 \in \mathbb{R}$ mit $x = a + t_1 \cdot v$. \\
+Aus (*) folgt $a=p-t_0 \cdot v^{(**)}$ und damit \\
+\begin{align*}
+    x &= a + t_1 \cdot v \\
+    &= p - t_0 \cdot v + t_1 \cdot v \\
+    &= p + (t_1 - t_0) \cdot v
+\end{align*}
+d.h. $x \in G_{p,v}$. \\
+$\square$ \\
+\\
+Hinweis: (**) wurde in Zeile 2 benutzt. \\
+\\
+\subsubsection*{Lemma 3.14}
+Es sei $G \in \mathbb{R}^2$ eine Gerade. Sind $a,b \in G$ mit $a \neq b$, so ist \\
+\begin{center}
+    $G = G_{a,b-a}$  \\
+\end{center}
+Hinweis: 2 Punkte legen eine Gerade also eindeutig fest. \\
+\\
+\subsubsection*{Beweis}
+$G$ ist eine Gerade, d.h. es gibt $p \in \mathbb{R}^2$ und $v \in \mathbb{R}^2\backslash\{0\}$ mit $G = G_{p,v}$. 
+Wegen Lemma 3.13 gilt $G_{a,v} = G_{p,v}$. Wegen $b \in G = G_{a,v}$ gibt es ein $t_0 \in \mathbb{R}$ mit $b = a + t_0 \cdot v$. 
+Wegen $b \neq a$ ist $t_0 \neq 0$. Wir zeigen jetzt, dass $G_{a,v} = G_{a,b-a}$: \\
+\underline{\textit{$G_{a,v} \subset G_{a,b-a}$}}: \\
+Zu jedem $x \in G_{a,v}$ gibt es ein $t_1 \in \mathbb{R}$ mit $x = a + t_1 \cdot v$.
+Jetzt gilt: \\
+\begin{align*}
+    x &= a + t_1 \cdot v \\
+    &= a + t_1 \cdot \frac{1}{t_0} \cdot (b-a) \\
+\end{align*}
+d.h. $x \in G_{a,b-a}$. \\
+Hinweis: wir haben im Beweis genutzt, dass $b=a+t_0 \cdot v$ und $t_0 \neq 0$ und daraus folgt $v = \frac{1}{t_0} \cdot (b-a)$. \\
+\\
+\underline{\textit{$G_{a, b-a} \subset G_{a,v}$}}: \\
+Für $y \in G_{a,b-a}$ existiert ein $t_2 \in \mathbb{R}$ mit $y = a + t_2 \cdot (b-a)$. \\
+Dann gilt: \\
+\begin{align*}
+    y &= a + t_2 \cdot (b-a) \\
+    &= a + t_2 \cdot t_0 \cdot v \\
+\end{align*}
+d.h. $y \in G_{a,v}$. \\
+Hinweis: wir haben im Beweis genutzt, dass $b=a+t_0 \cdot v$ und daraus folgt $b-a = t_0 \cdot v$. \\
+$\square$ \\
+\\
+\subsubsection*{Lemma 3.15 (Mittelpunktslemma)}
+Sei $G \subset \mathbb{R}^2$ eine Gerade und $a,b \in G$ mit $a \neq b$. Dann existiert genau ein Punkt $c \in G$ mit $d(a,c) = d(b,c)$.
+Für diesen Punkt $c$ gilt ferner: \\
+\begin{center}
+    $c = \frac{1}{2} \cdot (a+b)$
+    und 
+    $d(a,c) = \frac{1}{2} \cdot d(a,b) = d(b,c)$
+\end{center}
+Hinweis: in diesem Lemma sind 2 Aussagen versteckt: \\
+1. Es gibt einen Punkt c, der von a und b den gleichen Abstand hat. \\
+2. Dieser Punkt ist eindeutig definiert. Für diesen Punkt gilt, dass wir ihn als Mittelpunkt ausrechnen können. \\
+Das kann man mit der Aussage verbinden, dass der kürzeste Weg zwischen 2 Punkten eine Gerade ist, da wenn ich die halbe Strecke laufe und auf dem Mittelpunkt lande, dann bin ich auf der Geraden. \\
+\\
+\subsubsection*{Beweis}
+Nach Lemma 3.14 gilt, dass $G = G_{a,b-a}$ ist. Sei $q = a+t_0 \cdot (b-a) \in G$ für ein $t_0 \in \mathbb{R}$.
+Dann gilt: \\
+\begin{align*}
+    d(a,q) &= \|a-q\| \\
+    &= \|a-(a+t_0 \cdot (b-a))\| \\
+    &= \|-t_0 \cdot (b-a)\| \\
+    &= |-t_0| \cdot \|b-a\| \\
+    &= |t_0| \cdot \|b-a\| \\
+\end{align*}
+und ebenso \\
+\begin{align*}
+    d(b,q) &= \|b-q\| \\
+    &= \|b-(a+t_0 \cdot (b-a))\| \\
+    &= \|b-a\underbrace{-t_0 \cdot (b+t_0 \cdot a)}_{=t_0(-b+a)}\| \\
+    &= \|(1-t_0) \cdot (b-a)\| \\
+    &= |1-t_0| \cdot \|b-a\| \\
+\end{align*}
+Damit gilt dann: \\
+\begin{align*}
+    d(a,q) = d(b,q) &\Leftrightarrow |t_0| \cdot \|b-a\| = |1-t_0| \cdot \|b-a\| \\
+    &\Leftrightarrow |t_0| = |1-t_0| \\
+    &\Leftrightarrow t_0^2 = (1-t_0)^2 \\
+    &\Leftrightarrow t_0^2 = 1 - 2 \cdot t_0 + t_0^2 \\
+    &\Leftrightarrow t_0 = \frac{1}{2} \\
+\end{align*}
+Damit ist $c = a + \frac{1}{2} \cdot (b-a) = \frac{1}{2} \cdot (a+b)$ der einzige Punkt auf $G$ der von $a$ und $b$ den gleichen Abstand hat. 
+Für diesen Abstand gilt $d(a,c) = \frac{1}{2} \cdot \|b-a\| = d(b,c)$. \\
+$\square$ \\
+Hinweis: in Zeile 2 haben wir benutzt, dass $\|b-a\| \neq 0$ ist. 
+
+\subsubsection*{Definition 3.16}
+Ein Dreieck ist ein Tripel $(a,b,c)$ von Punkten $a,b,c \in \mathbb{R}^2$. Das Dreieck $(a,b,c)$ heißt \textit{entartet}, falls die Punkte $a,b,c$ auf einer Geraden liegen. \\
+\\
+\subsubsection*{Definition 3.17}
+Eine Seitenhalbierende in einem nicht entarteten Dreieck ist eine Gerade durch eine der Ecken des Dreiecks sowie den Mittelpunkt der anderen beiden Ecken. \\
+Die 3 Seitenhalbierenden sind: \\
+\begin{center}
+    $G_a,\frac{1}{2}(b+c)-a$ \\
+    $G_b,\frac{1}{2}(a+c)-b$ \\
+    $G_c,\frac{1}{2}(a+b)-c$ \\
+\end{center}
+
+\subsubsection*{Satz 3.18}
+In jedem nicht-entarteten Dreieck schneiden sich die 3 Seitenhalbierenden im Punkt $\frac{1}{3}(a+b+c)$. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.18.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Beweis}
+Wir zeigen, dass $\frac{1}{3}(a+b+c)$ auf allen Seitenhalbierenden liegt. \\
+Für \\
+\begin{center}
+    $G_a, \frac{1}{2}(b+c)-a = \{a+t \cdot (\frac{1}{2}(b+c)-a): t \in \mathbb{R}\}$ \\
+\end{center}
+wählen wir $t = \frac{2}{3}$ und erhalten \\
+\begin{align*}
+    a + \frac{2}{3} \cdot (\frac{1}{2}(b+c)-a) &= a + \frac{1}{3}(b+c) - \frac{2}{3}a \\
+    &= \frac{1}{3}(a+b+c)\\
+\end{align*}
+Analog verfährt man mit den beiden anderen Seitenhalbierenden. \\
+$\square$ \\
+\\
+\subsubsection*{Anmerkung 3.19}
+Der Schnittpunkt teilt die Seitenhalbierenden im Verhältnis $2:1$. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.19.jpeg}
+    \caption{}
+\end{figure}
 
 \newpage
 \begin{thebibliography}{9}
