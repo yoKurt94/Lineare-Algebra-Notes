@@ -4,6 +4,7 @@
 \usepackage{tabularx}
 \usepackage{mathtools}
 \usepackage{graphicx}
+\usepackage{xcolor}
 
 
 \setlength{\parindent}{0pt}
@@ -1459,7 +1460,7 @@ Hinweis: der Beweis ist analog zum Oberen, nur dass wir statt $\mathbb{R}^n$ ein
 \date{Mittwoch, 29.11.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite ? aus Baer.}
 
 \section{Geometrie in der Ebene}
-\subsection{Skalarprodukt, Norm und Abstand und Abstand}
+\subsection{Skalarprodukt, Norm und Abstand}
 \subsubsection*{Definition 3.1}
 Für $x=(x_1, x_2)$, $y=(y_1, y_2) \in \mathbb{R}^2$ heißt \\
 \begin{center}
@@ -1760,6 +1761,191 @@ Der Schnittpunkt teilt die Seitenhalbierenden im Verhältnis $2:1$. \\
     \includegraphics[width=0.5\textwidth]{Images/3.19.jpeg}
     \caption{}
 \end{figure}
+
+\newpage
+\date{Mittwoch, 06.12.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite ? aus Baer.}
+\subsection{Winkel}
+Sind $x,y \in \mathbb{R}^2\backslash\{0\}$, so gilt \\
+\begin{center}
+    $\left| \frac{\langle x,y \rangle}{\|x\| \cdot \|y\|} \right| = \frac{|\langle x,y \rangle|}{\|x\| \cdot \|y\|} \leq \frac{\|x\| \cdot \|y\|}{\|x\| \cdot \|y\|} = 1$
+\end{center}
+d.h. $\frac{\langle x,y \rangle}{\|x\| \cdot \|y\|} \in [-1,1]$. \\
+Wir erinnern uns an die Kosinusfunktion $\cos: [0,\pi] \rightarrow [-1,1]$, welche mit diesem Definitionsbereich und Zielbereich bijektiv ist. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.3.jpeg}
+    \caption{}
+\end{figure}
+Sie hat also eine Umkehrfunktion $\arccos: [-1,1] \rightarrow [0,\pi]$. \\
+\\
+\subsubsection*{Definition 3.20}
+Für $x,y \in \mathbb{R}^2\backslash\{0\}$ heißt die Zahl \\
+\begin{center}
+    $\measuredangle (x,y) := \arccos \left( \frac{\langle x,y \rangle}{\|x\| \cdot \|y\|} \right)$
+\end{center}
+der \textit{Innenwinkel} von $x$ und $y$ (nie mehr als 180 Grad). \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.20.jpeg}
+    \caption{}
+\end{figure}
+Obige Definition gibt den Winkel in Bogenmaß an, wo ein voller Kosinus dem Bogenmaß $\alpha \pi$ entspricht. \\
+\\
+\subsubsection*{Beispiele 3.21}
+a) 
+\begin{align*}
+    \measuredangle (x,x) = \arccos \left( \frac{\langle x,y \rangle}{\|x\| \cdot \|x\|} \right) = \arccos \left( \frac{\|x\|^2}{\|x\| \cdot \|x\|} \right) = \arccos(1) = 0 \\
+\end{align*}
+b) 
+\begin{align*}
+    \measuredangle (x,-x) &= \arccos \left( \frac{\langle x,-x \rangle}{\|x\| \cdot \|-x\|} \right)\\
+    &= \arccos \left( \frac{-\langle x,x \rangle}{\|x\| \cdot \|x\|} \right) \\
+    &= \arccos(-1) \\
+    &= \pi \triangleq 180^\circ \\
+\end{align*}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.21b.jpeg}
+    \caption{}
+\end{figure}
+c) 
+Ist $\langle x,y \rangle = 0$, so gilt $\measuredangle (x,y) = \arccos \left( \frac{\langle x,y \rangle}{\|x\| \cdot \|y\|} \right) = \arccos(0) = \frac{\pi}{2} \triangleq 90^\circ$. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.21c.jpeg}
+    \caption{}
+\end{figure}
+\\
+\subsubsection*{Definition 3.22}
+Falls $\langle x,y \rangle = 0$, so heißen $x$ und $y$ \textit{orthogonal} zueinander, d.h. sie stehen senkrecht aufeinander. \\
+\\
+\subsubsection*{Satz 3.23 (Kosinussatz)}
+Sei $(a,b,c)$ ein nicht-entartetes Dreieck und sei $\alpha = \measuredangle (b,c)^2 = d(a,b)^2 + d(a,c)^2 - 2 \cdot d(a,b) \cdot d(a,c) \cdot \cos(\alpha)$. \\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.23.jpeg}
+    \caption{}
+\end{figure}  
+\\
+\subsubsection*{Beweis}
+Wir weisen die umgestellte Gleichung \\
+\begin{center}
+    $d(b,c)^2 - d(a,b)^2 - d(a,c)^2 = -2 \cdot d(a,b) \cdot d(a,c) \cdot \cos(\alpha)$ \\
+    % $\textcolor{red}{\langle \cancel{a-b},a-b \rangle \cdot \langle \cancel{a-c},a-c \rangle \cdot \frac{\langle b-a, c-a \rangle}{\cancel{\|b-a\|} \cdot \cancel{\|c-a\|}}}$ \\
+\end{center}
+nach: \\
+\begin{align*}
+    d(b,c)^2 - d(a,b)^2 - d(a,c)^2 &= \|c-b\|^2 - \|b-a\|^2 - \|c-a\|^2 \\
+    &= \langle c-b,c-b \rangle - \langle b-a,b-a \rangle - \langle c-a,c-a \rangle \\
+    &= \langle c,c \rangle - 2 \cdot \langle b,c \rangle + \langle b,b \rangle - (\langle b,b \rangle - 2 \cdot \langle a,b \rangle + \langle a,a \rangle) \\
+    &- (\langle c,c \rangle - 2 \cdot \langle a,c \rangle + \langle a,a \rangle) \\
+    &= -2 \cdot \langle b,c \rangle + 2 \cdot \langle a,b \rangle + 2 \cdot \langle a,c \rangle - 2 \cdot \langle a,a \rangle \\
+    &= -2 \cdot (\langle b,c \rangle - \langle a,b \rangle - \langle a,c \rangle + \langle a,a \rangle) \\
+    &= -2 \cdot \langle b-a,c-a \rangle \\
+    &= -2 \cdot \langle b-a,c-a \rangle \cdot \frac{\langle b-a,c-a \rangle \cdot \langle a-c, a-c \rangle}{\|b-a\| \cdot \|c-a\|} \\
+    &= -2 \cdot d(a,b) \cdot d(a,c) \cdot \cos(\alpha) \\
+\end{align*}
+$\square$ \\
+
+\subsubsection*{Korollar 3.24}
+Die Seitenlängen eines nicht entarteten Dreiecks legen die Innenwinkel eindeutig fest. \\
+\\
+\subsubsection*{Korollar 3.25 (Satz des Pythagoras)}
+Ist $\alpha = \frac{\pi}{2}$, so gilt $d(a,b)^2 + d(a,c)^2 = d(b,c)^2$. \\
+\\
+
+\subsubsection*{Definition 3.26}
+Für $\theta \in \mathbb{R}$ definieren wir die Drehmatrix \\
+\begin{center}
+    $R_\theta := \begin{pmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta \\
+    \end{pmatrix}$
+\end{center}
+Anschaulich ist $R_\theta \cdot v$ die Drehung von $v$ gegen den Uhrzeigersinn im Winkel $\theta$ (im Bogenmaß). \\
+
+%Bild
+\subsubsection*{Lemma 3.27}
+a) Für $\theta := 0$ gilt $\varphi_{R_\theta} = \text{id}_{\mathbb{R}^2}$ 
+b) Für $\theta_1, \theta_2 \in \mathbb{R}$ gilt $R_{\theta_1} \cdot R_{\theta_2} = R_{\theta_1 + \theta_2}$ \\
+c) Für $\theta \in \mathbb{R}$ gilt $R_\theta \cdot R_{-\theta} = \varepsilon_2 = R_{- \theta} \cdot R_\theta$ \\
+Hinweise: in a ist $\varphi_{R_\theta}$ die induzierte Abbildung $\mathbb{R}^2 \rightarrow \mathbb{R}^2$ \\
+In c ist $\varepsilon_2$ die Einheitsmatrix. \\
+\\
+\subsubsection*{Beweis}
+Der Beweis erfolgt durch Nachrechnen (siehe Übung). \\
+
+
+\subsubsection*{Lemma 3.28}
+Für alle $v,w \in \mathbb{R}^2$ und alle Drehmatrizen $R_\theta$ gilt: \\
+a) $\langle R_\theta \cdot v, R_\theta \cdot w \rangle = \langle v,w \rangle$ \\
+b) $\|R_\theta \cdot v\| = \|v\|$ \\
+c) $\measuredangle (R_\theta \cdot v, R_\theta \cdot w) = \measuredangle (v,w)$ \\
+d) $\langle R_\theta \cdot v, v \rangle = \cos \theta \cdot \langle v,v \rangle$ \\
+Interpretation von d: 
+Wir haben:
+\begin{align*}
+    \measuredangle (R_\theta \cdot v, v) &= \arccos \left( \frac{\langle R_\theta \cdot v, v \rangle}{\|R_\theta \cdot v\| \cdot \|v\|} \right) \\
+    &= \arccos \left( \frac{\cos \theta \langle v,v \rangle}{\|v\| \cdot \|v\|} \right) \\
+    &= \arccos (\cos \theta) \\
+    &= \theta \\
+\end{align*}
+Das heißt $R_\theta$ rotiert um den Winkel $\theta$. \\
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.28.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Beweis}
+a) Für alle $v=(v_1, v_2), w=(w_1, w_2)$ und $\theta \in \mathbb{R}$ berechnen wir: \\
+\begin{align*}
+    \langle R_\theta \cdot v, R_\theta \cdot w \rangle &= \langle \begin{pmatrix}
+        \cos \theta \cdot v_1 - \sin \theta \cdot v_2 \\
+        \sin \theta \cdot v_1 + \cos \theta \cdot v_2 \\
+    \end{pmatrix}, \begin{pmatrix}
+        \cos \theta \cdot w_1 - \sin \theta \cdot w_2 \\
+        \sin \theta \cdot w_1 + \cos \theta \cdot w_2 \\
+    \end{pmatrix} \rangle \\
+    &= (\cos \theta \cdot v_1 - \sin \theta \cdot v_2) \cdot (\cos \theta \cdot w_1 - \sin \theta \cdot w_2) + (\sin \theta \cdot v_1 + \cos \theta \cdot v_2) \cdot (\sin \theta \cdot w_1 + \cos \theta \cdot w_2) \\
+    &= (\cos \theta)^2 \cdot v_1 w_1 - \sin \theta \cos \theta \cdot v_2 w_1 - \cos \theta \sin \theta \cdot v_1 w_2 + (\sin \theta)^2 \cdot v_2 w_2 \\
+    &+ (\sin \theta)^2 \cdot v_1 w_1 + \cos \theta \sin \theta \cdot v_2 w_1 + \sin \theta \cos \theta \cdot v_1 w_2 + (\cos \theta)^2 \cdot v_2 w_2 \\
+    &= v_1 w_1 + v_2 w_2 \\
+    &= \langle \begin{pmatrix}
+        v_1 \\
+        v_2 \\
+    \end{pmatrix}, \begin{pmatrix}
+        w_1 \\
+        w_2 \\
+    \end{pmatrix} \rangle \\
+    &= \langle v,w \rangle \\
+\end{align*}
+b) Folgt sofort aus a: \\
+\begin{center}
+    $\|R_\theta \cdot v\| = \sqrt{\langle R_\theta \cdot v, R_\theta \cdot v \rangle} = \sqrt{\langle v,v \rangle} = \|v\|$
+\end{center}
+c) Wir berechnen: \\
+\begin{align*}
+    \measuredangle (R_\theta \cdot v, R_\theta \cdot w) &= \arccos \left( \frac{\langle R_\theta \cdot v, R_\theta \cdot w \rangle}{\|R_\theta \cdot v\| \cdot \|R_\theta \cdot w\|} \right) \\
+    &= \arccos \left( \frac{\langle v,w \rangle}{\|v\| \cdot \|w\|} \right) \\
+    &= \arccos \left( \frac{\langle v,w \rangle}{\|v\| \cdot \|w\|} \right) \\
+    &= \measuredangle (v,w) \\
+\end{align*}
+Ist a erfüllt, so sind auch b und c erfüllt. \\
+d) Es gilt: \\
+\begin{align*}
+    \langle R_\theta \cdot v, v \rangle &= \langle \begin{pmatrix}
+        \cos \theta \cdot v_1 - \sin \theta \cdot v_2 \\
+        \sin \theta \cdot v_1 + \cos \theta \cdot v_2 \\
+    \end{pmatrix}, \begin{pmatrix}
+        v_1 \\
+        v_2 \\
+    \end{pmatrix} \rangle \\
+    &= (\cos \theta \cdot v_1 - \sin \theta \cdot v_2) \cdot v_1 + (\sin \theta \cdot v_1 + \cos \theta \cdot v_2) \cdot v_2 \\
+    &= \cos \theta \cdot v_1 \cdot v_1 + \cos \theta \cdot v_2 \cdot v_2 \\
+    &= \cos \theta \cdot (v_1 v_1 + v_2 v_2) \\
+    &= \cos \theta \cdot \langle v,v \rangle \\
+\end{align*}
 
 \newpage
 \begin{thebibliography}{9}
