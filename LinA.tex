@@ -1470,7 +1470,7 @@ das \textit{Skalarprodukt} von $x$ und $y$. \\
 Eine andere übliche Notation ist $x \cdot y$. \\
 
 \subsubsection*{Anschauung 3.2}
-Anschaulich gilt $\langle x,y \rangle = $ Länge von $x \cdot \mu$ wobei die Länge der \textit{orthogonale Projektion} von $x$ auf $y$ ist (bis auf Vorzeichen). \\
+Anschaulich gilt $\langle x,y \rangle$ ist die Länge von $x \cdot \mu$ wobei die Länge die \textit{orthogonale Projektion} von $x$ auf $y$ ist (bis auf das Vorzeichen). \\
 
 \begin{figure}[h]
     \centering
@@ -1478,7 +1478,7 @@ Anschaulich gilt $\langle x,y \rangle = $ Länge von $x \cdot \mu$ wobei die Lä
     \caption{}
 \end{figure}
 
-Das Skalarprodukt ist eine Abbildung $\mathbb{R^2} \times \mathbb{R^2} \rightarrow \mathbb{R}$ für welche folgende Rechenregeln gelten: \\
+Das Skalarprodukt ist eine Abbildung $\mathbb{R}^2 \times \mathbb{R}^2 \rightarrow \mathbb{R}$ für welche folgende Rechenregeln gelten: \\
 \subsubsection*{Lemma 3.3}
 Für alle $x, x', y \in \mathbb{R}^2$ und $t \in \mathbb{R}$ gilt: \\
 a) $\langle x + x', y \rangle = \langle x,y \rangle + \langle x',y \rangle$ \\
@@ -1585,7 +1585,7 @@ Zu $x,y \in \mathbb{R}^2$ heißt \\
 der \textit{Abstand} von $x$ und $y$. \\
 
 \subsubsection*{Lemma 3.10}
-Für alle $x,y \in \mathbb{R}^2$ gilt: \\
+Für alle $x,y,z \in \mathbb{R}^2$ gilt: \\
 a) $d(x,y) \geq 0$ \\
 b) $d(x,y) = 0 \Leftrightarrow x = y$ \\
 c) $d(x,y) = d(y,x)$ \\
@@ -1625,8 +1625,8 @@ Wegen $p \in G_{a,v}$ gibt es ein $t \in \mathbb{R}$ mit $p = a + t \cdot v.^{(*
 Sei $q \in G_{p,v}$, d.h. es gibt ein $t_1 \in \mathbb{R}$ mit $q = p + t_1 \cdot v$. \\
 Wir setzen (*) ein und erhalten \\
 \begin{align*}
-    q &= a + t_1 \cdot v \\
-    &= a + t_0 \cdot v + t_1 \cdot v \\
+    q &= p + t_1 \cdot v \\
+    &= (a + t_0 \cdot v) + t_1 \cdot v \\
     &= a + (t_0 + t_1) \cdot v
 \end{align*}
 d.h. $q \in G_{a,v}$. \\
@@ -1794,7 +1794,7 @@ Obige Definition gibt den Winkel in Bogenmaß an, wo ein voller Kosinus dem Boge
 \subsubsection*{Beispiele 3.21}
 a) 
 \begin{align*}
-    \measuredangle (x,x) = \arccos \left( \frac{\langle x,y \rangle}{\|x\| \cdot \|x\|} \right) = \arccos \left( \frac{\|x\|^2}{\|x\| \cdot \|x\|} \right) = \arccos(1) = 0 \\
+    \measuredangle (x,x) = \arccos \left( \frac{\langle x,x \rangle}{\|x\| \cdot \|x\|} \right) = \arccos \left( \frac{\|x\|^2}{\|x\| \cdot \|x\|} \right) = \arccos(1) = 0 \\
 \end{align*}
 b) 
 \begin{align*}
@@ -1866,7 +1866,7 @@ Anschaulich ist $R_\theta \cdot v$ die Drehung von $v$ gegen den Uhrzeigersinn i
 
 %Bild
 \subsubsection*{Lemma 3.27}
-a) Für $\theta := 0$ gilt $\varphi_{R_\theta} = \text{id}_{\mathbb{R}^2}$ 
+a) Für $\theta := 0$ gilt $\varphi_{R_\theta} = \text{id}_{\mathbb{R}^2}$ \\
 b) Für $\theta_1, \theta_2 \in \mathbb{R}$ gilt $R_{\theta_1} \cdot R_{\theta_2} = R_{\theta_1 + \theta_2}$ \\
 c) Für $\theta \in \mathbb{R}$ gilt $R_\theta \cdot R_{-\theta} = \varepsilon_2 = R_{- \theta} \cdot R_\theta$ \\
 Hinweise: in a ist $\varphi_{R_\theta}$ die induzierte Abbildung $\mathbb{R}^2 \rightarrow \mathbb{R}^2$ \\
@@ -1907,7 +1907,8 @@ a) Für alle $v=(v_1, v_2), w=(w_1, w_2)$ und $\theta \in \mathbb{R}$ berechnen 
         \cos \theta \cdot w_1 - \sin \theta \cdot w_2 \\
         \sin \theta \cdot w_1 + \cos \theta \cdot w_2 \\
     \end{pmatrix} \rangle \\
-    &= (\cos \theta \cdot v_1 - \sin \theta \cdot v_2) \cdot (\cos \theta \cdot w_1 - \sin \theta \cdot w_2) + (\sin \theta \cdot v_1 + \cos \theta \cdot v_2) \cdot (\sin \theta \cdot w_1 + \cos \theta \cdot w_2) \\
+    &= (\cos \theta \cdot v_1 - \sin \theta \cdot v_2) \cdot (\cos \theta \cdot w_1 - \sin \theta \cdot w_2) \\
+    &+ (\sin \theta \cdot v_1 + \cos \theta \cdot v_2) \cdot (\sin \theta \cdot w_1 + \cos \theta \cdot w_2) \\
     &= (\cos \theta)^2 \cdot v_1 w_1 - \sin \theta \cos \theta \cdot v_2 w_1 - \cos \theta \sin \theta \cdot v_1 w_2 + (\sin \theta)^2 \cdot v_2 w_2 \\
     &+ (\sin \theta)^2 \cdot v_1 w_1 + \cos \theta \sin \theta \cdot v_2 w_1 + \sin \theta \cos \theta \cdot v_1 w_2 + (\cos \theta)^2 \cdot v_2 w_2 \\
     &= v_1 w_1 + v_2 w_2 \\
@@ -1946,6 +1947,152 @@ d) Es gilt: \\
     &= \cos \theta \cdot (v_1 v_1 + v_2 v_2) \\
     &= \cos \theta \cdot \langle v,v \rangle \\
 \end{align*}
+
+\date{Donnerstag, 07.12.23} \footnote{vgl. S. ? aus Baer.}
+\subsection{Orthogonalität}
+Wir definieren die Matrix \\
+\begin{center}
+    $\mathcal{J} := R_{\frac{\pi}{2}} = \begin{pmatrix}
+        0 & -1 \\
+        1 & 0 \\
+    \end{pmatrix}$
+\end{center}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.40.jpeg}
+    \caption{$\mathcal{J}$ stellt die Drehung um 90 Grad gegen den Uhrzeigersinn dar.}
+\end{figure}
+
+\subsubsection*{Definition 3.29}
+Für $\theta \in \mathbb{R}$ definieren wir die \textit{Spiegelungsmatrix} \\
+\begin{center}
+    $S_\theta := \begin{pmatrix}
+        \cos 2\theta & \sin 2\theta \\
+        \sin 2\theta & -\cos 2\theta \\
+    \end{pmatrix}$
+\end{center}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/3.29.jpeg}
+    \caption{Anschaulich ist $S_\theta \cdot v$ die Spiegelung von $v$ an der Geraden mit dem Winkel $\theta$ zur $x$-Achse.    }
+\end{figure}
+
+\subsubsection*{Lemma 3.30}
+Sei $\theta \in \mathbb{R}$ und setze $e_\theta := \begin{pmatrix}
+    \cos \theta \\
+    \sin \theta \\
+\end{pmatrix} \in \mathbb{R}^2$. Dann gilt: \\
+a) $S_\theta \cdot e_\theta = e_\theta$ \\
+b) $S_\theta \cdot (\mathcal{J} \cdot e_\theta) = -(\mathcal{J} \cdot e_\theta)$ \\
+Die beiden Punkte zeigen die genaue Interpretation von $S_\theta$ als Spiegelung. \\
+\\
+\subsubsection*{Beweis}
+a) Es gilt: \\
+\begin{align*}
+    S_\theta \cdot e_\theta &= \begin{pmatrix}
+        \cos 2\theta \cdot \cos \theta + \sin 2\theta \cdot \sin \theta \\
+        \sin 2\theta \cdot \cos \theta - \cos 2\theta \cdot \sin \theta \\ 
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+        \cos \theta \\
+        \sin \theta \\
+    \end{pmatrix} \\
+    &= e_\theta \\
+\end{align*}
+Hinweis: in der 2. Zeile haben wir die Additionstheoreme benutzt.
+b) Analog zur selbstständigen Übung.
+$\square$ \\
+\\
+\subsubsection*{Lemma 3.31}
+Für alle $v,w \in \mathbb{R}^2$ und alle $\theta \in \mathbb{R}$ gilt: \\   
+a) $\langle S_\theta \cdot v, S_\theta \cdot w \rangle = \langle v,w \rangle$ \\
+b) $\|S_\theta \cdot v\| = \|v\|$ \\
+c) $\measuredangle (S_\theta \cdot v, S_\theta \cdot w) = \measuredangle (v,w)$ \\
+\\
+\subsubsection*{Beweis}
+Der Beweis ist komplett analog zu dem von Lemma 3.28. \\
+\\
+\subsubsection*{Lemma 3.32}
+Für alle $\theta_1, \theta_2 \in \mathbb{R}$ gilt: \\
+a) $S_{\theta_1} \cdot S_{\theta_2} = R_{2 (\theta_1 - \theta_2)}$ \\
+b) $S_{\theta_1} \cdot R_{\theta_2} = S_{\theta_1 - \frac{\theta_2}{2}}$ \\
+c) $R_{\theta_1} \cdot S_{\theta_2} = S_{\theta_2 + \frac{\theta_1}{2}}$ \\
+Beweis per direktem Nachrechnen mit Hilfe der Additionstheoreme in den Übungen. \\
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{Images/3.32.jpeg}
+%     \caption{}
+% \end{figure}
+
+\subsubsection*{Satz 3.33}
+Es sei $T$ eine $(2 \times 2)$-Matrix. Dann sind die folgenden beiden äquivalent zueinander: \\
+a) Es gilt $\langle T \cdot v, T \cdot w \rangle = \langle v,w \rangle$ für alle $v,w \in \mathbb{R}^2$. \\
+b) Es ist $T$ eine Rotations- oder Spiegelungsmatrix. \\
+\\
+\subsubsection*{Beweis}
+a) $b \Rightarrow a$: \\
+Die Implikation ist Lemma 3.28 a) bzw. Lemma 3.31 a). \\
+Es gelte $\langle T \cdot v, T \cdot w \rangle = \langle v,w \rangle$ für alle $v,w \in \mathbb{R}^2$. \\
+Dann gilt für $e_1 = (1,0) \in \mathbb{R}^2$: \\
+\begin{align*}
+    \|T \cdot e_1\| &= \sqrt{\langle T \cdot e_1, T \cdot e_1 \rangle} \\
+    &= \sqrt{\langle e_1, e_1 \rangle} \\
+    &= \|e_1\| \\
+    &= 1 \\
+\end{align*}
+d.h. $T \cdot e_1 = (\cos \theta, \sin \theta)$ für ein $\theta \in \mathbb{R}$. \\
+Analog sieht man $\|T \cdot e_2\| = 1$ für $e_2 = (0,1)$ und außerdem gilt $\langle T \cdot e_1, T \cdot e_2 \rangle = \langle e_1, e_2 \rangle = 0$, d.h. $T \cdot e_1$ steht senkrecht auf $T \cdot e_2$. 
+Daher ist $T \cdot e_2 \pm (\sin \theta, \cos \theta)$. Im Falle $T \cdot e_2 = (-\sin \theta, \cos \theta)$ gilt: \\
+\begin{align*}
+    T = \begin{pmatrix}
+        \cos \theta & -\sin \theta \\
+        \sin \theta & \cos \theta \\
+    \end{pmatrix}
+\end{align*}
+(Hinweis: die erste Spalte ist $T \cdot e_1$ und die 2. Spalte ist $T \cdot e_2$. Außerdem: wenn wir die i-te Spalte einer Matrix wissen wollen, dann multiplizieren wir die Matrix mit dem i-ten Einheitsvektor.)
+und im Falle $T \cdot e_2 = (-\sin \theta, \cos \theta)$ gilt: \\
+\begin{align*}
+    T = \begin{pmatrix}
+        \cos \theta & \sin \theta \\
+        \sin \theta & -\cos \theta \\
+    \end{pmatrix}
+    = S_{\frac{\theta}{2}}
+\end{align*}
+$\square$ \\
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{Images/3.33.jpeg}
+%     \caption{}
+% \end{figure}
+\\
+\subsubsection*{Definition 3.34}
+Wir definieren $\mathcal{O}(2)$ als die Menge aller $(2 \times 2)$-Matrizen $T$ für die gilt: \\
+\begin{center}
+    $\langle T \cdot v, T \cdot w \rangle = \langle v,w \rangle$ für alle $v,w \in \mathbb{R}^2$ \\
+\end{center}
+
+\subsubsection*{Lemma 3.35}
+a) Für alle $S, T \in \mathcal{O}(2)$ gilt $S \cdot T \in \mathcal{O}(2)$. \\
+b) Für alle $R, S, T \in \mathcal{O}(2)$ gilt $R \cdot (S \cdot T) = (R \cdot S) \cdot T$. \\
+c) Es ist $E \in \mathcal{O}(2)$ und für alle $T \in \mathcal{O}(2)$ gilt $T \cdot E_2 = T = E_2 \cdot T$. \\
+d) Für alle $T \in \mathcal{O}(2)$ gibt es ein $S \in \mathcal{O}(2)$ mit $T \cdot S = E_2 = S \cdot T$. \\
+Hinweis: das ist die Definition einer Gruppe in einem Spezialfall. \\
+\\
+\subsubsection*{Beweis}
+a) Für alle $v,w \in \mathbb{R}^2$ gilt: \\
+\begin{align*}
+    \langle (S \cdot T) \cdot v, (S \cdot T) \cdot w \rangle &= \langle S (T \cdot v), S (T \cdot w) \rangle \\
+    &= \langle T \cdot v, T \cdot w \rangle \\
+    &= \langle v,w \rangle \\
+\end{align*}
+d.h. $S \cdot T \in \mathcal{O}(2)$. \\
+b) Schema gezeigt in Lemma 2.36. \\
+c) $E_2 \in \mathcal{O}(2)$ ist offensichtlich, da $E_2 \cdot v = v$ für alle $v \in \mathbb{R}^2$ und $T \cdot E_2 = T = E_2 \cdot T$ ist schon in Bemerkung 2.37 erwähnt worden. \\
+d) Wir betrachten Satz 3.33. \\
+\underline{Fall 1:} Wähle $S := R_{-\theta}$. 
+\underline {Fall 2:} Wähle $S := S_\theta$. \\
+$\square$ \\
 
 \newpage
 \begin{thebibliography}{9}
