@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+
 
 \setlength{\parindent}{0pt}
 
@@ -2093,6 +2095,448 @@ d) Wir betrachten Satz 3.33. \\
 \underline{Fall 1:} Wähle $S := R_{-\theta}$. 
 \underline {Fall 2:} Wähle $S := S_\theta$. \\
 $\square$ \\
+
+\newpage
+\subsection{Kongruenzabbildungen}
+\subsubsection*{Definition 3.36}
+Eine Abbildung $F: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ der Form $F(x)=Ax+b$ mit $A \in \mathcal{O}(2)$ und $b \in \mathbb{R}^2$ heißt \textit{Kongruenzabbildung} oder auch \textit{euklidische Bewegung in der Ebene}. \\
+Wir beweisen heute: \\
+\subsubsection*{Satz 3.37}
+Es sei $F: \mathbb{R}^2 \rightarrow \mathbb{R}^2$ eine Abbildung. Dann sind äquivalent: \\
+a) $F$ ist eine euklidische Bewegung. \\
+b) $F$ ist Abstandserhaltend, d.h. für alle $p,q \in \mathbb{R}^2$ gilt $d(F(p),F(q)) = d(p,q)$. \\
+Was ist z.B. mit einer Drehung um den Winkel $\theta$ um einen Punkt $p$? \\
+So eine Abbildung ist eine Verkettung der Verschiebung um $-p$, der Drehung um $\theta$ um den Koordinatenursprung und der anschließenden Rückverschiebung um $p$: \\
+\begin{center}
+    $x \mapsto R_\theta (x-p)+p = R_\theta \cdot x + (p-R_\theta \cdot p)$ \\
+\end{center}
+Also eine Kongruenzabbildung im Sinne der Definition 3.36. \\
+\\
+\subsubsection*{Beweis}
+\textit{a) $\Rightarrow$ b)}: \\
+Sei $F$ von der Form $F(x)=Ax+b$ mit $A \in \mathcal{O}(2)$ und $b \in \mathbb{R}^2$. Dann gilt für $x,y \in \mathbb{R}^2$: \\
+\begin{align*}
+    d(F(x),F(y)) &= \|F(x)-F(y)\| \\
+    &= \|Ax+b-(Ay-b)\| \\
+    &= \|Ax-Ay\| \\
+    &= \|A(x-y)\|\\
+    &= \|x-y\| \\
+    &= d(x,y) \\
+\end{align*}
+Hinweise: \\
+In Zeile 4 haben wir das Lemma 2.26 und Bemerkung 2.34 benutzt. \\
+In Zeile 5 haben wir das Lemma 3.28 b) bzw. Lemma 3.31 b) benutzt. \\
+\\
+\textit{b) $\Rightarrow$ a)}: \\
+Sei $F$ abstandserhaltend. Wir setzen $b = F(0)$ und $\varphi(x) := F(x) - b$ für $x \in \mathbb{R}^2$. Dann ist $\varphi(0) = F(0) - b = 0$ und wir zeigen gleich, dass $\varphi$ eine Matrixabbildung ist, deren Matrix in $\mathcal{O}(2)$ liegt. \\
+\textit{Schritt 1}: \\
+Wir zeigen $\langle \varphi(x), \varphi(y) \rangle = \langle x,y \rangle$ für alle $x,y \in \mathbb{R}^2$. Wir betrachten das Dreieck $(0,x,y)$. Die Abbildung $F$ bildet es auf $(b, F(x), F(y))$ ab und die Seitenlängen bleiben gleich! Translationen sind ebenso abstandserhaltend und deswegen hat dann das Dreieck $(0,\varphi(x),\varphi(y))$ ebenso die selben Seitenlängen wie das Dreieck $(0,x,y)$. \\
+Wegen Korollar 3.24 sind also die Innenwinkel von $(0,\varphi(x),\varphi(y))$ und $(0,x,y)$ gleich, insbesondere also $\measuredangle (\varphi(x),\varphi(y)) = \measuredangle (x,y)$. Damit ergibt sich: \\
+\begin{align*}
+    \langle \varphi(x), \varphi(y) \rangle &= \cos (\measuredangle (\varphi(x),\varphi(y))) \cdot \|\varphi(x)\| \cdot \|\varphi(y)\| \\
+    &= \cos (\measuredangle (x,y)) \cdot d(\varphi(x),0) \cdot d(\varphi(y),0) \\
+    &= \cos (\measuredangle (x,y)) \cdot d(F(x),b) \cdot d(F(y),b) \\
+    &= \cos (\measuredangle (x,y)) \cdot d(F(x), F(0)) \cdot d(F(y), F(0)) \\
+    &= \cos (\measuredangle (x,y)) \cdot d(x,0) \cdot d(y,0) \\
+    &= \cos (\measuredangle (x,y)) \cdot \|x\| \cdot \|y\| \\
+    &= \langle x,y \rangle \\
+\end{align*}
+\textit{Schritt 2}: \\
+Wir zeigen, dass $\varphi$ eine Matrixabbildung ist. \\
+Es sei $e_1 = (1,0)$ und $e_2 = (0,1)$ und wir setzen $f(e_1) := \varphi(e_1)$ und $f(e_2) := \varphi(e_2)$. Für $i \in \{1,2\}$ gilt dann sowohl \\
+\begin{center}
+    $\|f_i\|^2 = \langle f_i, f_i \rangle = \langle \varphi(e_i), \varphi(e_i) \rangle = \langle e_i, e_i \rangle = \|e_i\|^2 = 1$ \\
+\end{center}
+als auch \\
+\begin{center}
+    $\langle f_i, f_j \rangle = \langle \varphi(e_i), \varphi(e_j) \rangle = \langle e_i, e_j \rangle = 0$ \\
+\end{center}
+Es sei nun $x \in \mathbb{R}^2$ und wir schreiben $x = (x_1, x_2)$. Wegen Aufgabe 4 des Blatts für die Übungen 7 können wir \\
+\begin{center}
+    $\varphi(x) \overset{\textcolor{red}{(*)}}{=} \alpha_1 f_1 + \alpha_2 f_2$
+\end{center}
+mit geeigneten Koeffizienten $\alpha_1, \alpha_2 \in \mathbb{R}$ schreiben. \\
+Dann gilt einerseits:\\
+\begin{align*}
+    \langle \varphi(x), f_i \rangle &= \langle \varphi(x), \varphi(e_i) \rangle = \langle x, e_i \rangle = x_i \\
+\end{align*}
+und andererseits \\
+\begin{align*}
+    \langle \varphi(x), f_i \rangle &= \langle \alpha_1 f_1 + \alpha_2 f_2, f_i \rangle \\
+    &= \alpha_1 \langle f_1, f_i \rangle + \alpha_2 \langle f_2, f_i \rangle \\
+    &= \alpha_i \\
+\end{align*}
+für $i \in \{1,2\}$. \\
+Wir folgern $x_1 \overset{\textcolor{darkgreen}{(*)}}{=} \alpha_1$ und $x_2 \overset{\textcolor{darkgreen}{(*)}}{=} \alpha_2$ und damit gilt, mit der Notation $f_1 \overset{\textcolor{darkgreen}{(*)}}{=} (\alpha_11, \alpha_21)$ und $f_2 \overset{\textcolor{darkgreen}{(*)}}{=} (\alpha_12, \alpha_22)$: \\
+\begin{align*}
+    \varphi(x) &\overset{\textcolor{red}{(*)}}{=} \alpha_1 f_1 + \alpha_2 f_2 \\
+    & \overset{\textcolor{darkgreen}{(*)}}{=} x_1 \cdot \begin{pmatrix}
+        \alpha_{11} \\
+        \alpha_{21} \\
+    \end{pmatrix} + x_2 \cdot \begin{pmatrix}
+        \alpha_{12} \\
+        \alpha_{22} \\
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+    \end{pmatrix} \cdot \begin{pmatrix}
+        \alpha_{11} & \alpha_{12} \\
+        \alpha_{21} & \alpha_{22} \\
+    \end{pmatrix} \\
+\end{align*}
+d.h. $\varphi$ ist eine Matrixabbildung mit Matrix \\
+\begin{center}
+    $A := \begin{pmatrix}
+        \alpha_{11} & \alpha_{12} \\
+        \alpha_{21} & \alpha_{22} \\
+    \end{pmatrix}$ \\
+\end{center}
+Wir wissen jetzt, dass $\varphi$ eine Matrixabbildung ist (Schritt 2), welche das Skalarprodukt erhält (Schritt 1), d.h. mit Satz 3.33 ist $A \in \mathcal{O}(2)$. 
+Weil dann insgesamt $F(x) = \varphi(x) + b = Ax + b$ mit $A \in \mathcal{O}(2)$ gilt, ist der Beweis fertig. $\square$ \\
+
+
+\newpage
+\date{Mittwoch, 03.01.24} \footnote{vgl. S. ? aus Baer.}
+\section{Vektorräume und Lineare Abbildungen}
+\subsection{Vektorräume}
+\subsubsection*{Definition 4.1}
+Ein Vektorraum über $\mathbb{R}$ ist ein Tripel $(V, +, \cdot )$, wobei $V$ eine Menge ist und + sowie $\cdot$ Abbildungen \\
+\begin{center}
+    $+: V \times V \rightarrow V$, $(v,w) \mapsto v+w$ $\textit{(Vektoraddition)}$ \\
+    $\cdot: \mathbb{R} \times V \rightarrow V$, $(\lambda, v) \mapsto \lambda \cdot v$ $\textit{(Skalarmultiplikation)}$ \\
+\end{center}
+sind, sodass für $u,v,w$ aus $V$ und $\lambda, \mu$ aus $\mathbb{R}$ gilt: \\
+a.1) $u+(v+w) = (u+v)+w$ \\
+a.2) $v+w = w+v$ \\
+a.3) Es gibt ein $0 \in V$ sodass gilt: $v+0 = v$ für alle $v \in V$ \textit{(Nullelement)} \\
+a.4) Zu jedem $v \in V$ gibt es ein $v' \in V$ sodass gilt: $v+v' = 0$ \textit{(Additiv Inverses)} \\
+b.1) $(\lambda + \mu) \cdot v = \lambda \cdot v + \mu \cdot v$ \\
+b.2) $(\lambda \cdot \mu) \cdot v = \lambda \cdot (\mu \cdot v)$ \\
+b.3) $1 \cdot v = v$ \\
+Hinweise: \\
+In b.1 bis b.3 sehen wir die Doppeldeutigkeit von $\cdot$ und $+$. \\
+Aus b.3 erkennen wir, dass $1$ zwangsläufig $ \in \mathbb{R}$ ist. \\
+Elemente in $V$ heißen \textit{Vektoren}. \\
+
+\subsubsection*{Beispiele 4.2}
+a) \\
+In Lemma 2.16 haben wir bereits bewiesen, dass $\mathbb{R}^n$ mit den beiden Abbildungen + und $\cdot$ aus Definition 2.13 ein Vektorraum (kurz $\textit{VR}$) ist. \\
+b) \\
+Es sei Mat($m \times n$) die Menge aller $(m \times n)$-Matrizen mit Einträgen in $\mathbb{R}$. Wir definieren die Abbildungen + und $\cdot$ komponentenweise: \\
+\begin{center}
+    $(A+B)_{i,j} := A_{i,j} + B_{i,j}$ \\
+    $(\lambda \cdot A)_{i,j} := \lambda \cdot A_{i,j}$ \\
+\end{center}
+für $i \in \{1,...,n\}$ und $j \in \{1,...,m\}$. \\
+Man überprüft komplett analog wie in Lemma 2.16, dass dies ein VR ist. Das Nullelement ist die Nullmatrix \\
+\begin{center}
+    $0 := \begin{pmatrix}
+        0 & ... & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & ... & 0 \\
+    \end{pmatrix}$ \\
+\end{center}
+c) \\
+Es sei $X$ eine nicht-leere Menge. Wir setzen $V := $ Abb($X, \mathbb{R}$), d.h. $V$ ist die Menge aller Abbildungen $f: X \rightarrow \mathbb{R}$. Wir definieren + und $\cdot$ komponentenweise: \\
+\begin{center}
+    $f+g: X \rightarrow \mathbb{R}$, $x \mapsto f(x)+g(x)$ \\
+    $\lambda \cdot f: X \rightarrow \mathbb{R}$, $x \mapsto \lambda \cdot f(x)$ \\
+\end{center}
+Ebenso wie vorher prüfen wir nach, ob dies ein VR ist. Das Nullelement $ 0 \in$ Abb($X, \mathbb{R}$) ist die Nullabbildung \\
+\begin{center}
+    $0: X \rightarrow \mathbb{R}$, $x \mapsto 0$ \\
+\end{center}
+Die zu $f \in$ Abb($X, \mathbb{R}$) inverse Abbildung (a.4 in Definition 4.1) ist gegeben als \\
+\begin{center}
+    $-f: X \rightarrow \mathbb{R}$, $x \mapsto -f(x)$ \\
+\end{center}
+\subsubsection*{Spezialfälle aus der Analysis}
+\begin{enumerate}
+    \item $X:= \mathbb{N}$: Abb($X, \mathbb{R}$) der VR der Folgen in $\mathbb{R}$
+    \item $X:= (a,b) \subset \mathbb{R}$: Abb($X, \mathbb{R}$) der VR der Funktionen $(a,b) \rightarrow \mathbb{R}$.
+\end{enumerate}
+
+d) \\
+Wir betrachten eine glatte Fläche im Raum und an einem Punkt $p$ dieser Fläche die Tangentialebene: \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/4.2d.jpeg}
+    \caption{}
+\end{figure}
+Die Tangentialebene ist ein VR. Die Abbildungen + und $\cdot$ defninieren wir geometrisch, indem wir den Punkt $p$ als Nullpunkt der Tangentialebene bestimmen: \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/4.2d2.jpeg}
+    \caption{}
+\end{figure}
+
+\subsubsection*{Lemma 4.3}
+Hinweis: die Abbildungen $+$ und $\cdot$ werden in der Notation normalerweise weggelassen. \\
+Es sei $V$ ein VR. \\
+a) \\
+Das Nullelement ist eindeutig. Weiterhin gilt: \\
+i) $0 \cdot v = 0$ \\
+ii) $\lambda \cdot 0 = 0$ \\
+iii) $\lambda \cdot v = 0 \Rightarrow \lambda = 0$ oder $v = 0$ \\
+Hinweis: hier zeigt sich die Mehrdeutigkeit von 0. \\
+b) \\
+Für jedes $v \in V$ ist das additive Inverse eindeutig und ist gegeben durch $(-1) \cdot v$. Man schreibt deshalb auch $-v$ für das Inverse. \\
+\\
+\subsubsection*{Beweis}
+a) \\
+Es seien $0,0' \in V$ Nullelemente. Dann gilt: \\
+\begin{center}
+    $0 = 0 + 0' = 0' + 0 = 0!$ \\
+\end{center}
+i) \\
+Von der Gleichung \\
+\begin{center}
+    $0 \cdot v = (0+0) \cdot v = 0 \cdot v + 0 \cdot v$ \\
+\end{center}
+subtrahieren wir $0 \cdot v$ von beiden Seiten. \\
+Hinweis: für das letzte = Zeichen, siehe b.1) in der Definition eines VR. \\
+ii) \\
+Von der Gleichung \\
+\begin{center}
+    $\lambda \cdot 0 = \lambda \cdot (0+0) = \lambda \cdot 0 + \lambda \cdot 0$ \\
+\end{center}
+subtrahieren wir $\lambda \cdot 0$ von beiden Seiten. \\
+Hinweis: für das letzte = Zeichen, siehe b.2) in der Definition eines VR. \\
+iii) \\
+Die Richtung $\Leftarrow$ sind i) und ii) oben. \\
+Um $\Rightarrow$ zu zeigen, sei $\lambda \cdot v = 0$ und $\lambda \neq 0$. Dann ist einerseits \\
+\begin{center}
+    $\lambda^{-1} \cdot (\lambda \cdot v) \overset{\text{b.3}}{=} (\lambda^{-1} \cdot \lambda) \cdot v = 1 \cdot v \overset{\text{b.4}}{=} v$ \\
+\end{center}
+und andererseits \\
+\begin{center}
+    $\lambda^{-1} \cdot (\lambda \cdot v) \overset{\lambda \cdot v = 0}{=} \lambda^{-1} \cdot 0 \overset{\text{ii)}}{=} 0$ \\
+\end{center}
+d.h. $v = 0$. \\
+b) \\
+Wir in den Übungen bewiesen. $\square$ \\
+\\
+Wir besprechen jetzt Untervektorräume. Siehe Abschnitt 2.4 zum Vergleich (Kapitel 3.3 bei Baer). \\
+\\
+\subsubsection*{Definition 4.4}
+Es sei $V$ ein VR. Eine Teilmenge $W \Subset V$ heißt \textit{Untervektorraum} (kurz $\textit{UVR}$) von $V$, wenn gilt: \\
+a) $0 \in W$ \\
+b) $v,w \in W \Rightarrow v+w \in W$ \\
+c) $v \in W, \lambda \in \mathbb{R} \Rightarrow \lambda \cdot v \in W$ \\
+\\
+\subsubsection*{Bemerkung 4.5}
+Ist $W$ ein UVR von $V$, so können wir die Addition $+$ und die Skalarmultiplikation $\cdot$ aus $V$ auf $W$ einschränken, d.h. als Abbildungen $+: W \times W \rightarrow W$ und $\cdot: \mathbb{R} \times W \rightarrow W$ auffassen. \\
+Auf diese Weise wird $W$ selbst zu einem VR über $\mathbb{R}$. \\
+\\
+\subsubsection*{Beispiele 4.6}
+a) In jedem VR $V$ gibt es den kleinsten UVR, nämlich $W:= \{0\} \Subset V$ und den größten UVR, nämlich $W:= V$. \\
+b) In $V =$ Abb($\mathbb{N}, \mathbb{R}$), d.h. dem Raum aller reellwertigen Folgen, ist die Teilmenge aller konvergenten Folgen ein UVR. \\
+c) In $V = $Abb($(a,b), \mathbb{R})$, d.h. dem Raum aller Funktionen auf dem Intervall $(a,b)$, ist die Teilmenge aller stetigen Funktionen ein UVR. \\
+Ebenso ist die Teilmenge aller k-mal stetig differenzierbaren Funktionen ein UVR und auch die Teilmenge aller Riemann integrierbaren Funktionen ist ein UVR. \\
+\\
+\subsubsection*{Lemma / Definition 4.7}
+Es sei $V$ ein VR und $X \subset V$ eine beliebig Teilmenge. Für eine beliebige (andere) Teilmenge $W \subset V$ sind äquivalent: \\
+a) $W = \underset{U \in W}{\cap} U$, wobei $W := \{U \subset V \ | \ U \text{ ist ein UVR von } V \text{ und } X \subset U\}$ \\
+b) $W$ ist ein UVR von $V$ und $X \subset W$ für jeden anderen UVR $W' \subset V$ mit $X \subset W'$ gilt $W \subset W'$. \\
+c) $W = \{v \in V \ | \exists_n \in \mathbb{N} \exists_{v_1,...,v_n \in X} \exists_{\lambda_1,...,\lambda_n \in \mathbb{R}}: v = \lambda_1 v_1 + ... + \lambda_n v_n $ oder $ v=0\}$ \\
+Es ist $W$ eindeutig (bei gegebenem $V$ und $X$) und heißt die \textit{lineare Hülle} bzw. den \textit{Spann} von $X$. Notationen dafür sind vielfältig, z.B. \\
+\begin{center}
+    $L(X), \langle X \rangle, \text{span}(X)$
+\end{center}
+\subsubsection*{Beweis}
+Ist $X \neq \emptyset$, so entsteht bei a), b) und c) jeweils $W = \{0\} \Subset V$, d.h. das Lemma stimmt für $X \neq \emptyset$. \\
+Wir nehmen also $X = \emptyset$ an. \\
+a) $\Rightarrow$ b): \\
+Es sei $W = \underset{U \in W}{\cap} U$ mit $W$ wie in a).
+\begin{enumerate}
+    \item Dass $W$ ein UVR ist, wird komplett analog zu Aufgabe 4a des Übungsblatts 5 gezeigt.
+    \item Wegen $X \Subset U$ für alle $U \in W$ gilt $X \subset W$.
+    \item Sei $W'$ ein UVR von $V$ mit $X \subset W'$. Dann ist $W' \in W$ und damit $W \underset{U \in W}{\cap} U \subset \underset{U = W'}{\cap} U = W'$. \\
+\end{enumerate}
+b) $\Rightarrow$ c): \\
+Es sei $W$ wie in b). Ferner sei $W$ wie in a) und $U \in W$. Dann ist $W \subset U$ und damit auch $W \subset \underset{U \in W}{\cap} U$. Es ist aber auch $W \in W$ und damit $\underset{U \in W}{\cap} U \subset \underset{U = W}{\cap} U = W$. Es folgt $W = \underset{U \in W}{\cap} U$. \\
+a) $\Leftrightarrow$ c): \\
+Wir zeigen, dass die in c) definierte Menge, welche wir mit $Z$ bezeichnen, mit der Menge $\underset{U \in W}{\cap} U$ aus a) übereinstimmt. \\
+Sei $U \in W$. Da $U$ ein UVR ist, welcher $X$ enthält, muss $U$ alle Linearkombinationen von Elementen von $X$, das heißt alle Vektoren der Form $\lambda_1 v_1 + ... + \lambda_n v_n$ mit $\lambda_1,...,\lambda_n \in \mathbb{R}$ und $v_1,...,v_n \in X$ enthalten. Es folgt also $Z \subset U$ und somit $\underset{U \in W}{\cap} U \subset Z$.  
+Zusammen ergibt sich $Z = \underset{U \in W}{\cap} U$. $\square$ \\
+\\
+\subsubsection*{Beispiele 4.8}
+Es sei $V$ ein VR. \\
+a) $L(\emptyset) = \{0\}$ \\
+b) $L(\{0\}) = \{0\}$ \\
+c) Für $v \in V$ ist $L(\{v\}) = \{\lambda v | \lambda \in \mathbb{R}\}$
+d) $L(V) = V$
+\\
+\subsubsection*{Lemma 4.9}
+Es sei $V$ ein UVR und $X, Y \subset V$. Dann gilt $L(X) \subset L(Y)$.\\
+\\
+\subsubsection*{Beweis}
+Offensichtlich. Man benutzt entweder a) oder c) aus Lemma 4.7. $\square$ \\
+\\
+\subsubsection*{Beispiel 4.10}
+Es seien folgende Elemente des $\mathbb{R}^3$ gegeben: \\
+\begin{center}
+    $v_1 = \begin{pmatrix}
+        1 \\
+        0 \\
+        0 \\
+    \end{pmatrix}, v_2 = \begin{pmatrix}
+        1 \\
+        1 \\
+        1 \\
+    \end{pmatrix}, v_3 = \begin{pmatrix}
+        0 \\
+        1 \\
+        1 \\
+    \end{pmatrix}$ \\
+\end{center}
+Wegen Lemma 4.9 gilt $L(v_1, v_3) \subset L(v_1, v_2, v_3)$. ir verwenden hier die Notation $L(v_1, v_3)$ statt $L(\{v_1, v_3\})$. \\
+Da $v_2 = v_1 + v_3$ ist, gilt $L(v_1, v_2, v_3) \Subset L(v_1, v_3)$ (siehe nächstes Lemma). \\
+Somit ist also \\
+\begin{center}
+    $L(v_1, v_2, v_3) = \left\{ \begin{pmatrix}
+        \lambda \\
+        \mu \\
+        \mu \\
+    \end{pmatrix} \in \mathbb{R}^3 \ | \lambda, \mu \in \mathbb{R}  \right\}$ \\
+\end{center}
+, d.h. z.B. \\
+\begin{center}
+    $\begin{pmatrix}
+        1 \\
+        2 \\
+        2 \\
+    \end{pmatrix} \notin L(v_1, v_2, v_3)$ \\  
+\end{center}
+\subsubsection*{Lemma 4.11}
+Es seien $v_0, v_1, ..., v_m \in V$. Dann sind äquivalent: \\
+a) $v_0 \in L(v_1,...,v_m)$ \\
+b) $L(v_0, v_1,...,v_m) = L(v_1,...,v_m)$ \\
+\\
+\subsubsection*{Beweis}
+a) $\Rightarrow$ b): \\
+Wir zeigen, dass alle 
+
+
+
+
+\newpage
+\date{Mittwoch, 08.01.24} \footnote{vgl. S. ? aus Baer.}
+
+\subsubsection*{Lemma 4.11}
+Sei $X \Subset V$. Dann sind äquivalent für $v \in X$: \\
+a) $v \in L(X\backslash \{v\})$ \\
+b) $L(X) = L(X \backslash \{v\})$ \\
+
+\subsubsection*{Lemma / Definition 4.12}
+Es sei $V$ ein Vektorraum und $X \subset V$. Dann sind äquivalent: \\
+a) Es gibt Skalare $\lambda_1,...,\lambda_n \in \mathbb{R}$, nicht alle gleich $0$, sowie paarweise verschiedene Vektoren $v_1,...,v_n \in X$ mit $0 = \lambda_1 v_1 + ... + \lambda_n v_n$ \\
+b) Es gibt ein $v \in X$ mit $L(X\backslash \{v\}) = L(X)$ \\
+Eine Teilmenge $X$, die diese Eigenschaften erfüllt, heißt linear abhängig. Ansonsten heißt $X$ linear unabhängig. \\
+\\
+\subsubsection*{Beweis}
+a) $\Rightarrow$ b): \\
+Es gelte $\lambda_1 v_1 + ... + \lambda_n v_n = 0$ und sei oBdA $\lambda_1 \neq 0$. Dann können wir umstellen zu \\
+\begin{center}
+    $v_1 = -\frac{\lambda_2}{\lambda_1} v_2 - ... - \frac{\lambda_n}{\lambda_1} v_n$ \\
+\end{center}
+d.h. $v_1$ ist eine Linearkombination der Vektoren $v_2,...,v_n$. Somit ist $v_1 \in L(v_2,...,v_n) = L(X\backslash \{v_1\})$. \\
+Mit Lemma 4.11 folgt $L(X) = L(X\backslash \{v_1\})$. \\
+\\
+b) $\Rightarrow$ a): \\
+Sei $v \in X$ mit $L(X\backslash \{v\}) = L(X)$. Da $v \in L(X)$, gilt $v \in L(X\backslash \{v\})$. \\
+$v = \mu_1 v_1 + ... + \mu_n v_n$. Wir können annehmen, dass die $\mu_i$ paarweise verschieden sind. Wir stellen um und erhalten: \\
+\begin{center}
+    $-1 \cdot v + \mu_1 v_1 + ... + \mu_n v_n = 0$ \\
+\end{center}
+Das entspricht genau a) nach Umbenennung. $\square$ \\
+\\
+\subsubsection*{Beispiele 4.13}
+a) Die leere Menge $X = \emptyset$ ist linear unabhängig. \\
+b) Es sei $v \in V$ und $X = \{v\}$. \\
+\underline{Fall 1 ($v = 0$)} \\
+Hier gilt $5 \cdot v = 0$, d.h. $X$ ist linear abhängig. \\
+\underline{Fall 2 ($v \neq 0$)} \\
+Wäre $X$ linear abhängig, so müsste es ein $\lambda \in \mathbb{R}$ geben mit $\lambda v = 0$ aber $\lambda \cdot v = 0$ geben. Dies ist wegen $v \neq 0$ nicht möglich. Also ist $X$ linear unabhängig. \\
+c) In $\mathbb{R}^2$  ist \\
+\begin{center}
+    $X = \left\{ \begin{pmatrix}
+        0 \\
+        1 \\
+    \end{pmatrix}, \begin{pmatrix}
+        1 \\
+        1 \\
+    \end{pmatrix} \right\}$ \\
+\end{center}
+linear unabhängig. Wir setzen $0 = \lambda_1 \cdot \begin{pmatrix}
+    0 \\
+    1 \\
+\end{pmatrix} + \lambda_2 \cdot \begin{pmatrix}
+    1 \\
+    1 \\
+    \end{pmatrix}$
+an. Dies entspricht einer sehr üblichen Vorhergehensweise. \\
+Die erste Komponente dieser Gleichung laut $0 = \lambda_1 \cdot 0 + \lambda_2 \cdot 1$. Also muss $\lambda_2 = 0$ sein. \\
+Die zweite Komponente dieser Gleichung ist $0 = \lambda_1 \cdot 1 + \lambda_2 \cdot 1$. Zusammen mit $\lambda_2 = 0$ folgt $\lambda_1 = 0$. \\
+d) In Abb($\mathbb{R}, \mathbb{R}$) ist $X:= \{1, x, x^2, ...\}$ linear unabhängig. Wir benutzen den üblichen Ansatz $\lambda_1 \cdot 1 + \lambda_2 \cdot x + ... + \lambda_n \cdot x^n = 0$ mit paarweise verschiedenen $\lambda_i \in \mathbb{N}$. \\
+Mit Algebra/Analysis zeigt man $\lambda_1 = ... = \lambda_n = 0$. \\
+e) In Abb($\mathbb{R}, \mathbb{R}$) sei $X := \{f(x), g(x), h(x)\}$ mit $f(x)=5$, $g(x)=\sin x^2$ und $h(x)=\cos x^2$. \\
+Wegen $\sin x^2$ ............................................ \\
+\\
+\subsubsection*{Definition}
+Es sei $V$ ein VR und $X \subset V$. \\
+\begin{enumerate}
+    \item $X$ heißt \textit{Erzeugendensystem} von $V$, wenn $L(X) = V$ gilt.
+    \item $X$ heißt \textit{Basis} von $V$, wenn $X$ ein linear unabhängiges Erzeugendensystem von ist.
+\end{enumerate}
+
+\subsubsection*{Bemerkung 4.15}
+\begin{enumerate}
+    \item Jeder VR besitzt ein Erzeugendensystem, z.B. $X = V$.
+    \item Ist $X$ ein Erzeugendensystem, so kann jeder Vektor $v \in V$ als Linearkombination von Vektoren aus $X$ geschrieben werden. 
+    \item Ist $X$ eine Basis, so kann jeder Vektor aus $V$ eindeutig als Linearkombination von Vektoren aus $X$ geschrieben werden: \\
+    Angenommen $v = \lambda_1 v_1 + ... + \lambda_n v_n = \mu_1 v_1 + ... + \mu_n v_n$ mit paarweise verschiedenen $v_1,...,v_n \in X$, so gilt $(\lambda_1 - \mu_1) v_1 + ... + (\lambda_n - \mu_n) v_n = 0$. Da $X$ linear unabhängig ist, folgt $\lambda_1 - \mu_1 = 0, ..., \lambda_n - \mu_n = 0$. \\
+\end{enumerate}
+\subsubsection*{Beispiele 4.16}
+a) Die Standardbasis von $\mathbb{R}^n$ ist gegeben durch $X:= \{e_1,...,e_n\}$ wobei $e_i = \begin{pmatrix}
+    0 \\
+    \vdots \\
+    0 \\
+    1 \\
+    0 \\
+    \vdots \\
+    0 \\
+\end{pmatrix}$. Fpr jedes $v = (v_1,...,v_n) \in \mathbb{R}^n$ gilt $v = v_1 e_1 + ... + v_n e_n$. ......................
+b) In $\mathbb{R}^2$ ist $X := \{ \begin{pmatrix}
+    0 \\
+    1 \\
+    \end{pmatrix}, \begin{pmatrix}
+        1 \\
+        1 \\
+    \end{pmatrix} \}$ eine Basis. Lineare Unabhängigkeit ist in Beispiel 4.13 c) gezeigt worden. \\
+Es ist ein Erzeugendensystem, denn für jedes $v = \begin{pmatrix}
+    v_1 \\
+    v_2 \\
+    \end{pmatrix} \in \mathbb{R}^2$ gilt $v = (v_2 - v_1) \cdot \begin{pmatrix}
+        0 \\
+        1 \\
+    \end{pmatrix} + v_1 \cdot \begin{pmatrix}
+        1 \\
+        1 \\
+    \end{pmatrix}$. \\
+c) Ist $X \Subset V$ linear unabhängig, so ist $X$ eine Basis von $L(X)$. \\
+c) $V = \{0\}$ hat nur die Basis $X = \emptyset$. \\
+Es ist $Y = \{0\}$ keine Basis, da $Y$ \underline{nicht} linear unabhängig ist. Die 0 verhindert automatisch lineare Unabhängigkeit. \\
+
+\subsubsection*{Lemma 4.17}
+Sei $X \Subset V$ linear unabhängig und $v \in V \backslash L(X)$. Dann ist $X \cup \{v\}$ weiterhin linear unabhängig. \\
+\\
+
+
+
 
 \newpage
 \begin{thebibliography}{9}
