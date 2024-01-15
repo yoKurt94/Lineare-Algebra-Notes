@@ -2293,17 +2293,15 @@ Es seien $0,0' \in V$ Nullelemente. Dann gilt: \\
 i) \\
 Von der Gleichung \\
 \begin{center}
-    $0 \cdot v = (0+0) \cdot v = 0 \cdot v + 0 \cdot v$ \\
+    $0 \cdot v = (0+0) \cdot v \overset{\text{b.1}}{=} 0 \cdot v + 0 \cdot v$ \\
 \end{center}
 subtrahieren wir $0 \cdot v$ von beiden Seiten. \\
-Hinweis: für das letzte = Zeichen, siehe b.1) in der Definition eines VR. \\
 ii) \\
 Von der Gleichung \\
 \begin{center}
-    $\lambda \cdot 0 = \lambda \cdot (0+0) = \lambda \cdot 0 + \lambda \cdot 0$ \\
+    $\lambda \cdot 0 = \lambda \cdot (0+0) \overset{\text{b.2}}{=} \lambda \cdot 0 + \lambda \cdot 0$ \\
 \end{center}
 subtrahieren wir $\lambda \cdot 0$ von beiden Seiten. \\
-Hinweis: für das letzte = Zeichen, siehe b.2) in der Definition eines VR. \\
 iii) \\
 Die Richtung $\Leftarrow$ sind i) und ii) oben. \\
 Um $\Rightarrow$ zu zeigen, sei $\lambda \cdot v = 0$ und $\lambda \neq 0$. Dann ist einerseits \\
@@ -2316,12 +2314,12 @@ und andererseits \\
 \end{center}
 d.h. $v = 0$. \\
 b) \\
-Wir in den Übungen bewiesen. $\square$ \\
+Wird in den Übungen bewiesen. $\square$ \\
 \\
 Wir besprechen jetzt Untervektorräume. Siehe Abschnitt 2.4 zum Vergleich (Kapitel 3.3 bei Baer). \\
 \\
 \subsubsection*{Definition 4.4}
-Es sei $V$ ein VR. Eine Teilmenge $W \Subset V$ heißt \textit{Untervektorraum} (kurz $\textit{UVR}$) von $V$, wenn gilt: \\
+Es sei $V$ ein VR. Eine Teilmenge $W \subset V$ heißt \textit{Untervektorraum} (kurz $\textit{UVR}$) von $V$, wenn gilt: \\
 a) $0 \in W$ \\
 b) $v,w \in W \Rightarrow v+w \in W$ \\
 c) $v \in W, \lambda \in \mathbb{R} \Rightarrow \lambda \cdot v \in W$ \\
@@ -2331,7 +2329,7 @@ Ist $W$ ein UVR von $V$, so können wir die Addition $+$ und die Skalarmultiplik
 Auf diese Weise wird $W$ selbst zu einem VR über $\mathbb{R}$. \\
 \\
 \subsubsection*{Beispiele 4.6}
-a) In jedem VR $V$ gibt es den kleinsten UVR, nämlich $W:= \{0\} \Subset V$ und den größten UVR, nämlich $W:= V$. \\
+a) In jedem VR $V$ gibt es den kleinsten UVR, nämlich $W:= \{0\} \subset V$ und den größten UVR, nämlich $W:= V$. \\
 b) In $V =$ Abb($\mathbb{N}, \mathbb{R}$), d.h. dem Raum aller reellwertigen Folgen, ist die Teilmenge aller konvergenten Folgen ein UVR. \\
 c) In $V = $Abb($(a,b), \mathbb{R})$, d.h. dem Raum aller Funktionen auf dem Intervall $(a,b)$, ist die Teilmenge aller stetigen Funktionen ein UVR. \\
 Ebenso ist die Teilmenge aller k-mal stetig differenzierbaren Funktionen ein UVR und auch die Teilmenge aller Riemann integrierbaren Funktionen ist ein UVR. \\
@@ -2340,19 +2338,19 @@ Ebenso ist die Teilmenge aller k-mal stetig differenzierbaren Funktionen ein UVR
 Es sei $V$ ein VR und $X \subset V$ eine beliebig Teilmenge. Für eine beliebige (andere) Teilmenge $W \subset V$ sind äquivalent: \\
 a) $W = \underset{U \in W}{\cap} U$, wobei $W := \{U \subset V \ | \ U \text{ ist ein UVR von } V \text{ und } X \subset U\}$ \\
 b) $W$ ist ein UVR von $V$ und $X \subset W$ für jeden anderen UVR $W' \subset V$ mit $X \subset W'$ gilt $W \subset W'$. \\
-c) $W = \{v \in V \ | \exists_n \in \mathbb{N} \exists_{v_1,...,v_n \in X} \exists_{\lambda_1,...,\lambda_n \in \mathbb{R}}: v = \lambda_1 v_1 + ... + \lambda_n v_n $ oder $ v=0\}$ \\
+c) $W = \{v \in V \ | \exists_n \in \mathbb{N} \exists_{v_1,...,v_n} \in X \exists_{\lambda_1,...,\lambda_n}\in \mathbb{R}: v = \lambda_1 v_1 + ... + \lambda_n v_n $ oder $ v=0\}$ \\
 Es ist $W$ eindeutig (bei gegebenem $V$ und $X$) und heißt die \textit{lineare Hülle} bzw. den \textit{Spann} von $X$. Notationen dafür sind vielfältig, z.B. \\
 \begin{center}
     $L(X), \langle X \rangle, \text{span}(X)$
 \end{center}
 \subsubsection*{Beweis}
-Ist $X \neq \emptyset$, so entsteht bei a), b) und c) jeweils $W = \{0\} \Subset V$, d.h. das Lemma stimmt für $X \neq \emptyset$. \\
+Ist $X \neq \emptyset$, so entsteht bei a), b) und c) jeweils $W = \{0\} \subset V$, d.h. das Lemma stimmt für $X \neq \emptyset$. \\
 Wir nehmen also $X = \emptyset$ an. \\
 a) $\Rightarrow$ b): \\
 Es sei $W = \underset{U \in W}{\cap} U$ mit $W$ wie in a).
 \begin{enumerate}
     \item Dass $W$ ein UVR ist, wird komplett analog zu Aufgabe 4a des Übungsblatts 5 gezeigt.
-    \item Wegen $X \Subset U$ für alle $U \in W$ gilt $X \subset W$.
+    \item Wegen $X \subset U$ für alle $U \in W$ gilt $X \subset W$.
     \item Sei $W'$ ein UVR von $V$ mit $X \subset W'$. Dann ist $W' \in W$ und damit $W \underset{U \in W}{\cap} U \subset \underset{U = W'}{\cap} U = W'$. \\
 \end{enumerate}
 b) $\Rightarrow$ c): \\
@@ -2366,7 +2364,7 @@ Zusammen ergibt sich $Z = \underset{U \in W}{\cap} U$. $\square$ \\
 Es sei $V$ ein VR. \\
 a) $L(\emptyset) = \{0\}$ \\
 b) $L(\{0\}) = \{0\}$ \\
-c) Für $v \in V$ ist $L(\{v\}) = \{\lambda v | \lambda \in \mathbb{R}\}$
+c) Für $v \in V$ ist $L(\{v\}) = \{\lambda v | \lambda \in \mathbb{R}\}$ \\
 d) $L(V) = V$
 \\
 \subsubsection*{Lemma 4.9}
@@ -2392,8 +2390,8 @@ Es seien folgende Elemente des $\mathbb{R}^3$ gegeben: \\
         1 \\
     \end{pmatrix}$ \\
 \end{center}
-Wegen Lemma 4.9 gilt $L(v_1, v_3) \subset L(v_1, v_2, v_3)$. ir verwenden hier die Notation $L(v_1, v_3)$ statt $L(\{v_1, v_3\})$. \\
-Da $v_2 = v_1 + v_3$ ist, gilt $L(v_1, v_2, v_3) \Subset L(v_1, v_3)$ (siehe nächstes Lemma). \\
+Wegen Lemma 4.9 gilt $L(v_1, v_3) \subset L(v_1, v_2, v_3)$. Wir verwenden hier die Notation $L(v_1, v_3)$ statt $L(\{v_1, v_3\})$. \\
+Da $v_2 = v_1 + v_3$ ist, gilt $L(v_1, v_2, v_3) \subset L(v_1, v_3)$ (siehe nächstes Lemma). \\
 Somit ist also \\
 \begin{center}
     $L(v_1, v_2, v_3) = \left\{ \begin{pmatrix}
@@ -2433,7 +2431,7 @@ Es ist $v_0 \in L(v_0, v_1,...,v_m)$ und damit wegen der Annahme b) auch $v_0 \i
 \date{Mittwoch, 08.01.24} \footnote{vgl. S. ? aus Baer.}
 
 \subsubsection*{Lemma 4.11}
-Sei $X \Subset V$. Dann sind äquivalent für $v \in X$: \\
+Sei $X \subset V$. Dann sind äquivalent für $v \in X$: \\
 a) $v \in L(X\backslash \{v\})$ \\
 b) $L(X) = L(X \backslash \{v\})$ \\
 
@@ -2492,7 +2490,7 @@ Mit Algebra/Analysis zeigt man $\lambda_1 = ... = \lambda_n = 0$. \\
 e) In Abb($\mathbb{R}, \mathbb{R}$) sei $X := \{f(x), g(x), h(x)\}$ mit $f(x)=5$, $g(x)=\sin x^2$ und $h(x)=\cos x^2$. \\
 Aus $\sin x^2 + \cos x^2 = 1$ folgt $-1 \cdot f + 5g + 5h = 0$, d.h. $X$ ist linear abhängig. \\
 \\
-\subsubsection*{Definition}
+\subsubsection*{Definition 4.14}
 Es sei $V$ ein VR und $X \subset V$. \\
 \begin{enumerate}
     \item $X$ heißt \textit{Erzeugendensystem} von $V$, wenn $L(X) = V$ gilt.
@@ -2508,7 +2506,7 @@ Es sei $V$ ein VR und $X \subset V$. \\
 \end{enumerate}
 \subsubsection*{Beispiele 4.16}
 a) Die Standardbasis von $\mathbb{R}^n$ ist gegeben durch $X:= \{e_1,...,e_n\}$ wobei $e_i = (0, 0, ..., 1, ..., 0,0)$. Für jedes $v = (v_1,...,v_n) \in \mathbb{R}^n$ gilt offensichtlich $v = v_1 e_1 + ... + v_n e_n$, d.h. $X$ ist ein Erzeugendensystem. 
-Lineare Unabhängigkeit von $X$ zeigt man mit dem üblichen Ansatz (siehe Beispiel 4.13 c)). \\
+Lineare Unabhängigkeit von $X$ zeigt man mit dem üblichen Ansatz (siehe Beispiel 4.13 c). \\
 b) In $\mathbb{R}^2$ ist $X := \{ \begin{pmatrix}
     0 \\
     1 \\
@@ -2527,7 +2525,7 @@ Es ist ein Erzeugendensystem, denn für jedes $v = \begin{pmatrix}
         1 \\
     \end{pmatrix}$. \\
 c) Ist $X \subset V$ linear unabhängig, so ist $X$ eine Basis von $L(X)$. \\
-c) $V = \{0\}$ hat nur die Basis $X = \emptyset$. \\
+d) $V = \{0\}$ hat nur die Basis $X = \emptyset$. \\
 Es ist $Y = \{0\}$ keine Basis, da $Y$ \underline{nicht} linear unabhängig ist. Die 0 verhindert automatisch lineare Unabhängigkeit. \\
 
 \subsubsection*{Lemma 4.17}
@@ -2535,7 +2533,7 @@ Sei $X \subset V$ linear unabhängig und $v \in V \backslash L(X)$. Dann ist $X 
 \\
 
 \newpage
-\date{Donnerstag, 11.01.24} \footnote{vgl. S. ? aus Baer.}
+\date{Donnerstag, 11.01.24} \footnote{vgl. Kapitel 3.4 aus Baer.}
 \subsubsection*{Proposition 4.18}
 Sei $V$ ein VR, $V \neq \{0\}$, und $X \subset V$ eine Teilmenge. Dann sind äquivalent: \\
 \begin{enumerate}
@@ -2547,7 +2545,7 @@ Sei $V$ ein VR, $V \neq \{0\}$, und $X \subset V$ eine Teilmenge. Dann sind äqu
 a) $\Rightarrow$ b): \\
 Wir wollen Zeigen, dass wenn $X$ eine Basis ist, dann ist $X$ ein minimales Erzeugendensystem. \\
 Angenommen $X$ wäre nicht minimal, d.h. $\exists_v \in X: L(X \backslash \{v\}) = V = L(x)$. 
-Dann wäre $X$ aber wegen der Bedingung b) fpr lineare Abhängigkeit linear abhängig, was ein Widerspruch zur Definition der Basis ist. \\
+Dann wäre $X$ aber wegen der Bedingung b) für lineare Abhängigkeit linear abhängig, was ein Widerspruch zur Definition der Basis ist. \\
 b) $\Rightarrow$ a): \\
 Sei $X$ ein minimales Erzeugendensystem. Wegen der Minimalität gilt für alle $v \in X$ dass $L(X \backslash \{v\}) \neq V = L(X)$.
 Das ist gerade die Negation von b) aus der Definition der linearen Abhängigkeit. Also ist $X$ linear unabhängig, d.h. $X$ ist eine Basis. \\
