@@ -2647,7 +2647,8 @@ Siehe dazu Übungsblatt 8, Aufgabe 4. \\
 \\
 \subsubsection*{Satz 4.26}
 \textit{Basisauswahlsatz}
-Sei $X \subset V$ ein endliches Erzeugendensystem. Dann gibt es ein $B \subset X$ sodass $B$ eine Basis von $V$ ist. \\
+Sei $X \subset V$ ein endliches Erzeugendensystem. Dann gibt es ein $B \subset X$ sodass $B$ eine Basis von $V$ ist. 
+(Salopp: Aus einem Erzeugendensystem kann ich so lange Dinge rausschmeißen, bis es linear unabhängig ist.) \\
 \textit{Basisergänzungssatz}
 Sei $V$ endlich erzeugt und $X \subset V$ linear unabhängig. Dann gibt es eine Basis $B$ von $V$ mit $X \subset B$. \\
 \\
@@ -2672,6 +2673,221 @@ Sei $V$ ein VR. Wir definieren die \textit{Dimension} dim($V$) von $V$ als die A
 a) dim($\mathbb{R}^n$) = n \\
 b) dim(Mat($n \times m$)) = $n \cdot m$ (siehe Übung) \\
 c) dim(Abb($\mathbb{N}, \mathbb{R}$)) = $\infty$\\
+
+\date{Mittwoch, 17.01.24} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite ? aus Baer.}
+\subsubsection*{Bemerkung 4.30}
+%In Tests oder Klausuren werden wir oft mit der Aufgabe konfrontiert, Basen zu finden. Hier zeigen wir exemplarisch, wie man das macht
+%Es wird von uns am Ende des Semesters erwartet, dass wir so argumentieren können wie im folgenden Beispiel (Klausurrelevant!)
+Sei $W \subset \mathbb{R}^n$ ein UVR. Aus Aufgabe 3 des Aufgabenblatts 9 wissen wir: \\
+\begin{enumerate}
+    \item dim($W$) $\leq n$ \\
+    \item dim($W$) = $n$ $\Leftrightarrow$ $W = \mathbb{R}^n$ \\
+\end{enumerate}
+Das können wir behaupten, um induktiv eine Basis von $W$ zu finden. \\
+Als Beispiel sei $W = \left\{ x= \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+\end{pmatrix} \in \mathbb{R}^3 \ | \ x_1 + x_2 = 0 \right\}$. \\
+Wir erraten einen nicht-trivialen Vektor $v_1 \in W$, nämlich $v_1 = \begin{pmatrix}
+    0 \\
+    0 \\
+    1 \\
+\end{pmatrix}$. \\
+Jetzt wollen wir zeigen, dass dies kein Erzeugendensystem ist, also dass $L(v_1) \neq W$. Doch wie machen wir das? 
+Wir finden einen Vektor, der in $W$ liegt, aber nicht in $L(v_1)$. Ein solcher Vektor ist $v_2 = \begin{pmatrix}
+    1 \\
+    -1 \\
+    0 \\
+\end{pmatrix}$. Jetzt müssen wir das Lemma von letzter Woche anwenden: \\
+Gilt $W = L(v_1, v_2)$? \\
+Aus der Vorlesung wissen wir: $\{v_1, v_2\}$ ist linear unabhängig. Also ist dim($W$) $\geq 2$ (die Anzahl der Vektoren in der Basis ist immer eine untere Schranke für die Dimension). \\
+Es ist aber dim($W$) $\leq 3$ (siehe oben). Es ist dim($W$) = 2. (Hinweis: es ist nicht dim($W$) = 3, denn dann wäre $W = \mathbb{R}^3$. Durch die Bedingung schließen wir einige Vektoren des $\mathbb{R}^3$ aus, also kann die Dimension nicht 3 sein).
+\\
+\subsubsection*{Bemerkung 4.31}
+Wie überprüfen wir, ob eine Teilmenge $X = \{v_1,...,v_n\}$ des $\mathbb{R}^n$ linear unabhängig ist? \\
+%Jetzt folgt der absolute Standard Ansatz: 
+Wir setzen $\lambda_1 v_1 + ... + \lambda_n v_n = 0$ an schreiben dies als homogenes lineares Gleichungssystem: \\
+\begin{center}
+    $\lambda_1 v_{1}^{(1)} + ... + \lambda_m v_{m}^{(1)} = 0$ \\
+    $\vdots$ \\
+    $\lambda_1 v_{1}^{(n)} + ... + \lambda_m v_{m}^{(n)} = 0$ \\
+\end{center}
+wobei wir $v_1 = \begin{pmatrix}
+    v_{1}^{(1)} \\
+    ... \\
+    v_{1}^{(n)} \\
+    \end{pmatrix}, ..., v_m = \begin{pmatrix}
+        v_{m}^{(1)} \\
+        ... \\
+        v_{m}^{(n)} \\
+    \end{pmatrix}$ schreiben. \\
+Hat dieses homogene LGS nur die triviale Lösung $\lambda_1 = ... = \lambda_m = 0$, so ist $X$ linear unabhängig. \\
+Gibt es hingegen eine Lösung mit einem $\lambda_i \neq 0$ für ein $i \in \{1,...,m\}$, so ist $X$ linear abhängig und es gilt L($X$) = L($X \backslash \{v_i\}$) (siehe Lemma 4.11). Dies ist das gleiche Verfahren wie das, des Basisauswahlsatzes. \\
+\\
+\subsubsection*{Bemerkung 4.32}
+Wie überprüfen wir, ob eine Teilmenge $X = \{v_1,...,v_m\}$ des $\mathbb{R}^n$ ein Erzeugendensystem ist? \\
+Dazu muss für jedes $b \in \mathbb{R}^n$ die Gleichung $\lambda_1 v_1 + ... + \lambda_m v_m = b$ lösbar sein. \\
+Dies können wir als ein inhomogenes lineares Gleichungssystem schreiben: \\
+\begin{center}
+    $\lambda_1 v_{1}^{(1)} + ... + \lambda_m v_{m}^{(1)} = b^{(1)}$ \\
+    $\vdots$ \\
+    $\lambda_1 v_{1}^{(n)} + ... + \lambda_m v_{m}^{(n)} = b^{(n)}$ \\
+\end{center}
+Ist dieses inhomogene LGS für jedes $b \in \mathbb{R}^n$ lösbar, so ist $X$ ein Erzeugendensystem von $\mathbb{R}^n$. \\
+\\
+\subsubsection*{Definition 4.33}
+Sei $A$ eine $(m \times n)$-Matrix. 
+\begin{enumerate}
+    \item Es seien $x_1,...,x_n$ die einzelnen Spalten von $A$, aufgefasst als Vektoren des $\mathbb{R}^m$. 
+    \item Es seien $y_1,...,y_m$ die einzelnen Zeilen von $A$, aufgefasst als Vektoren des $\mathbb{R}^n$. \\
+\end{enumerate}
+a) Der Spaltenrang von $A$ ist dim(L($x_1,...,x_n$)). \\
+b) Der Zeilenrang von $A$ ist dim(L($y_1,...,y_m$)). \\
+\\
+\subsubsection*{Beispiel 4.34}
+Der Spaltenrang der Matrix $A = \begin{pmatrix}
+    1 & 0 & 1 & -1 \\
+    1 & 1 & 2 & 0 \\
+    0 & 1 & 1 & 1 \\
+\end{pmatrix}$ ist 2. \\
+Es gilt 
+\begin{center}
+$\begin{pmatrix}
+    1 \\
+    2 \\
+    1 \\
+\end{pmatrix} = \begin{pmatrix}
+    1 \\
+    1 \\
+    0 \\
+\end{pmatrix} + \begin{pmatrix}
+    0 \\
+    1 \\
+    1 \\
+\end{pmatrix}$ und $\begin{pmatrix}
+    -1 \\
+    0 \\
+    1 \\
+\end{pmatrix} = \begin{pmatrix}
+    0 \\
+    1 \\
+    1 \\
+\end{pmatrix} - \begin{pmatrix}
+    1 \\
+    1 \\
+    0 \\
+\end{pmatrix}$ 
+\end{center}
+(die 3. und 4. Spalte sind Linearkombinationen der ersten Beiden), d.h. es gilt: \\
+\begin{center}
+    L$\left( \begin{pmatrix}
+        1 \\
+        1 \\
+        0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        0 \\
+        1 \\
+        1 \\
+    \end{pmatrix}, \begin{pmatrix}
+        1 \\
+        2 \\
+        1 \\
+    \end{pmatrix}, \begin{pmatrix}
+        -1 \\
+        0 \\
+        1 \\
+    \end{pmatrix} \right)$ = L$\left( \begin{pmatrix}
+        1 \\
+        1 \\
+        0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        0 \\
+        1 \\
+        1 \\
+    \end{pmatrix} \right)$ \\
+\end{center}
+Ferner sind $\begin{pmatrix}
+    1 \\
+    1 \\
+    0 \\
+\end{pmatrix}$ und $\begin{pmatrix}
+    0 \\
+    1 \\
+    1 \\
+\end{pmatrix}$ linear unabhängig zueinander. Der Spaltenrang ist 2. \\
+\\
+\subsubsection*{Proposition 4.35}
+Sei $A$ eine $(m \times n)$-Matrix. Dann gilt: \\
+\begin{center}
+    Zeilenrang von $A$ = Spaltenrang von $A$ \\
+\end{center}
+\subsubsection*{Beweis}
+Man nennt dies deswegen einfach den Rang von $A$. \\
+Notation: rg($A$) \\
+Hinweis: diesen Beweis haben wir in der Vorlesung nicht gemacht. \\
+Schreibe $A = \begin{pmatrix}
+    A_{11} & ... & A_{1n} \\
+    \vdots &  & \vdots \\
+    A_{m1} & ... & A_{mn} \\
+\end{pmatrix}$. Seien $y_1,...,y_m$ die Zeilenvektoren von $A$, d.h. für $j \in \{1,...,m\}$ ist $y_j = \begin{pmatrix}
+    A_{j1} \\
+    ... \\
+    A_{jn} \\
+\end{pmatrix} \in \mathbb{R}^n$ (*). \\
+Sei der Zeilenrang von $A$ gleich $r$. Es gibt also $r$ linear unabhängige Vektoren \\
+\begin{center}
+    $z_1 = (b_{11},...,b_{1n}), ..., z_r = (b_{r1},...,b_{rn})$ (**) \\
+\end{center}
+die eine Basis von L($y_1,...,y_m$) bilden, d.h. für jedes $j \in \{1,...,m\}$ gilt \\
+\begin{center}
+    $y_j = k_{j1} z_1 + ... + k_{jr} z_r$ (***) \\
+\end{center}
+für gewisse $k_{jt} \in \mathbb{R}$ für $1 \leq j \leq m$ und $1 \leq t \leq r$. \\
+Somit gilt dann aber \\
+\begin{center}
+    $A_{1j} = k_{11} b_{1i} + ... + k_{1r} b_{ri}$ \\
+    $\vdots$ \\
+    $A_{mi} = k_{m1} b_{1i} + ... + k_{mr} b_{ri}$ \\
+\end{center}
+DER BEWEIS IST NOCH NICHT FERTIG.
+
+\subsubsection*{Satz 4.36}
+Sei $A$ eine $(m \times n)$-Matrix. Es seien $x_1,...,x_n$ die einzelnen Spalten von $A$ und es sei $b \in \mathbb{R}^m$. 
+Wir schreiben $(A,b)$ für die Matrix $A$ mit zusätzlicher Spalte $b$. \\    
+Dann gilt: \\
+\begin{align*}
+    \text{a) Lös}(A,b) \neq \emptyset &\Leftrightarrow b \in \text{L}(x_1,...,x_n) \\
+    &\Leftrightarrow \text{rg}(A,b) = \text{rg}(A) \\
+    \text{b) Lös}(A,b) = \emptyset &\Leftrightarrow b \notin \text{L}(x_1,...,x_n) \\
+    &\Leftrightarrow \text{rg}(A,b) = \text{rg}(A) + 1 \\
+\end{align*}
+\subsubsection*{Beweis}
+a) Es gelten folgende Äquivalenzen: \\
+\begin{align*}
+    \text{rg}(A,b) = \text{rg}(A) &\Leftrightarrow \text{dim(L}(x_1,...,x_n,b)) = \text{dim(L}(x_1,...,x_n)) \\
+    &\Leftrightarrow \text{L}(x_1,...,x_n,b) = \text{L}(x_1,...,x_n) \\
+    &\Leftrightarrow b \in \text{L}(x_1,...,x_n) \\
+    &\Leftrightarrow \exists_{t_1, ..., t_n} \in \mathbb{R}: t_1 x_1 + ... + t_n x_n = b \\
+    &\Leftrightarrow \text{Lös}(A,b) \neq \emptyset \\
+\end{align*}
+b) Folgt aus a), weil Hinzunahme einer zusätzlichen Spaöte den Spaltenrang höchstens um eins erhöhen kann (es gilt also entweder $\text{rg}(A,b) = \text{rg}(A)$ oder $\text{rg}(A,b) = \text{rg}(A) + 1$). $\square$ \\
+\\
+\subsubsection*{Bemerkung 4.37}
+Sei $A$ eine Matrix. In Aufgabe 4 des Übungsblattes 8 haben wir gezeigt, dass elementare Zeilenumformungen die von den Zeilen aufgespannten Unterräume nicht verändern. \\
+Also bleibt der Zeilenrang von $A$ bei elementaren Zeilenumformungen erhalten. \\
+Gehe $A'$ aus $A$ durch elementare Zeilenumformungen heraus und $A'$ in Zeilenstufenform. Dann ist die Anzahl der nicht-0-Zeilen der Zeilenrang. \\
+\begin{center}
+    $\begin{pmatrix}
+        1 & * & 1 & * & * \\
+        0 & 0 & 2 & * & * \\
+        0 & 0 & 0 & * & * \\
+        0 & 0 & 0 & 0 & 0 \\
+    \end{pmatrix}$ \\
+    $\lambda_1 v_1 + \lambda_2 v_2 + \lambda_3 v_3 + \lambda_4 v_4 + \lambda_5 v_5 = 0$ \\
+\end{center}
+Die Stufen in der Matrix sind da, wo wir den ersten nicht-0-Eintrag in einer Zeile haben. Man schaut sich nacheinander die Einträge an, wo die Stufen sind und schaut sich dann die Lambdas an. Am Ende argumentiert man, dass diese Lambdas alle 0 sein müssen. Am Ende sehen wir, dass diese 3 Zeilen eine Basis sind. \\
+
 
 
 \newpage
