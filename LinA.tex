@@ -2850,7 +2850,7 @@ Somit gilt dann aber \\
     $\vdots$ \\
     $A_{mi} = k_{m1} b_{1i} + ... + k_{mr} b_{ri}$ \\
 \end{center}
-DER BEWEIS IST NOCH NICHT FERTIG.
+
 
 \subsubsection*{Satz 4.36}
 Sei $A$ eine $(m \times n)$-Matrix. Es seien $x_1,...,x_n$ die einzelnen Spalten von $A$ und es sei $b \in \mathbb{R}^m$. 
@@ -2888,7 +2888,121 @@ Gehe $A'$ aus $A$ durch elementare Zeilenumformungen heraus und $A'$ in Zeilenst
 \end{center}
 Die Stufen in der Matrix sind da, wo wir den ersten nicht-0-Eintrag in einer Zeile haben. Man schaut sich nacheinander die Einträge an, wo die Stufen sind und schaut sich dann die Lambdas an. Am Ende argumentiert man, dass diese Lambdas alle 0 sein müssen. Am Ende sehen wir, dass diese 3 Zeilen eine Basis sind. \\
 
+\newpage
+\date{Donnerstag, 18.01.24} \footnote[1]{Die Inhalte dieser Vorlesung basieren auf Kapitel 4.1 und 4.2 aus Baer.}
+\subsection{Lineare Abbildungen}
 
+\subsubsection*{Definition 4.38}
+Es seien $V, W$ VR. Eine Abbildung $\varphi: V \rightarrow W$ heißt \textit{linear} oder \textit{Vektorraumhomomorphismus}, wenn gilt: \\
+\begin{enumerate}
+    \item a) Für alle $v, v' \in V$ gilt $\varphi(v + v') = \varphi(v) + \varphi(v')$ \\
+    \item b) Für alle $v \in V$ und $\lambda \in \mathbb{R}$ gilt $\varphi(\lambda v) = \lambda \varphi(v)$ \\
+\end{enumerate}
+
+\subsubsection*{Beispiele 4.39}
+a) Sei $A$ eine $(m \times n)$-Matrix und $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ die zugehörige Abbildung. Lemma 2.26 besagt, dass $\varphi_A$ linear ist. \\
+b) Die Nullabbilung $0: V \rightarrow W, v \mapsto 0$ ist immer linear. \\
+c) Die Identitätsabbildung $\text{id}_V: V \rightarrow V, v \mapsto v$ ist immer linear. \\
+d) Die Abbildung $\varphi: \mathbb{R} \rightarrow \mathbb{R}, x \mapsto x^2$ ist \underline{nicht} linear. Es ist 
+\begin{center}
+    $\varphi(1 + 1) = \varphi(2) = 4$ aber $\varphi(1) + \varphi(1) = 1 + 1 = 2$ \\
+\end{center}
+e) Es sei $(a,b) \subset \mathbb{R}$ ein Intervall. Es bezeichne $C^1(a,b)$ den VR aller den Raum aller stetig differenzierbaren Funktionen $(a,b) \rightarrow \mathbb{R}$ und $C^0(a,b)$ den Raum aller stetigen Funktionen $(a,b) \rightarrow \mathbb{R}$. 
+Dann ist das Differenzieren $C^1(a,b) \rightarrow C^0(a,b), f \mapsto f'$ linear. \\
+f) Es sei $[a,b] \subset \mathbb{R}$ ein Intervall. Dann ist das Integrieren eine lineare Abbildung $C^0([a,b]) \rightarrow \mathbb{R}, f \mapsto \int_{a}^{b} f(x) dx$. \\
+
+\subsubsection*{Lemma 4.40}
+Es sei $\varphi: V \rightarrow W$ linear. Dann gilt: \\
+\begin{enumerate}
+    \item a) $\varphi(0) = 0$ \\
+    \item b) Für alle $v, v' \in V$ gilt $\varphi(v-v') = \varphi(v) - \varphi(v')$ \\
+    \item c) Für alle $v_1,...,v_n \in V$ und $\lambda_1,...,\lambda_n \in \mathbb{R}$ gilt $\varphi(\lambda_1 v_1 + ... + \lambda_n v_n) = \lambda_1 \varphi(v_1) + ... + \lambda_n \varphi(v_n)$ \\
+\end{enumerate}
+
+\subsubsection*{Beweis}
+\begin{enumerate}
+    \item a) Es gilt $\varphi(0) = \varphi(0 + 0) = \varphi(0) + \varphi(0)$ und jetzt subtrahieren wir $\varphi(0)$ von beiden Seiten. \\
+    \item b) Es gilt $v-v' = v + (-1) \cdot v'$ (vgl. Lemma 4.3b). Damit ist dann \\
+    \begin{align*}
+        \varphi(v-v') &= \varphi(v + (-1) \cdot v') \\
+        &= \varphi(v) + \varphi((-1) \cdot v') \\
+        &= \varphi(v) + (-1) \cdot \varphi(v') \\
+        &= \varphi(v) - \varphi(v') \\
+    \end{align*}
+    \item c) Es gilt \\
+    \begin{align*}
+        \varphi(\lambda_1 v_1 + ... + \lambda_n v_n) &= \varphi(\lambda_1 v_1 +(\lambda_2 v_2) + ... + \lambda_n v_n) \\
+        &= \varphi(\lambda_1 v_1) + \varphi(\lambda_2 v_2 + ... + \lambda_n v_n) \\
+    \end{align*}
+    und so weiter. $\square$ \\
+\end{enumerate}
+
+\subsubsection*{Proposition 4.41}
+Jede lineare Abbildung $\mathbb{R}^n \rightarrow \mathbb{R}^m$ ist eine Matrixabbildung. \\
+\\
+\subsubsection*{Beweis}
+Sei $\varphi: \mathbb{R}^n \rightarrow \mathbb{R}^m$ linear. Sei $\{e_1,...,e_n\}$ die Standardbasis von $\mathbb{R}^n$, d.h. für alle $p=(p_1,...,p_n) \in \mathbb{R}^n$ gilt $p = p_1 e_1 + ... + p_n e_n$. 
+Wir definieren $a_j \overset{\textcolor{red}{*}}{:=} \varphi(e_j)$ für $j \in \{1,...,n\}$ und sei $A$ die Matrix mit den Spalten $a_1,...,a_n$. \\
+Man beachte, dass $A \cdot e_j \overset{\textcolor{blue}{**}}{=} a_j$ gilt für $j \in \{1,...,n\}$. Sei $\varphi_A$ die i-te zu $A$ gehörige Matrixabbildung. Dann gilt \\
+\begin{align*}
+    \varphi(p) &= \varphi(p_1 e_1 + ... + p_n e_n) \\
+    &\overset{\textcolor{green}{*}}{=} p_1 \varphi(e_1) + ... + p_n \varphi(e_n) \\
+    &\overset{\textcolor{red}{*}}{=} p_1 a_1 + ... + p_n a_n \\
+    &\overset{\textcolor{blue}{**}}{=} p_1 (A \cdot e_1) + ... + p_n (A \cdot e_n) \\
+    &\overset{\text{Bem 2.34}}{=} p_1 \varphi_A(e_1) + ... + p_n \varphi_A(e_n) \\
+    &\overset{\textcolor{green}{*}}{=} \varphi_A(p_1 e_1 + ... + p_n e_n) \\
+    &= \varphi_A(p) \\
+\end{align*}
+für alle $p \in \mathbb{R}^n$. $\square$ \\
+Hinweis: $\textcolor{green}{*}$ ist die Linearität.\\
+\\
+\subsubsection*{Lemma 4.42}
+\begin{enumerate}
+    \item a) Seien $\varphi : V \rightarrow W$ und $\psi: W \rightarrow Z$ linear. Dann ist auch $\psi \circ \varphi: V \rightarrow Z$ linear. \\
+    \item b) Sei $\varphi: V \rightarrow W$ linear und invertierbar. Dann ist auch die Umkehrabbildung $\varphi^{-1}: W \rightarrow V$ linear. \\
+\end{enumerate}
+
+\subsubsection*{Beweis}
+a) Schreibe $\mathcal{v} := \psi \circ \varphi$. 
+i) Seien $v,v' \in V$. Dann gilt \\
+\begin{align*}
+    \mathcal{v}(v + v') &= (\psi \circ \varphi)(v + v') \\
+    &= \psi(\varphi(v + v')) \\
+    &= \psi(\varphi(v) + \varphi(v')) \\
+    &= \psi(\varphi(v)) + \psi(\varphi(v')) \\
+    &= (\psi \circ \varphi)(v) + (\psi \circ \varphi)(v') \\
+    &= \mathcal{v}(v) + \mathcal{v}(v') \\
+\end{align*}
+ii) Analog zeigt man $\mathcal{v}(\lambda v) = \lambda \mathcal{v}(v)$ für alle $v \in V$ und $\lambda \in \mathbb{R}$. \\
+b) Sei $w \in W$. Weil $\varphi$ invertiertbar ist, ist es bijektiv (Lemma 1.45c) und somit gibt es ein $a \in V$ mit $\varphi(a) \overset{\textcolor{green}{**}}{=} w$. \\
+Ebenso gibt es für jedes $w' \in W$ ein $b \in V$ mit $\varphi(b) \overset{\textcolor{green}{**}}{=} w'$. 
+Dann gilt aber auch $\varphi(a + b) = \varphi(a) + \varphi(b) = w + w'\textcolor{pink}{*}$. \\
+Somit erhalten wir nun \\
+\begin{align*}
+    \varphi^{-1}(w + w') &\overset{\textcolor{pink}{*}}{=} \varphi^{-1}(\varphi(a + b)) \\
+    &= a + b \\
+    &= \varphi^{-1}(\varphi(a)) + \varphi^{-1}(\varphi(b)) \\
+    &\overset{\textcolor{green}{**}}{=} \varphi^{-1}(w) + \varphi^{-1}(w') \\
+\end{align*}
+Analog zeigt man $\varphi^{-1}(\lambda w) = \lambda \varphi^{-1}(w)$ 
+für alle $w \in W$ und $\lambda \in \mathbb{R}$. $\square$ \\
+Lemma 4.42a) und Proposition 4.41 implizieren, dass für Matrizen $A$ und $B$, für welche $\varphi_A \circ \varphi_B$ definiert ist, $\varphi_A \circ \varphi_B = \varphi_{C}$ für eine Matrix $C$ gilt. 
+Aus der Bemerkung 2.33 wissen wir, dass $C = A \cdot B$ ist. \\
+\\
+\subsubsection*{Korollar 4.43}
+Sei $A$ eine $(m \times n)$-Matrix. Dann sind die folgenden Aussagen äquivalent: \\
+a) Die zugehörige Matrixabbildung $\varphi_A$ ist invertierbar. \\
+b) Es gibt eine $(n \times n)$-Matrix B mit $A \cdot B = B \cdot A = E_n$. \\
+Hinweis: Man nennt $B$ die zu $A$ inverse Matrix und schreibt $B = A^{-1}$. \\
+\\
+\subsubsection*{Beweis}
+b) $\Rightarrow$ a): \\
+(Dies wissen wir schon aus Kapitel 2).\\
+Es gilt $\varphi_A \circ \varphi_B = \varphi_{A \cdot B} = \varphi_{E_n} = \text{id}_{\mathbb{R}^n}$ und ebenso $\varphi_B \circ \varphi_A = \varphi_{B \cdot A} = \varphi_{E_n} = \text{id}_{\mathbb{R}^n}$, d.h. $\varphi_A$ ist invertierbar. \\
+a) $\Rightarrow$ b): \\
+Aus Lemma 4.42b) und Proposition 4.41 wissen wir, dass die Inverse $(\varphi_A^{-1})$ durch eine Matrix $B$ gegeben ist, d.h. es gilt $\underbrace{\varphi_A \circ \varphi_B}_{=\varphi_{A \cdot B}} = \text{id}_{\mathbb{R}^n} = \varphi_{E_n} = \underbrace{\varphi_B \circ \varphi_A}_{=\varphi_{B \cdot A}}$.
+Mit Aufgabe 1 des Aufgabenblatts 5 (Injektivität von $C \Rightarrow \varphi_C$) folgt dann, dass $A \cdot B = B \cdot A = E_n$. $\square$ \\
+Wie man eine invertierbare Matrix konkret invertiert wird später besprochen.
 
 \newpage
 \begin{thebibliography}{9}
