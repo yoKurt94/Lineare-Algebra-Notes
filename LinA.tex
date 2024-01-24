@@ -3005,6 +3005,107 @@ Mit Aufgabe 1 des Aufgabenblatts 5 (Injektivität von $C \Rightarrow \varphi_C$)
 Wie man eine invertierbare Matrix konkret invertiert wird später besprochen.
 
 \newpage
+\date{Mittwoch, 24.01.18} \footnote[1]{Die Inhalte dieser Vorlesung basieren auf Kapitel ? aus Baer.}
+\subsubsection*{Lemma 4.44}
+Sei $\varphi: V \rightarrow W$ linear. Dann gilt: \\
+\begin{enumerate}
+    \item a) Ist $V' \subset V$ ein UVR, so ist auch $\varphi(V') \subset W$ (Def. 1.28) ein UVR. \\
+    \item b) Ist $W' \subset W$ ein UVR, so ist auch $\varphi^{-1}(W') \subset V$ (Def. 1.30) ein UVR. \\
+\end{enumerate}
+\subsubsection*{Beweis}
+a) Wegen $\varphi(0) = 0$ und $0 \in V'$ ist $0 \in \varphi(V')$. \\
+Seien $w_1, w_2 \in \varphi(V')$. Es gibt also $v_1, v_2 \in V'$ mit $\varphi(v_1) = w_1$ und $\varphi(v_2) = w_2$. \\
+Es ist $v_1 + v_2 \in V'$ und $\varphi(v_1 + v_2) = \varphi(v_1) + \varphi(v_2) = w_1 + w_2$, d.h. $w_1 + w_2 \in \varphi(V')$. \\
+Analog zeigt man $\lambda w_1 \in \varphi(V')$ für alle $\lambda \in \mathbb{R}$ und $w \in \varphi(V')$. \\
+b) Wegen $\varphi(0) = 0$ und $0 \in W'$ ist $0 \in \varphi^{-1}(W')$. \\
+Seien $v_1, v_2 \in \varphi^{-1}(W')$, d.h. $\varphi(v_1) \in W'$ und $\varphi(v_2) \in W'$. 
+Dann gilt $\varphi(v_1 + v_2) = \underbrace{\varphi(v_1)}_{\in W'} + \underbrace{\varphi(v_2)}_{\in W'} \in W'$, d.h. $v_1 + v_2 \in \varphi^{-1}(W')$. \\
+Analog zeigt man $\lambda v \in \varphi^{-1}(W')$ falls $v \in \varphi^{-1}(W')$ und $\lambda \in \mathbb{R}$. $\square$ \\
+\\
+\subsubsection*{Korollar 4.45}
+Sei $\varphi: V \rightarrow W$ linear. Dann gilt: \\
+\begin{enumerate}
+    \item a) Der Kern $\text{Kern}(\varphi) = \varphi^{-1}(\{0\})$ ist ein UVR von $V$. vgl. Def. 2.28 \\
+    \item b) Das Bild $\varphi(V)$ von $V$ unter $\varphi$ ist ein UVR von $W$. vgl. Def. 1.28 \\
+\end{enumerate}
+Hinweis: Warum ist das relevant? Wenn es keine lineare Abbildung ist, ist es kein UVR. UVR haben aber wichtige Eigenschaften, wie Dimensionen zum Beispiel. Oft ist man nur an der Dimension des Kerns interessiert. \\
+\\
+\subsubsection*{Lemma 4.46}
+Sei $\varphi: V \rightarrow W$ linear. Dann gilt: \\
+\begin{enumerate}
+    \item a) $\varphi$ ist genau dann surjektiv, wenn $\varphi(V) = W$. \\
+    \item b) $\varphi$ ist genau dann injektiv, wenn $\text{Kern}(\varphi) = \{0\}$. \\
+\end{enumerate}
+\subsubsection*{Beweis}
+a) Das ist einfach die Definition der Surjektivität. \\
+b) Komplett analog wie Korollar 2.30 für die Matrixabbildungen (man entfernt einfach das $A$ in $\varphi_A$). $\square$ \\
+\\
+\subsubsection*{Lemma 4.47}
+Sei $\varphi: V \rightarrow W$ linear. Ist $X \subset V$ ein Erzeugendensystem, so ist $\varphi(X)$ ein Erzeugendensystem von $\varphi(V)$. \\
+\underline{Achtung}: Die analoge Aussage mit "linear unabhängig" statt "Erzeugendensystem" ist falsch. \\
+\\
+\subsubsection*{Beweis}
+Sei $w \in \varphi(V)$. Es gibt also ein $v \in V$ mit $\varphi(v) = w$. Da $X$ ein Erzeugendensystem von $V$ ist, können wir $v = \lambda_1 x_1 + ... + \lambda_n x_n$ schreiben mit $x_1,...,x_n \in X$. Dann ist $\underbrace{\varphi(v)}_{=w} = \varphi(\lambda_1 x_1 + ... + \lambda_n x_n) = \lambda_1 \varphi(x_1) + ... + \lambda_n \varphi(x_n)$ mit $\varphi(x_i) \in \varphi(X)$ für $\forall_i$. $\square$ \\
+\\
+\subsubsection*{Korollar 4.48}
+Sei $\varphi: V \rightarrow W$ linear. Ist $V$ endlich erzeugt, so ist auch $\varphi(V)$ endlich erzeugt und es gilt \\
+\begin{center}
+    $\text{dim}(\varphi(V)) \leq \text{dim}(V)$ \\
+\end{center}
+\subsubsection*{Beweis}
+Sei $X$ eine endliche Basis von $V$. Nach Lemma 4.47 ist $\varphi(X)$ ein Erzeugendensystem von $\varphi(V)$. 
+Laut Basisauswahlsatz gibt es eine Teilmenge $Y \subset \varphi(X)$, die eine Basis von $\varphi(V)$ ist.
+Also ist $\text{dim}(\varphi(V)) = \#\text{X} \geq \#\text{Y} = \text{dim}(\varphi(V))$. $\square$ \\
+\\
+\subsubsection*{Definition 4.49}
+Sei $\varphi: V \rightarrow W$ linear. Dann heißt $\text{dim}(\varphi(V))$ der Rang $\text{rg}(\varphi)$ von $\varphi$. \\
+\\
+\subsubsection*{Bemerkung 4.50}
+Ist $A$ eine $(m \times n)$-Matrix und $\varphi_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$ die zugehörige Matrixabbildung, so gilt \\
+\begin{center}
+    $\text{rg}(\varphi_A) = \text{rg}(A)$ \\
+\end{center}
+Sei $\{e_1,...,e_n\}$ die Standardbasis von $\mathbb{R}^n$. Dann ist \\
+\begin{align*}
+    \text{rg}(\varphi_A) &\underset{\text{Def. 4.49}}{=} \text{dim}(\varphi_A(\mathbb{R}^n)) \\
+    &\underset{\text{Lemma 4.47}}{=} \text{dim}(L(\varphi_A(\{e_1,...,e_n\}))) \\
+    &= \text{dim}(L(a_1,...,a_n)) \text{ wobei } a_1,...,a_n \text{ die Spalten von } A \text{ sind} \\
+    &\underset{\text{Def. 4.33}}{=} \text{Spaltenrang}(A) \\
+\end{align*}
+\subsubsection*{Satz 4.51 (Dimensionsformel für lineare Abbildungen)}
+Sei $\varphi: V \rightarrow W$ linear und sei dim($V$) $< \infty$. Dann gilt \\
+\begin{center}
+    $\text{dim}(V) = \text{dim}(\text{ker}(\varphi)) + \text{rg}(\varphi)$ \\
+\end{center}
+\subsubsection*{Beweis}
+Siehe das Buch von Baer S. 182. \\
+\\
+\subsubsection*{Korollar 4.52}
+Sei $\varphi: V \rightarrow W$ linear und sei dim($V$) = dim($W$) $< \infty$. Dann sind äquivalent: \\
+\begin{enumerate}
+    \item a) $\varphi$ ist injektiv. \\
+    \item b) $\varphi$ ist surjektiv. \\
+    \item c) $\varphi$ ist bijektiv. \\
+\end{enumerate}
+\subsubsection*{Beweis}
+Per Definition gilt $a \wedge b \Leftrightarrow c$. \\
+Wir müssen als nur noch $a \Leftrightarrow b$ zeigen. \\
+\begin{align*}
+    \varphi \text{ ist injektiv } &\Leftrightarrow \text{ker}(\varphi) = \{0\} \\
+    &\underset{4.64}{\Leftrightarrow} \text{dim}(\text{ker}(\varphi)) = 0 \\
+    &\Leftrightarrow \text{dim}(V) = \text{rg}(\varphi) \\
+    &\Leftrightarrow \text{dim}(W) = \text{rg}(\varphi) \text{ * } \\
+    &\Leftrightarrow \text{dim}(W) = \text{dim}(W) \\
+    &\Leftrightarrow \varphi(V) = W \\  
+    &\varphi \text{ ist surjektiv} \\
+\end{align*}
+* gilt, wegen Aufgabenblatt 8 (klausurrelevant): \\
+\begin{center}
+    $\underset{= \varphi(V)}{U} \subset W \wedge \text{dim}(U) = \text{dim}(W) \Rightarrow U = W$ \\
+\end{center}
+
+
+\newpage
 \begin{thebibliography}{9}
     \bibitem{book:baer}
     Baer, Christian,
