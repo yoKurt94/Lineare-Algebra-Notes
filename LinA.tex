@@ -3104,6 +3104,163 @@ Wir müssen als nur noch $a \Leftrightarrow b$ zeigen. \\
     $\underset{= \varphi(V)}{U} \subset W \wedge \text{dim}(U) = \text{dim}(W) \Rightarrow U = W$ \\
 \end{center}
 
+\newpage
+\date{Donnerstag, 25.01.18} \footnote[1]{Die Inhalte dieser Vorlesung basieren auf Kapitel 4.3 aus Baer.}
+\subsubsection*{Lemma 4.53}
+Seien $\varphi, \psi: V \rightarrow W$ linear und sei $X \subset V$ ein Erzeugendensystem.
+Gilt $\varphi(v) = \psi(v)$ für alle $v \in X$, so gilt $\forall_v \in V: \varphi(v) = \psi(v)$. \\
+\\
+\subsubsection*{Beweis}
+Sei $v \in V$. Dann gilt $v = \lambda_1 x_1 + ... + \lambda_n x_n$ für gewisse $x_1,...,x_n \in X$. Dann ist \\
+\begin{align*}
+    \varphi(v) &= \varphi(\lambda_1 x_1 + ... + \lambda_n x_n) \\
+    &= \lambda_1 \varphi(x_1) + ... + \lambda_n \varphi(x_n) \\
+    &= \lambda_1 \psi(x_1) + ... + \lambda_n \psi(x_n) \\
+    &= \psi(\lambda_1 x_1 + ... + \lambda_n x_n) \\
+    &= \psi(v) \\
+\end{align*}
+$\square$ \\
+\\
+\subsubsection*{Lemma 4.54}
+Sei $\varphi: V \rightarrow W$ linear und $\{v_1,...,v_n\}$ eine Basis von $V$. \\
+a) Es ist $\{\varphi(v_1),...,\varphi(v_n)\}$ linear unabhängig genau dann wenn $\varphi$ injektiv ist. \\
+b) Es ist $\{\varphi(v_1),...,\varphi(v_n)\}$ ein Erzeugendensystem von $W$ genau dann wenn $\varphi$ surjektiv ist. \\
+\\
+\subsubsection*{Beweis}
+a) \begin{enumerate}
+    \item "$\Rightarrow$": \\
+    Sei $\{\varphi(v_1),...,\varphi(v_n)\}$ linear unabhängig. $\{\varphi(v_1),...,\varphi(v_n)\}$ ist aber auch ein Erzeugendensystem von $\varphi(V)$ (Lemma 4.47?). Somit gilt also $\text{dim}(\varphi(V)) = n$.
+    Mit der Dimensionsformel (Satz 4.51?) folgt dann $\text{dim}(V) = \text{dim}(\text{ker}(\varphi)) + \text{rg}(\varphi)$ folgt $n = \text{dim}(\text{ker}(\varphi)) + n$, d.h. $\text{dim}(\text{ker}(\varphi)) = 0$ und somit ist $\varphi$ injektiv. \\
+    \item "$\Leftarrow$": \\
+    Sei $\varphi$ injektiv. Angenommen $\{\varphi(v_1),...,\varphi(v_n)\}$ ist linear abhängig, d.h. $\underbrace{\lambda_1 \varphi(v_1) + ... + \lambda_n \varphi(v_n)}_{=\varphi(\lambda_1 v_1 + ... + \lambda_n v_n)} = 0$ mit $\lambda_i \neq 0$ für ein $i \in \{1,...,n\}$.
+    Es ist $\lambda_1 v_1 + ... + \lambda_n v_n \in \text{ker}(\varphi)$. Aber $\varphi$ ist injektiv, also ist $\text{ker}(\varphi) = \{0\}$. 
+    Somit gilt also $\lambda_1 v_1 + ... + \lambda_n v_n = 0$, d.h. $\{v_1,...,v_n\}$ ist linear abhängig, was ein Widerspruch ist. \\
+    $\square$ \\
+\end{enumerate}
+b) Übungsaufgabe. \\
+\\
+\subsubsection*{Proposition 4.55}
+Es seien $V, W$ Vektorräume und es sei $\{v_1,...,v_n\}$ eine Basis von $V$. Dann gibt es für jede Wahl von $w_1,...,w_n \in W$ genau eine lineare Abbildung $\varphi: V \rightarrow W$ mit $\varphi(v_i) = w_i$ für alle $i \in \{1,...,n\}$. \\
+\\
+\subsubsection*{Beweis}
+Sei $v \in V$. Dann ist $v = \lambda_1 v_1 + ... + \lambda_n v_n$. Wir definieren \\
+\begin{center}
+    $\varphi(v) := \lambda_1 w_1 + ... + \lambda_n w_n$ \\
+\end{center}
+Seien $v, w \in V$. Schreibe $v = \lambda_1 v_1 + ... + \lambda_n v_n$ und $w = \mu_1 v_1 + ... + \mu_n v_n$. Dann gilt \\
+\begin{align*}
+    \varphi(v + w) &= \varphi(\lambda_1 v_1 + ... + \lambda_n v_n + \mu_1 v_1 + ... + \mu_n v_n) \\
+    &= \varphi((\lambda_1 + \mu_1) v_1 + ... + (\lambda_n + \mu_n) v_n) \\
+    &= (\lambda_1 + \mu_1) w_1 + ... + (\lambda_n + \mu_n) w_n \\
+    &= (\lambda_1 w_1 + ... + \lambda_n w_n) + (\mu_1 w_1 + ... + \mu_n w_n) \\
+    &= \varphi(\lambda_1 v_1 + ... + \lambda_n v_n) + \varphi(\mu_1 v_1 + ... + \mu_n v_n) \\
+    &= \varphi(v) + \varphi(w) \\
+\end{align*}
+Analog zeigt man $\varphi(\lambda v) = \lambda \varphi(v)$. Die Einstiegsaussage ist Lemma 4.53. $\square$ \\
+\\
+\subsubsection*{Bemerkung 4.56}
+In Kapitel 3 (Geometrie in der Ebene) haben wir eine Proposition schon oft implizit angewandt. \\
+\\
+\subsubsection*{Definition 4.57}
+Eine bijektive lineare Abbildung heißt \textit{Isomorphismus}. \\
+Zwei Vektorräume $V$ und $W$ heißen \textit{isomorph} zueinander, wenn ein Isomorphismus zwischen ihnen existiert. \\
+Wir schreiben dann $V \cong W$. \\
+\\
+\subsubsection*{Korollar 4.58}
+Zwei endlich-dimensionale Vektorräume $V$ und $W$ sind genau dann isomorph zueinander, wenn $\text{dim}(V) = \text{dim}(W)$ gilt. \\
+\\
+\subsubsection*{Beweis}
+"$\Rightarrow$": \\
+Seien $V$ und $W$ isomorph zueinander. Sei $\{v_1,...,v_n\}$ eine Basis von $V$ und sei $\{\varphi(v_1),...,\varphi(v_n)\}$ ihr Bild unter einem Isomorphismus $\varphi: V \rightarrow W$.
+Mit Lemma 4.54 ist $\{\varphi(v_1),...,\varphi(v_n)\}$ eine Basis von $W$ und somit gilt $\text{dim}(V) = n = \text{dim}(W)$. \\
+"$\Leftarrow$": \\
+Sei $\text{dim}(V) = \text{dim}(W)$. Sei $\{v_1,...,v_n\}$ eine Basis von $V$ und $\{w_1,...,w_n\}$ eine Basis von $W$. Mit Proposition 4.55 existiert eine lineare Abbildung $\varphi: V \rightarrow W$ mit $\varphi(v_i) = w_i$ für alle $i \in \{1,...,n\}$.
+Mit Lemma 4.54 ist $\varphi$ injektiv und surjektiv, d.h. $\varphi$ ist ein Isomorphismus. $\square$ \\
+\\
+\subsubsection*{Korollar 4.59}
+Sei $V$ ein endlich-dimensionaler Vektorraum und sei $n=\text{dim}(V)$. Dann ist $V \cong \mathbb{R}^n$. \\
+Durch die Wahl einer (geordneten) Basis $\{v_1,...,v_n\} = A$ von $V$ ist ein Isomorphismus $\varPsi_A: \mathbb{R}^n \rightarrow V$ gegeben durch \\
+\begin{center}
+    $\varPsi_A(e_i) = v_i$ für alle $i \in \{1,...,n\}$ \\
+\end{center}
+Hinweis: wir müssen die Basis ordnen, damit wir wissen, welcher Vektor zu welchem Vektor gehört. \\
+\\
+\subsubsection*{Definition 4.60}
+Sei $V$ n-dimensional mit Basis $A$ und $W$ sei m-dimensional mit Basis $B$ und $\varphi: V \rightarrow W$ linear. Die darstellende Matrix $M_B^{A}(\varphi) \in \text{Mat}(m \times n)$ ist diejenige, sodass folgendes Diagramm kommutiert ($\varphi \circ \varPsi_A = \varPsi_B \circ M_B^{A}(\varphi)$): \\
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Images/4.60.jpeg}
+    \end{figure}
+\end{center}
+Hinweis: $M_B^{A}(\varphi)$ existiert und ist eindeutig, weil $\varPsi_A$ und $\varPsi_B$ Isomorphismen sind. $M_B^{A}(\varphi)$ korrespondiert zu $\varPsi_B^{-1} \circ \varphi \circ \varPsi_A$. \\
+\subsubsection*{Bemerkung 4.61}
+Sei $A = \{a_1,...,a_n\}$ eine Basis von $V$ und $B = \{b_1,...,b_m\}$ eine Basis von $W$. Für $j \in \{1,...,n\}$ schreibe $\varphi(a_j) = c_{1j} b_1 + ... + c_{mj} b_m$. Dann ist \\ 
+\begin{center}
+    $M_B^{A}(\varphi) = \begin{pmatrix}
+        c_{11} & c_{12} & ... & c_{1n} \\
+        c_{21} & c_{22} & ... & c_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        c_{m1} & c_{m2} & ... & c_{mn} \\
+    \end{pmatrix}$ \\
+\end{center}
+$\varphi(a_1)$ ist die erste Spalte, $\varphi(a_2)$ ist die zweite Spalte und so weiter. \\
+\\
+\subsubsection*{Beispiel 4.62}
+Sei $V := \text{Mat}(2 \times 2), A := \left\{\underbrace{\begin{pmatrix}
+    1 & 0 \\
+    0 & 0 \\
+\end{pmatrix}}_{a_1}, \underbrace{\begin{pmatrix}
+    0 & 1 \\
+    0 & 0 \\
+\end{pmatrix}}_{a_2}, \underbrace{\begin{pmatrix}
+    0 & 0 \\
+    1 & 0 \\
+\end{pmatrix}}_{a_3}, \underbrace{\begin{pmatrix}
+    0 & 0 \\
+    0 & 1 \\
+\end{pmatrix}}_{a_4}\right\}$.\\
+Es sei $W := \mathbb{R}^4$ mit gewählter Basis $B := \left\{\underbrace{\begin{pmatrix}
+    1 \\
+    1 \\
+\end{pmatrix}}_{b_1}, \underbrace{\begin{pmatrix}
+    0 \\
+    1 \\
+    \end{pmatrix}}_{b_2}\right\}$. \\
+Sei $\varphi: V \rightarrow W$ definiert durch \\
+\begin{center}
+    $\varphi \begin{pmatrix}
+        a & b \\
+        c & d \\
+    \end{pmatrix} \mapsto \begin{pmatrix}
+        a + b \\
+        3d \\
+    \end{pmatrix}$ \\
+\end{center}
+Dann ist \\
+\begin{center}
+$M_B^{A}(\varphi) = \begin{pmatrix}
+    1 & 1 & 0 & 0 \\
+    -1 & -1 & 0 & 3 \\
+\end{pmatrix}$ \\
+\end{center}
+Hinweise: \\
+Spalte 1: $\varphi(a_1) = \varphi \begin{pmatrix}
+    1 \\
+    0 \\
+\end{pmatrix} = 1 \cdot b_1 -1 \cdot b_2$ \\
+Spalte 2: $\varphi(a_2) = \varphi \begin{pmatrix}
+    1 \\
+    0 \\
+\end{pmatrix} = 1 \cdot b_1 -1 \cdot b_2$ \\
+Spalte 4: $\varphi(a_4) = \varphi \begin{pmatrix}
+    0 \\
+    3 \\
+\end{pmatrix} = 0 \cdot b_1 + 3 \cdot b_2$ \\
+
+
+
+
 
 \newpage
 \begin{thebibliography}{9}
