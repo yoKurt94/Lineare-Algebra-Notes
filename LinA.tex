@@ -5,8 +5,10 @@
 \usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\DeclareMathOperator*{\sumop}{\sum}
 
 \definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
 
 
 \setlength{\parindent}{0pt}
@@ -17,6 +19,10 @@
 \begin{document}
 
 \maketitle
+
+\newpage 
+\tableofcontents
+\newpage
 
 \date{Mittwoch, 18.10.23} \footnote[1]{Die Inhalte dieser Vorlesung beziehen sich ungefähr auf Seite 1 bis 3 aus Baer.}
 
@@ -1284,7 +1290,7 @@ gegeben.
 \subsubsection*{Definition 2.32}
 Sei $A$ eine $(m \times n)$-Matrix und $B$ eine $(k \times m)$-Matrix. Wir definieren das Produkt $B \cdot A$ als die $(k \times n)$-Matrix, deren ij-ter Eintrag wie folgt ist: \\
 \begin{center}
-    $(B \cdot A)_{ij} := B_{i1} \cdot A_{1j} + ... + B_{im} \cdot A_{mj} = \displaystyle\sum_{r=1}^m B_{ir} \cdot A_{rj}$ \\
+    $(B \cdot A)_{ij} := B_{i1} \cdot A_{1j} + ... + B_{im} \cdot A_{mj} = \displaystyle\sumop_{r=1}^m B_{ir} \cdot A_{rj}$ \\
 \end{center}
 
 \subsubsection*{Bemerkung 2.33}
@@ -1383,12 +1389,12 @@ Das heißt, dass Assoziativität gilt. \\
 Für $i \in \{1, ..., m\}$ und $j \in \{1, ..., l\}$ gilt: \\
 
 \begin{align*}
-    ((A \cdot B) \cdot C)_{ij} &= \displaystyle\sum_{s=1}^k (A \cdot B)_{is} \cdot C_{sj} \\
-    &= \displaystyle\sum_{s=1}^k \left( \displaystyle\sum_{r=1}^n A_{ir} \cdot B_{rs} \right) \cdot C_{sj} \\
-    &= \displaystyle\sum_{s=1}^k \displaystyle\sum_{r=1}^n \left(A_{ir} \cdot B_{rs} \cdot C_{sj}\right) \\
-    &= \displaystyle\sum_{r=1}^n \displaystyle\sum_{s=1}^k \left(A_{ir} \cdot B_{rs} \cdot C_{sj}\right) \\
-    &= \displaystyle\sum_{r=1}^n A_{ir} \cdot \left( \displaystyle\sum_{s=1}^k B_{rs} \cdot C_{sj} \right) \\
-    &= \displaystyle\sum_{r=1}^n A_{ir} \cdot (B \cdot C)_{rj} \\
+    ((A \cdot B) \cdot C)_{ij} &= \displaystyle\sumop_{s=1}^k (A \cdot B)_{is} \cdot C_{sj} \\
+    &= \displaystyle\sumop_{s=1}^k \left( \displaystyle\sumop_{r=1}^n A_{ir} \cdot B_{rs} \right) \cdot C_{sj} \\
+    &= \displaystyle\sumop_{s=1}^k \displaystyle\sumop_{r=1}^n \left(A_{ir} \cdot B_{rs} \cdot C_{sj}\right) \\
+    &= \displaystyle\sumop_{r=1}^n \displaystyle\sumop_{s=1}^k \left(A_{ir} \cdot B_{rs} \cdot C_{sj}\right) \\
+    &= \displaystyle\sumop_{r=1}^n A_{ir} \cdot \left( \displaystyle\sumop_{s=1}^k B_{rs} \cdot C_{sj} \right) \\
+    &= \displaystyle\sumop_{r=1}^n A_{ir} \cdot (B \cdot C)_{rj} \\
     &= (A \cdot (B \cdot C))_{ij}
 \end{align*}
 Das zeigt, dass die $ij$-ten Einträge von $(A \cdot B) \cdot C$ und $A \cdot (B \cdot C)$ übereinstimmen für alle $i,j$. $\square$ \\
@@ -2219,9 +2225,9 @@ Aus b.3 erkennen wir, dass $1$ zwangsläufig $ \in \mathbb{R}$ ist. \\
 Elemente in $V$ heißen \textit{Vektoren}. \\
 
 \subsubsection*{Beispiele 4.2}
-a) \\
+a) 
 In Lemma 2.16 haben wir bereits bewiesen, dass $\mathbb{R}^n$ mit den beiden Abbildungen + und $\cdot$ aus Definition 2.13 ein Vektorraum (kurz $\textit{VR}$) ist. \\
-b) \\
+b) 
 Es sei Mat($m \times n$) die Menge aller $(m \times n)$-Matrizen mit Einträgen in $\mathbb{R}$. Wir definieren die Abbildungen + und $\cdot$ komponentenweise: \\
 \begin{center}
     $(A+B)_{i,j} := A_{i,j} + B_{i,j}$ \\
@@ -2275,34 +2281,34 @@ Die Tangentialebene ist ein VR. Die Abbildungen + und $\cdot$ defninieren wir ge
 \subsubsection*{Lemma 4.3}
 Hinweis: die Abbildungen $+$ und $\cdot$ werden in der Notation normalerweise weggelassen. \\
 Es sei $V$ ein VR. \\
-a) \\
+a) 
 Das Nullelement ist eindeutig. Weiterhin gilt: \\
 i) $0 \cdot v = 0$ \\
 ii) $\lambda \cdot 0 = 0$ \\
 iii) $\lambda \cdot v = 0 \Rightarrow \lambda = 0$ oder $v = 0$ \\
 Hinweis: hier zeigt sich die Mehrdeutigkeit von 0. \\
-b) \\
+b) 
 Für jedes $v \in V$ ist das additive Inverse eindeutig und ist gegeben durch $(-1) \cdot v$. Man schreibt deshalb auch $-v$ für das Inverse. \\
 \\
 \subsubsection*{Beweis}
-a) \\
+a) 
 Es seien $0,0' \in V$ Nullelemente. Dann gilt: \\
 \begin{center}
     $0 = 0 + 0' = 0' + 0 = 0!$ \\
 \end{center}
-i) \\
+i) 
 Von der Gleichung \\
 \begin{center}
     $0 \cdot v = (0+0) \cdot v \overset{\text{b.1}}{=} 0 \cdot v + 0 \cdot v$ \\
 \end{center}
 subtrahieren wir $0 \cdot v$ von beiden Seiten. \\
-ii) \\
+ii) 
 Von der Gleichung \\
 \begin{center}
     $\lambda \cdot 0 = \lambda \cdot (0+0) \overset{\text{b.2}}{=} \lambda \cdot 0 + \lambda \cdot 0$ \\
 \end{center}
 subtrahieren wir $\lambda \cdot 0$ von beiden Seiten. \\
-iii) \\
+iii) 
 Die Richtung $\Leftarrow$ sind i) und ii) oben. \\
 Um $\Rightarrow$ zu zeigen, sei $\lambda \cdot v = 0$ und $\lambda \neq 0$. Dann ist einerseits \\
 \begin{center}
@@ -2313,7 +2319,7 @@ und andererseits \\
     $\lambda^{-1} \cdot (\lambda \cdot v) \overset{\lambda \cdot v = 0}{=} \lambda^{-1} \cdot 0 \overset{\text{ii)}}{=} 0$ \\
 \end{center}
 d.h. $v = 0$. \\
-b) \\
+b) 
 Wird in den Übungen bewiesen. $\square$ \\
 \\
 Wir besprechen jetzt Untervektorräume. Siehe Abschnitt 2.4 zum Vergleich (Kapitel 3.3 bei Baer). \\
@@ -2336,9 +2342,10 @@ Ebenso ist die Teilmenge aller k-mal stetig differenzierbaren Funktionen ein UVR
 \\
 \subsubsection*{Lemma / Definition 4.7}
 Es sei $V$ ein VR und $X \subset V$ eine beliebig Teilmenge. Für eine beliebige (andere) Teilmenge $W \subset V$ sind äquivalent: \\
-a) $W = \underset{U \in \mathcal{W}}{\cap} U$, wobei $\mathcal{W} := \{U \subset V \ | \ U \text{ ist ein UVR von } V \text{ und } X \subset U\}$ \\
-b) $W$ ist ein UVR von $V$ und $X \subset W$ für jeden anderen UVR $W' \subset V$ mit $X \subset W'$ gilt $W \subset W'$. \\
-c) $W = \{v \in V \ | \exists_n \in \mathbb{N} \exists_{v_1,...,v_n} \in X \exists_{\lambda_1,...,\lambda_n}\in \mathbb{R}: v = \lambda_1 v_1 + ... + \lambda_n v_n $ oder $ v=0\}$ \\
+a) $W = \underset{U \in \mathcal{W}}{\cap} U$, wobei $\mathcal{W} := \{U \subset V \ | \ U \text{ ist ein UVR von } V \text{ und } X \subset U\}$ (Hinweis: $\mathcal{W}$ enthält also alle Untervektorräume, welche $X$ enthalten. Wenn wir all diese Untervektoräume schneiden, dann erhalten wir $W$, denn was übrig bleibt sind genau die Vektoren, die durch Linearkombinationen von Elementen aus $X$ entstehen.) \\
+b) $W$ ist ein UVR von $V$ und $X \subset W$ für jeden anderen UVR $W' \subset V$ mit $X \subset W'$ gilt $W \subset W'$. (Hinweis: $W$ ist ein UVR, der $X$ enthält und für alle anderen UVR $W'$, welche $X$ enthalten, gilt $W \subset W'$.) \\  
+c) $W = \{v \in V \ | \exists_n \in \mathbb{N} \exists_{v_1,...,v_n} \in X \exists_{\lambda_1,...,\lambda_n}\in \mathbb{R}: v = \lambda_1 v_1 + ... + \lambda_n v_n $ oder $ v=0\}$ (Hinweis: $W$ ist die Menge aller Linearkombinationen von Elementen aus $X$, d.h. $W$ wird von $X$ aufgespannt.) \\
+Hinweis: a), b) und c) sind "Verfahren", um den UVR $W$ herunter zu reduzieren, sodass wir am Ende nur noch diejenigen Vektoren in $W$ haben, welche sich als Linearkombinationen von Elementen aus $X$ darstellen lassen. \\
 Es ist $W$ eindeutig (bei gegebenem $V$ und $X$) und heißt die \textit{lineare Hülle} bzw. den \textit{Spann} von $X$. Notationen dafür sind vielfältig, z.B. \\
 \begin{center}
     $L(X), \langle X \rangle, \text{span}(X)$
@@ -2852,7 +2859,7 @@ Somit gilt dann aber \\
 \end{center}
 
 
-\subsubsection*{Satz 4.36}
+\subsubsection*{Satz 4.36 (Rangkriterium)}
 Sei $A$ eine $(m \times n)$-Matrix. Es seien $x_1,...,x_n$ die einzelnen Spalten von $A$ und es sei $b \in \mathbb{R}^m$. 
 Wir schreiben $(A,b)$ für die Matrix $A$ mit zusätzlicher Spalte $b$. \\    
 Dann gilt: \\
@@ -3025,7 +3032,7 @@ Analog zeigt man $\lambda v \in \varphi^{-1}(W')$ falls $v \in \varphi^{-1}(W')$
 \subsubsection*{Korollar 4.45}
 Sei $\varphi: V \rightarrow W$ linear. Dann gilt: \\
 \begin{enumerate}
-    \item a) Der Kern $\text{Kern}(\varphi) = \varphi^{-1}(\{0\})$ ist ein UVR von $V$. vgl. Def. 2.28 \\
+    \item a) Der Kern $\text{ker}(\varphi) = \varphi^{-1}(\{0\})$ ist ein UVR von $V$. vgl. Def. 2.28 \\
     \item b) Das Bild $\varphi(V)$ von $V$ unter $\varphi$ ist ein UVR von $W$. vgl. Def. 1.28 \\
 \end{enumerate}
 Hinweis: Warum ist das relevant? Wenn es keine lineare Abbildung ist, ist es kein UVR. UVR haben aber wichtige Eigenschaften, wie Dimensionen zum Beispiel. Oft ist man nur an der Dimension des Kerns interessiert. \\
@@ -3034,7 +3041,7 @@ Hinweis: Warum ist das relevant? Wenn es keine lineare Abbildung ist, ist es kei
 Sei $\varphi: V \rightarrow W$ linear. Dann gilt: \\
 \begin{enumerate}
     \item a) $\varphi$ ist genau dann surjektiv, wenn $\varphi(V) = W$. \\
-    \item b) $\varphi$ ist genau dann injektiv, wenn $\text{Kern}(\varphi) = \{0\}$. \\
+    \item b) $\varphi$ ist genau dann injektiv, wenn $\text{ker}(\varphi) = \{0\}$. \\
 \end{enumerate}
 \subsubsection*{Beweis}
 a) Das ist einfach die Definition der Surjektivität. \\
@@ -3065,17 +3072,21 @@ Ist $A$ eine $(m \times n)$-Matrix und $\varphi_A: \mathbb{R}^n \rightarrow \mat
 \begin{center}
     $\text{rg}(\varphi_A) = \text{rg}(A)$ \\
 \end{center}
+\subsubsection*{Beweis}
 Sei $\{e_1,...,e_n\}$ die Standardbasis von $\mathbb{R}^n$. Dann ist \\
 \begin{align*}
     \text{rg}(\varphi_A) &\underset{\text{Def. 4.49}}{=} \text{dim}(\varphi_A(\mathbb{R}^n)) \\
     &\underset{\text{Lemma 4.47}}{=} \text{dim}(L(\varphi_A(\{e_1,...,e_n\}))) \\
     &= \text{dim}(L(a_1,...,a_n)) \text{ wobei } a_1,...,a_n \text{ die Spalten von } A \text{ sind} \\
     &\underset{\text{Def. 4.33}}{=} \text{Spaltenrang}(A) \\
-\end{align*}
+\end{align*} 
+$\square$ \\
 \subsubsection*{Satz 4.51 (Dimensionsformel für lineare Abbildungen)}
 Sei $\varphi: V \rightarrow W$ linear und sei dim($V$) $< \infty$. Dann gilt \\
 \begin{center}
     $\text{dim}(V) = \text{dim}(\text{ker}(\varphi)) + \text{rg}(\varphi)$ \\
+    bzw. \\
+    $\text{dim}(V) = \text{dim}(\text{ker}(\varphi)) + \underbrace{\text{dim}(\text{Bild}(\varphi))}_{\text{rg}(\varphi)}$ \\
 \end{center}
 \subsubsection*{Beweis}
 Siehe das Buch von Baer S. 182. \\
@@ -3259,7 +3270,120 @@ Spalte 4: $\varphi(a_4) = \varphi \begin{pmatrix}
 \end{pmatrix} = 0 \cdot b_1 + 3 \cdot b_2$ \\
 
 
-
+\newpage 
+\date{Mittwoch, 31.01.24} \footnote[1]{Die Inhalte dieser Vorlesung basieren auf Kapitel ? aus Baer.}
+\subsubsection*{Lemma 4.63}
+Seien $V, W, Z$ endlich-dimensionale Vektorräume und seien $A, B, C$ geordnete Basen von $V, W, Z$.
+Wir haben außerdem $\varphi: V \rightarrow W$ und $\psi: W \rightarrow Z$ lineare Abbildungen. Dann gilt \\
+\begin{center}
+    $M_C^{A}(\psi \circ \varphi) = M_C^{B}(\psi) \cdot M_B^{A}(\varphi)$ \\
+\end{center}
+Hinweis: man muss zwangsläufig $B$ als Zwischenbasis nehmen, weil $\varphi$ eine Abbildung von $V$ nach $\underline{W}$ und $\psi$ eine Abbildung von $\underline{W}$ nach $Z$ ist. \\
+\\
+\subsubsection*{Beweis}
+Folgt aus der Kommutativität des folgenden Diagramms: \\
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Images/4.63.png}
+    \end{figure}
+\end{center}
+Hinweis: hier sehen wir den Zusammenhang zwischen der darstellenden Matrix (unten), der linearen Abbildung (oben) und den Isomorphismen (links und rechts). \\
+$\square$ \\
+\\
+\subsubsection*{Korollar 4.64}
+Sei $\varphi: V \rightarrow W$ linear und seien $A, B$ endliche Basen von $V$ bzw. $W$. Es ist $\varphi$ genau dann bijektiv, wenn $M_B^{A}(\varphi)$ invertierbar ist. 
+In diesem Fall gilt $M_A^{B}(\varphi^{-1}) = (M_B^{A}(\varphi))^{-1}$. \\
+\\
+\subsubsection*{Beweis}
+Wir betrachten das folgende Diagramm für die $\Rightarrow$-Richtung: \\
+Wir nehmen an die darstellende Matrix ist invertierbar und wollen zeigen, dass $\varphi$ invertierbar ist. \\
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Images/4.64.png}
+    \end{figure}
+\end{center}
+Hinweise: wenn wir dieselbe Basis wählen, haben wir unten die Einheitsmatrix. Das heißt, dass die Matrix unten links das inverse zu der Matrix unten rechts sein muss, was genau das ist, was oben steht. 
+Die Pfeile nach oben sind immer Isomorphismen. \\
+Für die andere Richtung nutzen wir folgendes Diagramm: \\
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{Images/4.64.2.png}
+    \end{figure}
+\end{center}
+$\square$ \\
+\\
+\subsubsection*{Proposition 4.65}
+Seien $V, W$ endlich dimensional mit Basen $A, A'$ von $V$ und $B, B'$ von $W$. Sei $\varphi: V \rightarrow W$ linear. Dann gilt \\
+\begin{center}
+    $\underbrace{M_{B'}^{A'}(\varphi) = M_{B'}^{B}\underbrace{(\text{id}_W)}_{W \rightarrow W} \cdot M_{B}^{A}(\varphi) \cdot \underbrace{M_{A'}^{A}(id_V)^{-1}}_{M_{A'}^{A}(id_V)}}_{=M_{B'}^{A'}(id_W \circ \varphi \circ id_V)}$ \\
+\end{center}
+Hinweis: bei der letzten Unterklammer bin ich mir nicht sicher. \\
+\\
+\subsubsection*{Beweis}
+Der Beweis ist das Lemma 4.63 und Korollar 4.64. Der Beweis wurde kurz durch die große Unterklammerung oben zusammengefasst. \\
+\\
+\subsubsection*{Definition 4.66}
+Zwei Matrizen $X,Y \in \text{Mat}(m \times n)$ heißen äquivalent, wenn es invertierbare Matrizen $\underbrace{S}_{(m \times n)}$ und $\underbrace{T}_{(m \times n)}$ gibt mit $Y=S \cdot X \cdot T^{-1}$. \\
+\\
+\subsubsection*{Bemerkung 4.67}
+a) Proposition 4.65 besagt, dass darstellende Matrizen derselben linearen Abbildung äquivalent zueinander sind. \\
+b) Sei andererseits $Y$ äquivalent zu $M_B^{A}(\varphi)$. Seien $S$ und $T$ die Matrizen mit $Y=S \cdot M_B^{A}(\varphi) \cdot T^{-1}$. 
+Wir definieren neue Basen $A'$ und $B'$ vermöge \\
+\begin{center}
+    $a'_j = \sumop_{i=1}^{n}(T^{-1})_{ij} a_i$ und $b'_j = \sumop_{i=1}^{m}(S^{-1})_{ij} b_i$ \\
+\end{center}
+$A = \{a_1,...,a_n\}$, $A' = \{a'_1,...,a'_n\}$, $\varphi_A: V \rightarrow W$, $T^{-1}$ ist Basiswechsel von $A'$ nach $A$, d.h. $T^{-1} = M_{A}^{A'}(id_V)$. (In den Vorlesungsnotizen steht hier eventuell nicht $id_V$, was falsch ist). \\
+Dann gilt \\
+\begin{center}
+    $Y = M_{B'}^{A'}(\varphi)$ \\
+\end{center}
+\subsubsection*{Lemma 4.68}
+Sei $\varphi: V \rightarrow W$ linear. Für bliebige Basen $A$ von $V$ und $B$ von $W$ gilt \\
+\begin{center}
+    $\text{rg}(\varphi) = \text{rg}(M_B^{A}(\varphi))$ \\
+\end{center}
+\subsubsection*{Satz 4.69}
+Sei $\varphi: V \rightarrow W$ und $V, W$ endlich-dimensional. Dann existieren Basen $A$ von $V$ und $B$ von $W$ sodass gilt: \\
+\begin{center}
+    $M_B^{A}(\varphi) = \begin{pmatrix}
+        1 & 0 & ... & 0 & 0 & ... & 0 \\
+        0 & 1 & ... & 0 & 0 & ... & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & ... & 1 & 0 & ... & 0 \\
+        0 & 0 & ... & 0 & 0 & ... & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & ... & 0 & 0 & ... & 0 \\
+    \end{pmatrix}$ \\
+\end{center}
+Wir wissen genau, wie viele 1en in der Matrix stehen, nämlich $\text{rg}(\varphi)$. \\
+\\
+\subsubsection*{Beweisskizze}
+i) Wähle eine Basis $\{b_1, ... , b_r\}$ von $\varphi(V)$. Ergänze, dass zu einer Basis $\{b_1, ... , b_r, b_{r+1}, ... , b_m\}$ von $W$. \\
+ii) Für $j=1,...,r$ gilt $b_j = \varphi(a_j)$ für irgendwelche $a_j \in V$. 
+Wähle eine Basis $\{a_1, ... , a_n\}$ von ker($\varphi$) und zeige, dass $\{a_1, ... , a_n, a_{n+1}, ... , a_m\}$ eine Basis von $V$ ist. \\
+iii) Aus der Konstruktion dieser Basen folgt die Behauptung. \\
+\\
+\subsubsection*{Korollar 4.70}
+a) Jede Matrix vom Rang $r$ ist äquivalent zu \\
+\begin{center}
+    $\begin{pmatrix}
+        E_r & 0 \\
+        0 & 0 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 & ... & 0 & 0 & ... & 0 \\
+        0 & 1 & ... & 0 & 0 & ... & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & ... & 1 & 0 & ... & 0 \\
+        0 & 0 & ... & 0 & 0 & ... & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & ... & 0 & 0 & ... & 0 \\
+    \end{pmatrix}$ \\
+\end{center}
+Dies ist eine Matrix die Matrizen enthält. Im ersten Eintrag haben wir die Einheitsmatrix und in den anderen Einträgen haben wir Nullmatrizen. \\
+b) Zwei Matrizen (derselben Größe) sind genau dann äquivalent zueinander, wenn sie denselben Rang haben. \\
 
 
 \newpage
